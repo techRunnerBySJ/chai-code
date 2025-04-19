@@ -67,23 +67,26 @@ function Navbar({ className }: { className?: string }) {
   
       <div className="relative flex items-center justify-between h-16">
         {/* LEFT: Logo */}
-        <div className="flex items-center space-x-4 font-bold text-lg text-gray-900 dark:text-white">
+        <div 
+          className="flex items-center space-x-4 font-bold text-lg text-gray-900 dark:text-white cursor-pointer" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           <span className="tracking-wide">
-          <img
-        src={LogoDark}
-        alt="ChaiCode Logo - Light"
-        className="block dark:hidden"
-        width={100}
-        height={100}
-      />
-      {/* Dark mode logo */}
-      <img
-        src={LogoLight}
-        alt="ChaiCode Logo - Dark"
-        className="hidden dark:block"
-        width={100}
-        height={100}
-      />
+            <img
+              src={LogoDark}
+              alt="ChaiCode Logo - Light"
+              className="block dark:hidden"
+              width={100}
+              height={100}
+            />
+            {/* Dark mode logo */}
+            <img
+              src={LogoLight}
+              alt="ChaiCode Logo - Dark"
+              className="hidden dark:block"
+              width={100}
+              height={100}
+            />
           </span>
         </div>
 

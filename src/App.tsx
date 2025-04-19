@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 
 // Lazy load components with proper type casting
 const CarouselDemo = React.lazy(() => import("./layout/Udemy"));
-const CompaniesSection = React.lazy(() => import("./layout/Companies"));
 const AnimatedTestimonialsDemo = React.lazy(() => import("./layout/StudentsFeedback"));
 const InfiniteMovingCardsDemo = React.lazy(() => import("./layout/TweetLove"));
 const HeroSectionOne = React.lazy(() => import("./sections/HeroSection"));
@@ -18,6 +17,18 @@ const CardSpotlightDemo = React.lazy(() => import("./layout/WhyChaiCode"));
 const TypewriterEffectSmoothDemo = React.lazy(() => import("./layout/JoinCommunity"));
 const Footer = React.lazy(() => import("./layout/Footer"));
 const ChatBot = React.lazy(() => import("./layout/ChatBot"));
+
+// Add global styles for smooth scrolling
+const globalStyles = `
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  * {
+    scroll-margin-top: 100px;
+  }
+`;
 
 // Error Fallback Component
 function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetErrorBoundary: () => void }) {
@@ -96,6 +107,16 @@ const LoadingTypewriter = () => {
 };
 
 function App() {
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = globalStyles;
+    document.head.appendChild(styleElement);
+
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   return (
     <>
       <DotBackgroundDemo>
@@ -104,14 +125,21 @@ function App() {
           <Suspense fallback={<LoadingTypewriter />}>
             <HeroSectionOne />
             <InfiniteMovingCardsDemo />
-            <CompaniesSection />
-            <BentoGridDemo/>
-            <AnimatedTestimonialsDemo/>
-            <CarouselDemo/>
+            <div id="cohort" className="scroll-mt-32">
+              <BentoGridDemo/>
+            </div>
+            <div id="reviews" className="scroll-mt-32">
+              <AnimatedTestimonialsDemo/>
+            </div>
+            <div id="udemy" className="scroll-mt-32">
+              <CarouselDemo/>
+            </div>
             <KeyBenefits/>
             <CardSpotlightDemo/>
             <TopicsCloud/>
-            <FreeApi/>
+            <div id="docs" className="scroll-mt-32">
+              <FreeApi/>
+            </div>
             <TypewriterEffectSmoothDemo/>
             <Footer/>
             <ChatBot/>

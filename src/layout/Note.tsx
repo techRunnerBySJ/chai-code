@@ -1,6 +1,6 @@
 import React from "react";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
-import { FaAffiliatetheme, FaCode, FaLinkedin } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 
 type HoverBorderGradientDemoProps = {
   text: string;

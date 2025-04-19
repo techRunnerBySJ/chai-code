@@ -3,81 +3,263 @@ import {
   FaYoutube,
   FaInstagram,
   FaGithub,
-  FaTwitter,
   FaLinkedin,
-  FaRegCommentDots,
+  FaDiscord,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import LogoLight from "@/assets/chaicode/chai-white.svg";
 import LogoDark from "@/assets/chaicode/chai-gray.svg";
 
-
 function Footer() {
   return (
-    <footer className="bg-transparent dark:text-white text-black pt-12 pb-6">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:px-8 pb-12">
+    <footer 
+      className="bg-transparent dark:text-white text-black pt-8 md:pt-12 pb-4 md:pb-6" 
+      role="contentinfo" 
+      aria-label="Site footer"
+    >
+      <div 
+        className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-12"
+        role="region"
+        aria-label="Footer content"
+      >
         {/* Logo + Social */}
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-          <img
-        src={LogoDark}
-        alt="ChaiCode Logo - Light"
-        className="block dark:hidden"
-        width={32}
-        height={32}
-      />
-      {/* Dark mode logo */}
-      <img
-        src={LogoLight}
-        alt="ChaiCode Logo - Dark"
-        className="hidden dark:block"
-        width={32}
-        height={32}
-      />
-            <h1 className="text-xl font-bold">ChaiCode</h1>
+        <div className="space-y-4 sm:col-span-2 md:col-span-1" role="region" aria-label="Brand information">
+          <div className="flex items-center space-x-2" role="banner">
+            <img
+              src={LogoDark}
+              alt="ChaiCode Logo - Light"
+              className="block dark:hidden w-8 md:w-[32px]"
+              width={32}
+              height={32}
+              aria-hidden="true"
+            />
+            <img
+              src={LogoLight}
+              alt="ChaiCode Logo - Dark"
+              className="hidden dark:block w-8 md:w-[32px]"
+              width={32}
+              height={32}
+              aria-hidden="true"
+            />
+            <h1 className="text-lg md:text-xl font-bold" aria-label="ChaiCode">ChaiCode</h1>
           </div>
-          <p className="text-gray-400">Home for programmers</p>
-          <div className="flex space-x-4 text-gray-400 text-lg">
-            <FaYoutube />
-            <FaInstagram />
-            <FaGithub />
-            <FaTwitter />
-            <FaLinkedin />
-            <FaRegCommentDots />
-          </div>
-          <p className="text-xs text-gray-500 pt-6">
-            © 2025 ChaiCode. All rights reserved.
+          <p className="text-sm md:text-base text-gray-400" aria-label="Tagline">Home for programmers</p>
+          <nav 
+            aria-label="Social media links" 
+            className="flex flex-wrap gap-4 text-gray-400"
+            role="navigation"
+          >
+            <a 
+              href="https://discord.gg/yourserver" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-indigo-500 transition-colors"
+              aria-label="Join our Discord community"
+            >
+              <FaDiscord className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">Discord</span>
+            </a>
+            <a 
+              href="https://x.com/yourusername" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-gray-800 dark:hover:text-white transition-colors"
+              aria-label="Follow us on X (formerly Twitter)"
+            >
+              <FaXTwitter className="w-5 h-5 md:w-[18px] md:h-[18px]" aria-hidden="true" />
+              <span className="sr-only">X (Twitter)</span>
+            </a>
+            <a 
+              href="https://youtube.com/yourusername" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-red-600 transition-colors"
+              aria-label="Subscribe to our YouTube channel"
+            >
+              <FaYoutube className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">YouTube</span>
+            </a>
+            <a 
+              href="https://instagram.com/yourusername" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-pink-500 transition-colors"
+              aria-label="Follow us on Instagram"
+            >
+              <FaInstagram className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">Instagram</span>
+            </a>
+            <a 
+              href="https://github.com/yourusername" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-gray-800 dark:hover:text-white transition-colors"
+              aria-label="View our GitHub repositories"
+            >
+              <FaGithub className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">GitHub</span>
+            </a>
+            <a 
+              href="https://linkedin.com/yourusername" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-blue-600 transition-colors"
+              aria-label="Connect with us on LinkedIn"
+            >
+              <FaLinkedin className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">LinkedIn</span>
+            </a>
+          </nav>
+          <p 
+            className="text-xs md:text-sm text-gray-500 pt-4 md:pt-6"
+            aria-label="Copyright information"
+          >
+            © {new Date().getFullYear()} ChaiCode. All rights reserved.
           </p>
         </div>
 
         {/* Products */}
-        <div>
-          <h2 className="text-black dark:text-white font-semibold mb-3">Products</h2>
-          <ul className="space-y-2 text-gray-400">
-            <li>Courses</li>
-            <li>Cohort</li>
-            <li className="text-orange-500">Coding Hero</li>
-            <li>FreeAPI</li>
-            <li>Masterji</li>
+        <nav 
+          aria-label="Product links" 
+          className="mt-2 md:mt-0"
+          role="navigation"
+        >
+          <h2 
+            className="text-base md:text-lg font-semibold mb-2 md:mb-3 text-black dark:text-white"
+            aria-label="Products section"
+          >
+            Products
+          </h2>
+          <ul 
+            className="space-y-2 text-gray-400" 
+            role="list"
+            aria-label="List of products"
+          >
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="View our courses"
+              >
+                Courses
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="Join our cohort program"
+              >
+                Cohort
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base text-orange-500 hover:text-orange-600 transition-colors"
+                aria-label="Learn about Coding Hero"
+              >
+                Coding Hero
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="Explore FreeAPI"
+              >
+                FreeAPI
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="Discover Masterji"
+              >
+                Masterji
+              </a>
+            </li>
           </ul>
-        </div>
+        </nav>
 
         {/* Resources */}
-        <div>
-          <h2 className="text-black dark:text-white font-semibold mb-3">Resources</h2>
-          <ul className="space-y-2 text-gray-400">
-            <li>Docs</li>
-            <li>Privacy Policy</li>
-            <li>Terms of Service</li>
-            <li>Pricing Policy</li>
-            <li>Refund Policy</li>
+        <nav 
+          aria-label="Resource links" 
+          className="mt-2 md:mt-0"
+          role="navigation"
+        >
+          <h2 
+            className="text-base md:text-lg font-semibold mb-2 md:mb-3 text-black dark:text-white"
+            aria-label="Resources section"
+          >
+            Resources
+          </h2>
+          <ul 
+            className="space-y-2 text-gray-400" 
+            role="list"
+            aria-label="List of resources"
+          >
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="View documentation"
+              >
+                Docs
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="Read our privacy policy"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="Review terms of service"
+              >
+                Terms of Service
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="Check our pricing policy"
+              >
+                Pricing Policy
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                aria-label="View refund policy"
+              >
+                Refund Policy
+              </a>
+            </li>
           </ul>
-        </div>
+        </nav>
       </div>
 
-      {/* Animated Text (Always keep this 👇) */}
-      <div className="pt-6">
-        <div className="h-[10rem] flex items-center justify-center">
+      {/* Animated Text */}
+      <div 
+        className="pt-4 md:pt-6"
+        role="region"
+        aria-label="Animated text section"
+      >
+        <div 
+          className="h-24 md:h-[10rem] flex items-center justify-center"
+          aria-hidden="true"
+        >
           <TextHoverEffect text="CODE with CHAI CODE" />
         </div>
       </div>

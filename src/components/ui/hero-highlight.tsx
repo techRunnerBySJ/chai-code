@@ -8,10 +8,14 @@ export const HeroHighlight = ({
   children,
   className,
   containerClassName,
+  role = "region",
+  "aria-label": ariaLabel = "Highlighted text section",
 }: {
   children: React.ReactNode;
   className?: string;
   containerClassName?: string;
+  role?: string;
+  "aria-label"?: string;
 }) => {
   return (
     <div
@@ -19,8 +23,15 @@ export const HeroHighlight = ({
         "relative flex h-auto w-full items-center justify-center",
         containerClassName,
       )}
+      role={role}
+      aria-label={ariaLabel}
     >
-      <div className={cn("relative z-20", className)}>{children}</div>
+      <div 
+        className={cn("relative z-20", className)}
+        role="presentation"
+      >
+        {children}
+      </div>
     </div>
   );
 };
@@ -28,9 +39,11 @@ export const HeroHighlight = ({
 export const Highlight = ({
   children,
   className,
+  role = "text",
 }: {
   children: React.ReactNode;
   className?: string;
+  role?: string;
 }) => {
   return (
     <motion.span
@@ -54,6 +67,7 @@ export const Highlight = ({
         "relative inline-block rounded px-1 pb-1 bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500",
         className,
       )}
+      role={role}
     >
       {children}
     </motion.span>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,8 @@ export function HoverBorderGradient({
   as: Tag = "button",
   duration = 1,
   clockwise = true,
+  role = "button",
+  "aria-label": ariaLabel,
   ...props
 }: React.PropsWithChildren<
   {
@@ -21,6 +23,8 @@ export function HoverBorderGradient({
     className?: string;
     duration?: number;
     clockwise?: boolean;
+    role?: string;
+    "aria-label"?: string;
   } & React.HTMLAttributes<HTMLElement>
 >) {
   const [hovered, setHovered] = useState<boolean>(false);
@@ -57,7 +61,7 @@ export function HoverBorderGradient({
   }, [hovered]);
   return (
     <Tag
-      onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) => {
+      onMouseEnter={() => {
         setHovered(true);
       }}
       onMouseLeave={() => setHovered(false)}
@@ -68,6 +72,8 @@ export function HoverBorderGradient({
       style={{
         backgroundColor: "var(--brand-color)"
       }}
+      role={role}
+      aria-label={ariaLabel}
       {...props}
     >
       <div
@@ -78,6 +84,7 @@ export function HoverBorderGradient({
         style={{
           backgroundColor: "var(--brand-color)"
         }}
+        role="presentation"
       >
         {children}
       </div>
@@ -98,11 +105,16 @@ export function HoverBorderGradient({
             : movingMap[direction],
         }}
         transition={{ ease: "linear", duration: duration ?? 1 }}
+        role="presentation"
+        aria-hidden="true"
       />
-      <div className="absolute z-1 flex-none inset-[2px] rounded-md"
+      <div 
+        className="absolute z-1 flex-none inset-[2px] rounded-md"
         style={{
           backgroundColor: "var(--brand-color)"
         }}
+        role="presentation"
+        aria-hidden="true"
       />
     </Tag>
   );

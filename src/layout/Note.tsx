@@ -3,12 +3,12 @@ import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { FaCode } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-type HoverBorderGradientDemoProps = {
+type InfoAndCtaButtonProps = {
   text: string;
   ariaLabel?: string;
 };
 
-export function HoverBorderGradientDemo({ text, ariaLabel }: HoverBorderGradientDemoProps) {
+export function InfoAndCtaButton({ text, ariaLabel }: InfoAndCtaButtonProps) {
   return (
     <motion.div 
       className="flex justify-center text-center w-full sm:w-auto"

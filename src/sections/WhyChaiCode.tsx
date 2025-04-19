@@ -1,9 +1,9 @@
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
-import { MovingBorderDemo } from "../layout/Join-Now-Button";
+import { JoinNowButton } from "../layout/Join-Now-Button";
 import { motion } from "framer-motion";
 
-export function CardSpotlightDemo() {
+export function WhyChaiCodeCards() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -299,9 +299,9 @@ export function CardSpotlightDemo() {
           </motion.div>
         </div>
       </motion.div>
-      <MovingBorderDemo/>
+      <JoinNowButton/>
     </section>
   );
 }
 
-export default CardSpotlightDemo;
+export default WhyChaiCodeCards;

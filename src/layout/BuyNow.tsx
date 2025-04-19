@@ -2,7 +2,7 @@ import React from "react";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { FaShoppingCart } from "react-icons/fa";
 
-export function HoverBorderGradientDemo() {
+export function InfoAndCtaButton() {
   return (
     <div className="flex justify-center text-center w-full">
       <HoverBorderGradient

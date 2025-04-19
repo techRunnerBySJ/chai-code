@@ -1,4 +1,4 @@
-import { HoverBorderGradientDemo } from "@/layout/BuyNow";
+import { InfoAndCtaButton } from "@/layout/BuyNow";
 import { cn } from "@/lib/utils";
 import React, { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -169,7 +169,7 @@ export const BentoGridItem = ({
             ₹{discountPrice}
           </span>
         </div>
-        <HoverBorderGradientDemo />
+        <InfoAndCtaButton />
       </div>
     </div>
   );

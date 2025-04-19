@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useMemo } from "react";
 import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
 
-function InfiniteMovingCardsDemo() {
+function TweetLove() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // ✅ UseMemo to avoid redefinition on each render
@@ -90,4 +90,4 @@ function InfiniteMovingCardsDemo() {
   );
 }
 
-export default InfiniteMovingCardsDemo;
+export default TweetLove;

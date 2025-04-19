@@ -1,6 +1,6 @@
 "use client";
 
-import { MovingBorderDemo } from "@/layout/Join-Now-Button";
+import { JoinNowButton } from "@/layout/Join-Now-Button";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState, ReactElement } from "react";
 
@@ -142,7 +142,7 @@ export const InfiniteMovingCards = ({
         className="flex items-center justify-center"
         role="presentation"
       >
-        <MovingBorderDemo />
+        <JoinNowButton />
       </span>
     </div>
   );

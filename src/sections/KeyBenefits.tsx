@@ -1,5 +1,5 @@
 import { CardSpotlight } from "@/components/ui/card-spotlight";
-import { MovingBorderDemo } from "../layout/Join-Now-Button";
+import { JoinNowButton } from "../layout/Join-Now-Button";
 import LogoLight from "@/assets/chaicode/chai-white.svg";
 import LogoDark from "@/assets/chaicode/chai-gray.svg";
 import { motion } from "framer-motion";
@@ -397,7 +397,7 @@ export function KeyBenefits() {
         </motion.div>
       </motion.div>
 
-      <MovingBorderDemo/>
+      <JoinNowButton/>
     </section>
   );
 }

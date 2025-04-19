@@ -2,7 +2,7 @@ import Carousel from "../components/ui/carousel";
 import React from "react";
 import { motion } from "framer-motion";
 
-function CarouselDemo() {
+function Udemy() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -122,4 +122,4 @@ function CarouselDemo() {
   );
 }
 
-export default CarouselDemo;
+export default Udemy;

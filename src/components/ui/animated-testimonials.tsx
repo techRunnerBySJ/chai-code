@@ -1,6 +1,6 @@
 "use client";
 
-import { MovingBorderDemo } from "@/layout/Join-Now-Button";
+import { JoinNowButton } from "@/layout/Join-Now-Button";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
@@ -207,7 +207,7 @@ export const AnimatedTestimonials = ({
             </motion.p>
           </motion.div>
 
-          <MovingBorderDemo />
+          <JoinNowButton />
 
           <div 
             className="flex gap-4 pt-12 md:pt-0"

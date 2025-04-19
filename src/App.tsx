@@ -1,20 +1,20 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { DotBackgroundDemo } from "./components/ui/background"
-import { NavbarDemo } from "./layout/Header"
+import { Header } from "./layout/Header"
 import { ErrorBoundary } from "react-error-boundary";
 import { TopicsCloud } from "./sections/TopicsCloud";
 import { FreeApi } from "./sections/FreeApi";
 import { motion } from "framer-motion";
 
 // Lazy load components with proper type casting
-const CarouselDemo = React.lazy(() => import("./sections/Udemy"));
-const AnimatedTestimonialsDemo = React.lazy(() => import("./sections/StudentsFeedback"));
-const InfiniteMovingCardsDemo = React.lazy(() => import("./sections/TweetLove"));
+const Udemy = React.lazy(() => import("./sections/Udemy"));
+const StudentsFeedback = React.lazy(() => import("./sections/StudentsFeedback"));
+const TweetLove = React.lazy(() => import("./sections/TweetLove"));
 const HeroSectionOne = React.lazy(() => import("./sections/HeroSection"));
-const BentoGridDemo = React.lazy(() => import("./sections/CohortLiveClasses"));
+const CohortLiveClasses = React.lazy(() => import("./sections/CohortLiveClasses"));
 const KeyBenefits = React.lazy(() => import("./sections/KeyBenefits"));
-const CardSpotlightDemo = React.lazy(() => import("./sections/WhyChaiCode"));
-const TypewriterEffectSmoothDemo = React.lazy(() => import("./sections/JoinCommunity"));
+const WhyChaiCodeCards = React.lazy(() => import("./sections/WhyChaiCode"));
+const JoinCommunity = React.lazy(() => import("./sections/JoinCommunity"));
 const Footer = React.lazy(() => import("./layout/Footer"));
 const ChatBot = React.lazy(() => import("./layout/ChatBot"));
 
@@ -120,27 +120,27 @@ function App() {
   return (
     <>
       <DotBackgroundDemo>
-        <NavbarDemo />
+        <Header />
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <Suspense fallback={<LoadingTypewriter />}>
             <HeroSectionOne />
-            <InfiniteMovingCardsDemo />
+            <TweetLove />
             <div id="cohort" className="scroll-mt-32">
-              <BentoGridDemo/>
+              <CohortLiveClasses/>
             </div>
             <div id="reviews" className="scroll-mt-32">
-              <AnimatedTestimonialsDemo/>
+              <StudentsFeedback/>
             </div>
             <div id="udemy" className="scroll-mt-32">
-              <CarouselDemo/>
+              <Udemy/>
             </div>
             <KeyBenefits/>
-            <CardSpotlightDemo/>
+            <WhyChaiCodeCards/>
             <TopicsCloud/>
             <div id="docs" className="scroll-mt-32">
               <FreeApi/>
             </div>
-            <TypewriterEffectSmoothDemo/>
+            <JoinCommunity/>
             <Footer/>
             <ChatBot/>
           </Suspense>

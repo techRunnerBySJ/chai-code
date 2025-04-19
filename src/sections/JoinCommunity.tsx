@@ -1,8 +1,8 @@
 "use client";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
-import { HoverBorderGradientDemo } from "../layout/Note";
+import { InfoAndCtaButton } from "../layout/Note";
 
-function TypewriterEffectSmoothDemo() {
+function JoinCommunity() {
   const words = [
     {
       text: "Join",
@@ -40,7 +40,7 @@ function TypewriterEffectSmoothDemo() {
         role="group"
         aria-label="Community statistics"
       >
-        <HoverBorderGradientDemo 
+        <InfoAndCtaButton 
           text="80,000+ Active Coders on Discord"
           ariaLabel="Join our Discord community of 80,000+ active coders"
         />
@@ -49,4 +49,4 @@ function TypewriterEffectSmoothDemo() {
   );
 }
 
-export default TypewriterEffectSmoothDemo;
+export default JoinCommunity;

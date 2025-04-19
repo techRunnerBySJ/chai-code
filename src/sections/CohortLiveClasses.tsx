@@ -2,7 +2,7 @@ import React from "react";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { motion } from "framer-motion";
 
-function BentoGridDemo() {
+function CohortLiveClasses() {
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -144,4 +144,4 @@ const items = [
   }
 ];
 
-export default BentoGridDemo;
+export default CohortLiveClasses;

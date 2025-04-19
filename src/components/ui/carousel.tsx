@@ -1,7 +1,7 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
-import { HoverBorderGradientDemo } from "@/layout/BuyNow";
+import { InfoAndCtaButton } from "@/layout/BuyNow";
 
 interface SlideData {
   src: string;
@@ -102,7 +102,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               rel="noreferrer"
               className="mt-4 w-fit"
             >
-             <HoverBorderGradientDemo/>
+             <InfoAndCtaButton/>
             </a>
           </div>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { AnimatedTestimonials } from "../components/ui/animated-testimonials";
 import { motion } from "framer-motion";
 
-export function AnimatedTestimonialsDemo() {
+export function StudentsFeedback() {
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -77,4 +77,4 @@ export function AnimatedTestimonialsDemo() {
   );
 }
 
-export default AnimatedTestimonialsDemo;
+export default StudentsFeedback;

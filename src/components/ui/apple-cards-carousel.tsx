@@ -14,7 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { HoverBorderGradientDemo } from "@/layout/BuyNow";
+import { InfoAndCtaButton } from "@/layout/BuyNow";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -274,7 +274,7 @@ export const Card = ({
           >
             {card.buttonUrl}
           </motion.p> */}
-          <HoverBorderGradientDemo/>
+          <InfoAndCtaButton/>
         </div>
       </motion.button>
     </>

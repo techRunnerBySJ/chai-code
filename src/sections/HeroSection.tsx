@@ -1,9 +1,9 @@
 "use client";
 
-import { HeroHighlightDemo } from "@/layout/HeroText";
-import { MovingBorderDemo } from "@/layout/Join-Now-Button";
-import { HoverBorderGradientDemo } from "@/layout/Note";
-import { FlipWordsDemo } from "@/layout/Title";
+import { HeroText } from "@/layout/HeroText";
+import { JoinNowButton } from "@/layout/Join-Now-Button";
+import { InfoAndCtaButton } from "@/layout/Note";
+import { TitleFLipWords } from "@/layout/Title";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -89,7 +89,7 @@ export function HeroSectionOne() {
         variants={itemVariants}
         role="presentation"
       >
-        <HoverBorderGradientDemo text="Trusted By 1.5M Code Learners" />
+        <InfoAndCtaButton text="Trusted By 1.5M Code Learners" />
       </motion.div>
 
       {/* FlipWords centered */}
@@ -97,7 +97,7 @@ export function HeroSectionOne() {
         variants={itemVariants}
         role="presentation"
       >
-        <FlipWordsDemo />
+        <TitleFLipWords />
       </motion.div>
 
       {/* Highlighted Text */}
@@ -105,7 +105,7 @@ export function HeroSectionOne() {
         variants={itemVariants}
         role="presentation"
       >
-        <HeroHighlightDemo />
+        <HeroText />
       </motion.div>
 
       {/* YouTube Video */}
@@ -169,7 +169,7 @@ export function HeroSectionOne() {
         variants={itemVariants}
         role="presentation"
       >
-        <MovingBorderDemo />
+        <JoinNowButton />
       </motion.div>
     </motion.section>
   );

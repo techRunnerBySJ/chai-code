@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "motion/react";
 import { HeroHighlight } from "../components/ui/hero-highlight";
-import { HoverBorderGradientDemo } from "./Note";
+import { InfoAndCtaButton } from "./Note";
 
 
-export function HeroHighlightDemo() {
+export function HeroText() {
   return (
     <HeroHighlight>
       <motion.h1
@@ -32,11 +32,11 @@ export function HeroHighlightDemo() {
         Content is every where, we provide a learning experience that is
         unmatched. <br/>{" "}
         <span className="flex gap-2 justify-center mt-4 flex-wrap">
-        <HoverBorderGradientDemo text="Bounties"/>
-        <HoverBorderGradientDemo text="Peer Learning"/>
-        <HoverBorderGradientDemo text="Virtual Hostel"/>
-        <HoverBorderGradientDemo text="Alumini Network"/>
-        <HoverBorderGradientDemo text="and many others."/>
+        <InfoAndCtaButton text="Bounties"/>
+        <InfoAndCtaButton text="Peer Learning"/>
+        <InfoAndCtaButton text="Virtual Hostel"/>
+        <InfoAndCtaButton text="Alumini Network"/>
+        <InfoAndCtaButton text="and many others."/>
 
         </span>
              </motion.h1>

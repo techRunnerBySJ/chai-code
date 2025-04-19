@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../components/ui/moving-border";
 
-export function MovingBorderDemo() {
+export function JoinNowButton() {
   return (
     <div className="flex justify-center items-start">
       <Button

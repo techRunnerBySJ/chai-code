@@ -52,7 +52,7 @@ function Footer() {
 
         {/* Products */}
         <div>
-          <h2 className="text-white font-semibold mb-3">Products</h2>
+          <h2 className="text-black dark:text-white font-semibold mb-3">Products</h2>
           <ul className="space-y-2 text-gray-400">
             <li>Courses</li>
             <li>Cohort</li>
@@ -64,7 +64,7 @@ function Footer() {
 
         {/* Resources */}
         <div>
-          <h2 className="text-white font-semibold mb-3">Resources</h2>
+          <h2 className="text-black dark:text-white font-semibold mb-3">Resources</h2>
           <ul className="space-y-2 text-gray-400">
             <li>Docs</li>
             <li>Privacy Policy</li>

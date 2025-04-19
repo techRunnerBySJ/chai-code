@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import { HeroHighlight, Highlight } from "../components/ui/hero-highlight";
+import { HeroHighlight } from "../components/ui/hero-highlight";
 import { HoverBorderGradientDemo } from "./Note";
 
 

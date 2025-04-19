@@ -3,7 +3,6 @@ import React, {
   useEffect,
   useRef,
   useState,
-  createContext,
   useContext,
   JSX,
 } from "react";
@@ -31,13 +30,7 @@ type Card = {
   buttonUrl: string;
 };
 
-export const CarouselContext = createContext<{
-  onCardClose: (index: number) => void;
-  currentIndex: number;
-}>({
-  onCardClose: () => {},
-  currentIndex: 0,
-});
+import { CarouselContext } from "@/contexts/CarouselContext";
 
 export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);

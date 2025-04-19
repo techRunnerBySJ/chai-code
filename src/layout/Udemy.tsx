@@ -1,4 +1,3 @@
-import { FaHeart } from "react-icons/fa";
 import Carousel from "../components/ui/carousel";
 import React from "react";
 import { motion } from "framer-motion";
@@ -116,7 +115,6 @@ function CarouselDemo() {
       >
         <Carousel 
           slides={slideData} 
-          role="list"
           aria-label="List of Udemy courses"
         />
       </motion.div>

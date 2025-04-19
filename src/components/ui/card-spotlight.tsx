@@ -2,7 +2,6 @@
 
 import { useMotionValue, motion, useMotionTemplate } from "motion/react";
 import React, { MouseEvent as ReactMouseEvent, useState } from "react";
-import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { cn } from "@/lib/utils";
 
 export const CardSpotlight = ({
@@ -18,6 +17,7 @@ export const CardSpotlight = ({
 } & React.HTMLAttributes<HTMLDivElement>) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
   function handleMouseMove({
     currentTarget,
     clientX,
@@ -32,6 +32,7 @@ export const CardSpotlight = ({
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseEnter = () => setIsHovering(true);
   const handleMouseLeave = () => setIsHovering(false);
+
   return (
     <div
       className={cn(
@@ -55,19 +56,24 @@ export const CardSpotlight = ({
             )
           `,
         }}
-      >
-        {isHovering && (
-          <CanvasRevealEffect
-            animationSpeed={5}
-            containerClassName="bg-transparent absolute inset-0 pointer-events-none"
-            colors={[
-              [255, 147, 50], // Orange
-              [255, 107, 0],  // Darker Orange
-            ]}
-            dotSize={3}
-          />
-        )}
-      </motion.div>
+      />
+      {isHovering && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none rounded-md"
+          style={{
+            background: `radial-gradient(circle at ${mouseX.get()}px ${mouseY.get()}px, rgba(255, 147, 50, 0.5), transparent 80%)`,
+          }}
+          animate={{
+            opacity: [0.5, 0.8, 0.5],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 0.8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+      )}
       {children}
     </div>
   );

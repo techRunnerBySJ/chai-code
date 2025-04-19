@@ -1,7 +1,6 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
-import { HoverBorderGradient } from "";
 import { HoverBorderGradientDemo } from "@/layout/BuyNow";
 
 interface SlideData {

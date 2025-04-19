@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --join-now-button-color: #ff9332;
+  --golden-bg: #785737;
+  --brand-color: #fe7e0d;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  overflow-x: hidden;
+}
+
+
+@theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}
+
+@keyframes popText {
+  0%, 100% {
+    transform: scale(1);
+    color: #f97316; /* orange-500 */
+  }
+  50% {
+    transform: scale(1.1);
+    color: #fb923c; /* orange-400 for a nice pop */
+  }
+}
+
+.text-pop-out {
+  animation: popText 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+@layer utilities {
+  .animate-border-pulse {
+    animation: borderPulse 2s infinite;
+  }
+
+  @keyframes borderPulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+  }
+}
+
+@layer utilities {
+  .animate-text {
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+@keyframes company-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-company-scroll {
+  animation: company-scroll 15s linear infinite;
+}
+.scrolling-carousel {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: company-scroll 15s linear infinite;
+}
+/* Custom scroll behavior to hide the scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+/* Ensure the container takes the full width and supports scrolling */
+.scroll-container {
+  width: 100%;
+  overflow-x: hidden; /* Changed from auto to hidden to prevent native scrolling */
+  display: flex;
+  gap: 16px;
+  padding: 8px;
+  white-space: nowrap;
+  will-change: transform; /* Optimize for animation */
+  backface-visibility: hidden; /* Prevent flickering */
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Animation for smooth scrolling */
+@keyframes smooth-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: smooth-scroll 20s linear infinite;
+}
+@keyframes bounce1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10%); }
+}
+@keyframes bounce2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20%); }
+}
+@keyframes bounce3 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30%); }
+}
+
+.bounce1 { animation: bounce1 3s infinite ease-in-out; }
+.bounce2 { animation: bounce2 2.5s infinite ease-in-out; }
+.bounce3 { animation: bounce3 2s infinite ease-in-out; }
+

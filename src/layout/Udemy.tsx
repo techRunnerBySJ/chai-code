@@ -75,25 +75,31 @@ function CarouselDemo() {
   ];
 
   return (
-    <>
-    {/* <div className="flex flex-col items-center justify-center mb-10 mt-20">
-      <h2 className="text-2xl md:text-2xl font-extrabold bg-gradient-to-r from-[#ff9332] via-pink-400 to-red-500 bg-clip-text text-transparent animate-text mb-4 flex items-center gap-3">
-        UDEMY COURSES <FaHeart className="text-[#ff9332] animate-pulse" />
-      </h2>
-        <p className="text-gray-600 dark:text-gray-400">Not only in INDIA, we are global leaders in providing tech education</p>
-      </div> */}
+    <section 
+      role="region" 
+      aria-label="Udemy courses section"
+      className="relative"
+    >
       <motion.div 
         className="px-20 mt-20"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
+        role="presentation"
       >
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+        <h4 
+          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          role="heading"
+          aria-level={2}
+        >
           Udemy
         </h4>
 
-        <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+        <p 
+          className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          role="text"
+        >
           From Image generation to video generation, Everything AI has APIs for
           literally everything. It can even create this website copy for you.
         </p>
@@ -105,10 +111,16 @@ function CarouselDemo() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
+        role="complementary"
+        aria-label="Course carousel"
       >
-        <Carousel slides={slideData} />
+        <Carousel 
+          slides={slideData} 
+          role="list"
+          aria-label="List of Udemy courses"
+        />
       </motion.div>
-    </>
+    </section>
   );
 }
 

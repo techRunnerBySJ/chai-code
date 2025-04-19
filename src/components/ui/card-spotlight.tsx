@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export const CardSpotlight = ({
   children,
   radius = 350,
-  color = "#262626",
+  color = "#ff9332",
   className,
   ...props
 }: {
@@ -23,7 +23,7 @@ export const CardSpotlight = ({
     clientX,
     clientY,
   }: ReactMouseEvent<HTMLDivElement>) {
-    let { left, top } = currentTarget.getBoundingClientRect();
+    const { left, top } = currentTarget.getBoundingClientRect();
 
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -35,7 +35,7 @@ export const CardSpotlight = ({
   return (
     <div
       className={cn(
-        "group/spotlight p-2 rounded-md relative border border-neutral-800 bg-black dark:border-neutral-800",
+        "group/spotlight p-2 rounded-md relative border border-orange-200/20 bg-white/5 dark:border-orange-800/20 dark:bg-black/5",
         className
       )}
       onMouseMove={handleMouseMove}
@@ -46,7 +46,7 @@ export const CardSpotlight = ({
       <motion.div
         className="pointer-events-none absolute z-0 -inset-px rounded-md opacity-0 transition duration-300 group-hover/spotlight:opacity-100"
         style={{
-          backgroundColor: color,
+          background: `linear-gradient(45deg, ${color} 0%, #ff6b00 100%)`,
           maskImage: useMotionTemplate`
             radial-gradient(
               ${radius}px circle at ${mouseX}px ${mouseY}px,
@@ -61,8 +61,8 @@ export const CardSpotlight = ({
             animationSpeed={5}
             containerClassName="bg-transparent absolute inset-0 pointer-events-none"
             colors={[
-              [59, 130, 246],
-              [139, 92, 246],
+              [255, 147, 50], // Orange
+              [255, 107, 0],  // Darker Orange
             ]}
             dotSize={3}
           />

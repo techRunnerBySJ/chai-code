@@ -89,6 +89,8 @@ const Row = ({
         className="relative w-full overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        role="region"
+        aria-label={`Scrolling topics row ${direction === "right" ? "1" : "2"}`}
       >
         <div
           ref={scrollRef}
@@ -101,6 +103,8 @@ const Row = ({
             overflowX: "hidden",
             whiteSpace: "nowrap"
           }}
+          role="list"
+          aria-label="List of technology topics"
         >
           {[...items, ...items].map((item, idx) => (
             <motion.button
@@ -112,10 +116,18 @@ const Row = ({
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.open(item.link, "_blank")}
-              title="Go to YouTube"
+              title={`Watch ${item.label} tutorial on YouTube`}
+              role="listitem"
+              aria-label={`${item.label} tutorial video`}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="px-4 py-2 bg-orange-200 rounded-[6px] relative group-hover:bg-transparent transition-all duration-300 text-black">
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                aria-hidden="true"
+              />
+              <div 
+                className="px-4 py-2 bg-orange-200 rounded-[6px] relative group-hover:bg-transparent transition-all duration-300 text-black"
+                role="presentation"
+              >
                 {item.label}
               </div>
             </motion.button>
@@ -132,26 +144,43 @@ export const TopicsCloud = () => {
   ];
 
   return (
-    <>
-    <div className="px-20 mt-20">
-    <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-    Topics Cloud
-    </h4>
+    <section 
+      className="w-full"
+      role="region"
+      aria-label="Technology topics cloud"
+    >
+      <div 
+        className="px-20 mt-20"
+        role="presentation"
+      >
+        <h4 
+          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          role="heading"
+          aria-level={2}
+        >
+          Topics Cloud
+        </h4>
 
-    <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-      From Image generation to video generation, Everything AI has APIs for
-      literally everything. It can even create this website copy for you.
-    </p>
-  </div>
-    <div className="w-full space-y-4">
-      {rows.map((row, index) => (
-        <Row 
-          key={index} 
-          items={row} 
-          direction="right"
-        />
-      ))}
-    </div>
-    </>
+        <p 
+          className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          role="text"
+        >
+          From Image generation to video generation, Everything AI has APIs for
+          literally everything. It can even create this website copy for you.
+        </p>
+      </div>
+      <div 
+        className="w-full space-y-4"
+        role="presentation"
+      >
+        {rows.map((row, index) => (
+          <Row 
+            key={index} 
+            items={row} 
+            direction="right"
+          />
+        ))}
+      </div>
+    </section>
   );
 };

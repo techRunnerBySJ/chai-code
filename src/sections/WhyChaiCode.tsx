@@ -1,6 +1,6 @@
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
-import { MovingBorderDemo } from "./Join-Now-Button";
+import { MovingBorderDemo } from "../layout/Join-Now-Button";
 import { motion } from "framer-motion";
 
 export function CardSpotlightDemo() {

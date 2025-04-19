@@ -1,6 +1,6 @@
 "use client";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
-import { HoverBorderGradientDemo } from "./Note";
+import { HoverBorderGradientDemo } from "../layout/Note";
 
 function TypewriterEffectSmoothDemo() {
   const words = [

@@ -2,19 +2,19 @@ import React, { Suspense, useEffect, useState } from "react";
 import { DotBackgroundDemo } from "./components/ui/background"
 import { NavbarDemo } from "./layout/Header"
 import { ErrorBoundary } from "react-error-boundary";
-import { TopicsCloud } from "./layout/TopicsCloud";
-import { FreeApi } from "./layout/FreeApi";
+import { TopicsCloud } from "./sections/TopicsCloud";
+import { FreeApi } from "./sections/FreeApi";
 import { motion } from "framer-motion";
 
 // Lazy load components with proper type casting
-const CarouselDemo = React.lazy(() => import("./layout/Udemy"));
-const AnimatedTestimonialsDemo = React.lazy(() => import("./layout/StudentsFeedback"));
-const InfiniteMovingCardsDemo = React.lazy(() => import("./layout/TweetLove"));
+const CarouselDemo = React.lazy(() => import("./sections/Udemy"));
+const AnimatedTestimonialsDemo = React.lazy(() => import("./sections/StudentsFeedback"));
+const InfiniteMovingCardsDemo = React.lazy(() => import("./sections/TweetLove"));
 const HeroSectionOne = React.lazy(() => import("./sections/HeroSection"));
-const BentoGridDemo = React.lazy(() => import("./layout/CohortLiveClasses"));
-const KeyBenefits = React.lazy(() => import("./layout/KeyBenefits"));
-const CardSpotlightDemo = React.lazy(() => import("./layout/WhyChaiCode"));
-const TypewriterEffectSmoothDemo = React.lazy(() => import("./layout/JoinCommunity"));
+const BentoGridDemo = React.lazy(() => import("./sections/CohortLiveClasses"));
+const KeyBenefits = React.lazy(() => import("./sections/KeyBenefits"));
+const CardSpotlightDemo = React.lazy(() => import("./sections/WhyChaiCode"));
+const TypewriterEffectSmoothDemo = React.lazy(() => import("./sections/JoinCommunity"));
 const Footer = React.lazy(() => import("./layout/Footer"));
 const ChatBot = React.lazy(() => import("./layout/ChatBot"));
 

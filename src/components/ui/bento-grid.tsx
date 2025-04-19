@@ -85,7 +85,7 @@ interface BentoGridItemProps {
   src?: string;
   actualPrice?: string;
   discountPrice?: string;
-  // buttonUrl?: string; // TODO
+  buttonUrl?: string;
   role?: string;
   "aria-label"?: string;
 }
@@ -97,7 +97,7 @@ export const BentoGridItem = ({
   src,
   actualPrice,
   discountPrice,
-  // buttonUrl, // TODO
+  buttonUrl,
   role = "article",
   "aria-label": ariaLabel,
 }: BentoGridItemProps) => {

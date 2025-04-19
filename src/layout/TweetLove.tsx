@@ -42,16 +42,28 @@ function InfiniteMovingCardsDemo() {
   }, []); // ✅ Only run on mount
 
   return (
-    <div
+    <section
       ref={containerRef}
       className="min-h-[40rem] flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden"
+      role="region"
+      aria-label="Community tweets section"
     >
-      <div className="px-20 mt-20">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+      <div 
+        className="px-20 mt-20"
+        role="presentation"
+      >
+        <h4 
+          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          role="heading"
+          aria-level={2}
+        >
           Tweet Love
         </h4>
 
-        <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+        <p 
+          className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          role="text"
+        >
           Love that we get from our community
         </p>
       </div>
@@ -62,6 +74,8 @@ function InfiniteMovingCardsDemo() {
             <div
               className="w-[350px] min-h-[200px] [&>blockquote]:w-full"
               dangerouslySetInnerHTML={{ __html: html }}
+              role="article"
+              aria-label="Community tweet"
             />
           ),
           name: "",
@@ -69,8 +83,10 @@ function InfiniteMovingCardsDemo() {
         }))}
         direction="right"
         speed="slow"
+        role="complementary"
+        aria-label="Scrolling tweets"
       />
-    </div>
+    </section>
   );
 }
 

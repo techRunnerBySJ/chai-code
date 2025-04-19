@@ -55,14 +55,25 @@ export function AnimatedTestimonialsDemo() {
   ];
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+    <section 
+      role="region" 
+      aria-label="Student testimonials section"
+      className="relative"
     >
-      <AnimatedTestimonials testimonials={testimonials} />
-    </motion.div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        role="presentation"
+      >
+        <AnimatedTestimonials 
+          testimonials={testimonials} 
+          role="complementary"
+          aria-label="Student feedback carousel"
+        />
+      </motion.div>
+    </section>
   );
 }
 

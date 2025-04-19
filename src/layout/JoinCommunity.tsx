@@ -18,7 +18,7 @@ function TypewriterEffectSmoothDemo() {
     },
     {
       text: "creativity thrives.",
-      className: "text-blue-500 dark:text-blue-500",
+      className: "text-orange-500 dark:text-orange-500",
     },
   ];
   return (

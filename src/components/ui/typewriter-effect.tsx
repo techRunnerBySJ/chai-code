@@ -8,6 +8,7 @@ export const TypewriterEffect = ({
   words,
   className,
   cursorClassName,
+  ariaLabel,
 }: {
   words: {
     text: string;
@@ -15,6 +16,7 @@ export const TypewriterEffect = ({
   }[];
   className?: string;
   cursorClassName?: string;
+  ariaLabel?: string;
 }) => {
   // split text inside of words into array of characters
   const wordsArray = words.map((word) => {
@@ -46,7 +48,12 @@ export const TypewriterEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope} className="inline">
+      <motion.div 
+        ref={scope} 
+        className="inline"
+        role="text"
+        aria-label={ariaLabel}
+      >
         {wordsArray.map((word, idx) => {
           return (
             <div key={`word-${idx}`} className="inline-block">
@@ -58,6 +65,7 @@ export const TypewriterEffect = ({
                     `dark:text-white text-black opacity-0 hidden`,
                     word.className
                   )}
+                  aria-hidden="true"
                 >
                   {char}
                 </motion.span>
@@ -75,6 +83,7 @@ export const TypewriterEffect = ({
         "text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center",
         className
       )}
+      role="presentation"
     >
       {renderWords()}
       <motion.span
@@ -93,6 +102,7 @@ export const TypewriterEffect = ({
           "inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-blue-500",
           cursorClassName
         )}
+        aria-hidden="true"
       ></motion.span>
     </div>
   );
@@ -102,6 +112,7 @@ export const TypewriterEffectSmooth = ({
   words,
   className,
   cursorClassName,
+  ariaLabel,
 }: {
   words: {
     text: string;
@@ -109,6 +120,7 @@ export const TypewriterEffectSmooth = ({
   }[];
   className?: string;
   cursorClassName?: string;
+  ariaLabel?: string;
 }) => {
   // split text inside of words into array of characters
   const wordsArray = words.map((word) => {
@@ -119,7 +131,10 @@ export const TypewriterEffectSmooth = ({
   });
   const renderWords = () => {
     return (
-      <div>
+      <div
+        role="text"
+        aria-label={ariaLabel}
+      >
         {wordsArray.map((word, idx) => {
           return (
             <div key={`word-${idx}`} className="inline-block">
@@ -127,6 +142,7 @@ export const TypewriterEffectSmooth = ({
                 <span
                   key={`char-${index}`}
                   className={cn(`dark:text-white text-black `, word.className)}
+                  aria-hidden="true"
                 >
                   {char}
                 </span>
@@ -140,7 +156,10 @@ export const TypewriterEffectSmooth = ({
   };
 
   return (
-    <div className={cn("flex space-x-1 my-6", className)}>
+    <div 
+      className={cn("flex space-x-1 my-6", className)}
+      role="presentation"
+    >
       <motion.div
         className="overflow-hidden pb-2"
         initial={{
@@ -154,12 +173,14 @@ export const TypewriterEffectSmooth = ({
           ease: "linear",
           delay: 1,
         }}
+        role="presentation"
       >
         <div
           className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
           style={{
             whiteSpace: "nowrap",
           }}
+          role="presentation"
         >
           {renderWords()}{" "}
         </div>{" "}
@@ -173,7 +194,6 @@ export const TypewriterEffectSmooth = ({
         }}
         transition={{
           duration: 0.8,
-
           repeat: Infinity,
           repeatType: "reverse",
         }}
@@ -181,6 +201,7 @@ export const TypewriterEffectSmooth = ({
           "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
           cursorClassName
         )}
+        aria-hidden="true"
       ></motion.span>
     </div>
   );

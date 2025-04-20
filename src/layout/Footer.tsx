@@ -5,6 +5,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaDiscord,
+  FaBug
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
@@ -51,11 +52,23 @@ function Footer() {
             role="navigation"
           >
             <a 
+              href="https://github.com/yourusername/issues/new" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-red-600 transition-colors"
+              aria-label="Report a bug or issue"
+              title="Report a bug or issue"
+            >
+              <FaBug className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">Report Bug</span>
+            </a>
+            <a 
               href="https://discord.gg/yourserver" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-indigo-500 transition-colors"
               aria-label="Join our Discord community"
+              title="Join our Discord community"
             >
               <FaDiscord className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
               <span className="sr-only">Discord</span>
@@ -66,6 +79,7 @@ function Footer() {
               rel="noopener noreferrer" 
               className="hover:text-gray-800 dark:hover:text-white transition-colors"
               aria-label="Follow us on X (formerly Twitter)"
+              title="Follow us on X (Twitter)"
             >
               <FaXTwitter className="w-5 h-5 md:w-[18px] md:h-[18px]" aria-hidden="true" />
               <span className="sr-only">X (Twitter)</span>
@@ -76,6 +90,7 @@ function Footer() {
               rel="noopener noreferrer" 
               className="hover:text-red-600 transition-colors"
               aria-label="Subscribe to our YouTube channel"
+              title="Subscribe to our YouTube channel"
             >
               <FaYoutube className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
               <span className="sr-only">YouTube</span>
@@ -86,6 +101,7 @@ function Footer() {
               rel="noopener noreferrer" 
               className="hover:text-pink-500 transition-colors"
               aria-label="Follow us on Instagram"
+              title="Follow us on Instagram"
             >
               <FaInstagram className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
               <span className="sr-only">Instagram</span>
@@ -96,6 +112,7 @@ function Footer() {
               rel="noopener noreferrer" 
               className="hover:text-gray-800 dark:hover:text-white transition-colors"
               aria-label="View our GitHub repositories"
+              title="View our GitHub repositories"
             >
               <FaGithub className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
               <span className="sr-only">GitHub</span>
@@ -106,6 +123,7 @@ function Footer() {
               rel="noopener noreferrer" 
               className="hover:text-blue-600 transition-colors"
               aria-label="Connect with us on LinkedIn"
+              title="Connect with us on LinkedIn"
             >
               <FaLinkedin className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
               <span className="sr-only">LinkedIn</span>
@@ -141,6 +159,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="View our courses"
+                title="View our courses"
               >
                 Courses
               </a>
@@ -150,6 +169,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Join our cohort program"
+                title="Join our cohort program"
               >
                 Cohort
               </a>
@@ -159,6 +179,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base text-orange-500 hover:text-orange-600 transition-colors"
                 aria-label="Learn about Coding Hero"
+                title="Learn about Coding Hero"
               >
                 Coding Hero
               </a>
@@ -168,6 +189,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Explore FreeAPI"
+                title="Explore FreeAPI"
               >
                 FreeAPI
               </a>
@@ -177,6 +199,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Discover Masterji"
+                title="Discover Masterji"
               >
                 Masterji
               </a>
@@ -206,6 +229,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="View documentation"
+                title="View documentation"
               >
                 Docs
               </a>
@@ -215,6 +239,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Read our privacy policy"
+                title="Read our privacy policy"
               >
                 Privacy Policy
               </a>
@@ -224,6 +249,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Review terms of service"
+                title="Review terms of service"
               >
                 Terms of Service
               </a>
@@ -233,6 +259,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Check our pricing policy"
+                title="Check our pricing policy"
               >
                 Pricing Policy
               </a>
@@ -242,6 +269,7 @@ function Footer() {
                 href="#" 
                 className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="View refund policy"
+                title="View refund policy"
               >
                 Refund Policy
               </a>

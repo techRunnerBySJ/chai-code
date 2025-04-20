@@ -6,7 +6,7 @@ import {
   FaLinkedin,
   FaYoutube,
   FaDiscord,
-  FaUsers, FaGraduationCap, FaFileAlt, FaStar, FaBars, FaTimes
+  FaUsers, FaGraduationCap, FaFileAlt, FaStar, FaBars, FaTimes, FaBug
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoMdLogIn, IoMdMoon, IoMdSunny } from "react-icons/io"; // 🌙🌞 icons
@@ -85,6 +85,7 @@ function Navbar({ className }: { className?: string }) {
           role="button"
           aria-label="Return to top"
           tabIndex={0}
+          title="Return to top"
         >
           <span className="tracking-wide">
             <img
@@ -118,6 +119,7 @@ function Navbar({ className }: { className?: string }) {
               onClick={() => handleNavClick('cohort')} 
               className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
               aria-label="Navigate to Cohort section"
+              title="View our coding cohorts"
             >
               <span className="relative flex h-3 w-3" aria-hidden="true">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"></span>
@@ -126,26 +128,32 @@ function Navbar({ className }: { className?: string }) {
               <FaUsers className="ml-1" aria-hidden="true" />
               <span>COHORT</span>
             </button>
+
             <button 
               onClick={() => handleNavClick('udemy')} 
               className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
               aria-label="Navigate to Udemy section"
+              title="Explore our Udemy courses"
             >
               <FaGraduationCap aria-hidden="true" />
               <span>Udemy</span>
             </button>
+
             <button 
               onClick={() => handleNavClick('docs')} 
               className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
               aria-label="Navigate to Documentation section"
+              title="View documentation"
             >
               <FaFileAlt aria-hidden="true" />
               <span>Docs</span>
             </button>
+
             <button 
               onClick={() => handleNavClick('reviews')} 
               className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
               aria-label="Navigate to Reviews section"
+              title="Read student reviews"
             >
               <FaStar aria-hidden="true" />
               <span>Reviews</span>
@@ -165,65 +173,89 @@ function Navbar({ className }: { className?: string }) {
             role="navigation"
             aria-label="Social media links"
           >
+
+
             <a 
               href="https://discord.gg/yourserver" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400 transition"
               aria-label="Join our Discord community"
+              title="Join our Discord community"
             >
               <FaDiscord size={20} aria-hidden="true" />
               <span className="sr-only">Discord</span>
             </a>
+
             <a 
               href="https://x.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
               aria-label="Follow us on X (formerly Twitter)"
+              title="Follow us on X (Twitter)"
             >
               <FaXTwitter size={18} aria-hidden="true" />
               <span className="sr-only">X (Twitter)</span>
             </a>
+
             <a 
               href="https://linkedin.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition"
               aria-label="Connect with us on LinkedIn"
+              title="Connect with us on LinkedIn"
             >
               <FaLinkedin size={20} aria-hidden="true" />
               <span className="sr-only">LinkedIn</span>
             </a>
+
             <a 
               href="https://youtube.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
               aria-label="Subscribe to our YouTube channel"
+              title="Subscribe to our YouTube channel"
             >
               <FaYoutube size={20} aria-hidden="true" />
               <span className="sr-only">YouTube</span>
             </a>
+
             <a 
               href="https://instagram.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-pink-500 dark:text-white dark:hover:text-pink-400 transition"
               aria-label="Follow us on Instagram"
+              title="Follow us on Instagram"
             >
               <FaInstagram size={20} aria-hidden="true" />
               <span className="sr-only">Instagram</span>
             </a>
+
             <a 
               href="https://github.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
               aria-label="View our GitHub repositories"
+              title="View our GitHub repositories"
             >
               <FaGithub size={20} aria-hidden="true" />
               <span className="sr-only">GitHub</span>
+            </a>
+            <a 
+              href="https://github.com/yourusername/issues/new" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
+              aria-label="Report a bug or issue"
+              title="Report a bug or issue"
+            >
+              <FaBug size={20} aria-hidden="true" />
+              <span className="sr-only">Report Bug</span>
             </a>
           </div>
 
@@ -232,6 +264,7 @@ function Navbar({ className }: { className?: string }) {
             onClick={toggleTheme} 
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
           >
             {isDark ? (
               <IoMdSunny size={20} className="text-yellow-400" aria-hidden="true" />
@@ -243,11 +276,19 @@ function Navbar({ className }: { className?: string }) {
           {/* Login Button */}
           <button 
             onClick={() => window.open("https://courses.chaicode.com/learn/account/signup", "_blank")} 
-            className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
+            className="text-black flex items-center hover:text-black dark:text-white dark:hover:text-gray-300 transition  px-5 rounded-sm"
+            style={{
+              backgroundColor: 'var(--brand-color)',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: 'bold',
+            }}
             aria-label="Sign up or log in to your account"
+            title="Sign up or log in to your account"
           >
+            <span className="me-2 mt-2 mb-2">Login</span>
             <IoMdLogIn size={20} aria-hidden="true" />
-            <span className="sr-only">Login</span>
           </button>
 
           {/* Hamburger Menu Button - Visible only on mobile */}
@@ -257,6 +298,7 @@ function Navbar({ className }: { className?: string }) {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
+            title={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? (
               <FaTimes size={20} aria-hidden="true" />
@@ -282,6 +324,7 @@ function Navbar({ className }: { className?: string }) {
             onClick={() => handleNavClick('cohort')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Cohort section"
+            title="View our coding cohorts"
           >
             <FaUsers aria-hidden="true" />
             <span>COHORT</span>
@@ -290,26 +333,32 @@ function Navbar({ className }: { className?: string }) {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-red-600"></span>
             </span>
           </button>
+
           <button 
             onClick={() => handleNavClick('udemy')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Udemy section"
+            title="Explore our Udemy courses"
           >
             <FaGraduationCap aria-hidden="true" />
             <span>Udemy</span>
           </button>
+
           <button 
             onClick={() => handleNavClick('docs')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Documentation section"
+            title="View documentation"
           >
             <FaFileAlt aria-hidden="true" />
             <span>Docs</span>
           </button>
+
           <button 
             onClick={() => handleNavClick('reviews')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Reviews section"
+            title="Read student reviews"
           >
             <FaStar aria-hidden="true" />
             <span>Reviews</span>
@@ -322,61 +371,84 @@ function Navbar({ className }: { className?: string }) {
             aria-label="Social media links"
           >
             <a 
+              href="https://github.com/yourusername/issues/new" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
+              aria-label="Report a bug or issue"
+              title="Report a bug or issue"
+            >
+              <FaBug size={20} aria-hidden="true" />
+              <span className="sr-only">Report Bug</span>
+            </a>
+
+            <a 
               href="https://discord.gg/yourserver" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400 transition"
               aria-label="Join our Discord community"
+              title="Join our Discord community"
             >
               <FaDiscord size={20} aria-hidden="true" />
               <span className="sr-only">Discord</span>
             </a>
+
             <a 
               href="https://x.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
               aria-label="Follow us on X (formerly Twitter)"
+              title="Follow us on X (Twitter)"
             >
               <FaXTwitter size={18} aria-hidden="true" />
               <span className="sr-only">X (Twitter)</span>
             </a>
+
             <a 
               href="https://linkedin.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition"
               aria-label="Connect with us on LinkedIn"
+              title="Connect with us on LinkedIn"
             >
               <FaLinkedin size={20} aria-hidden="true" />
               <span className="sr-only">LinkedIn</span>
             </a>
+
             <a 
               href="https://youtube.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
               aria-label="Subscribe to our YouTube channel"
+              title="Subscribe to our YouTube channel"
             >
               <FaYoutube size={20} aria-hidden="true" />
               <span className="sr-only">YouTube</span>
             </a>
+
             <a 
               href="https://instagram.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-pink-500 dark:text-white dark:hover:text-pink-400 transition"
               aria-label="Follow us on Instagram"
+              title="Follow us on Instagram"
             >
               <FaInstagram size={20} aria-hidden="true" />
               <span className="sr-only">Instagram</span>
             </a>
+
             <a 
               href="https://github.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
               aria-label="View our GitHub repositories"
+              title="View our GitHub repositories"
             >
               <FaGithub size={20} aria-hidden="true" />
               <span className="sr-only">GitHub</span>

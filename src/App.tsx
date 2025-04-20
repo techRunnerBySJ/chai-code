@@ -5,6 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { TopicsCloud } from "./sections/TopicsCloud";
 import { FreeApi } from "./sections/FreeApi";
 import { motion } from "framer-motion";
+import CompaniesSection from "./sections/Companies";
 
 // Lazy load components with proper type casting
 const Udemy = React.lazy(() => import("./sections/Udemy"));
@@ -125,6 +126,7 @@ function App() {
           <Suspense fallback={<LoadingTypewriter />}>
             <HeroSectionOne />
             <TweetLove />
+            <CompaniesSection/>
             <div id="cohort" className="scroll-mt-32">
               <CohortLiveClasses/>
             </div>

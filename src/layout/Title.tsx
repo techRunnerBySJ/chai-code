@@ -6,7 +6,7 @@ export function TitleFLipWords() {
 
   return (
     <div className=" flex justify-center items-center px-4 w-full">
-      <div className="text-3xl text-neutral-600 dark:text-neutral-400 font-extrabold">
+      <div className="md:text-5xl text-xl text-neutral-700 dark:text-neutral-400 font-bold">
         Consistency and
         <FlipWords words={words} />
       </div>

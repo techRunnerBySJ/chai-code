@@ -37,7 +37,7 @@ export function WhyChaiCodeCards() {
         role="presentation"
       >
         <h4 
-          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white mt-20"
           role="heading"
           aria-level={2}
         >

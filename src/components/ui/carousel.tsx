@@ -176,15 +176,17 @@ export default function Carousel({ slides }: CarouselProps) {
 
   return (
     <div
-      className="relative w-[70vmin] h-[317px] mx-auto"
-      aria-labelledby={`carousel-heading-${id}`}
-    >
-      <ul
-        className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `translateX(-${current * (100 / slides.length)}%)`,
-        }}
-      >
+    className="relative w-[90vw] md:w-[70vmin] h-auto md:h-[317px] mx-auto"
+    aria-labelledby={`carousel-heading-${id}`}
+  >
+<ul
+  className="flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
+  style={{
+    transform: `translateX(-${current * 100}%)`
+  }}
+  
+>
+
         {slides.map((slide, index) => (
           <Slide
             key={index}

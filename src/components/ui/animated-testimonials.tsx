@@ -51,28 +51,22 @@ export const AnimatedTestimonials = ({
   };
 
   return (
-    <div 
-      className="mx-auto max-w-sm px-4 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 mt-20"
+    <div
+      className="mx-auto max-w-sm px-6 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 mt-10 md:mt-20"
       role={role}
       aria-label={ariaLabel}
     >
-      {/* <div className="flex flex-col items-center justify-center mb-20">
-      <h2 className="text-2xl md:text-2xl font-extrabold bg-gradient-to-r from-[#ff9332] via-pink-400 to-red-500 bg-clip-text text-transparent animate-text mb-4 flex items-center gap-3">
-        Our Students Feedback <FaHeart className="text-[#ff9332] animate-pulse" />
-      </h2>
-        <p className="text-gray-600 dark:text-gray-400">Explore the incredible advantages of joining our courses and enhacing your skills.</p>
-      </div> */}
-      <div className="px-20 mt-20">
-        <h4 
-          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+      <div className="px-4 md:px-20 mt-10 md:mt-20">
+        <h4
+          className="text-2xl md:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
           role="heading"
           aria-level={2}
         >
           Our Students Feedback
         </h4>
 
-        <p 
-          className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+        <p
+          className="text-sm md:text-base lg:text-lg max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
           role="text"
         >
           From Image generation to video generation, Everything AI has APIs for
@@ -80,13 +74,14 @@ export const AnimatedTestimonials = ({
         </p>
       </div>
 
-      <div 
-        className="relative grid grid-cols-1 gap-20 md:grid-cols-2"
+      <div
+        className="relative grid grid-cols-1 gap-10 md:gap-20 md:grid-cols-2"
         role="presentation"
       >
+        {/* Image Section */}
         <div>
-          <div 
-            className="relative h-80 w-full"
+          <div
+            className="relative h-60 w-full md:h-80"
             role="presentation"
           >
             <AnimatePresence>
@@ -107,7 +102,7 @@ export const AnimatedTestimonials = ({
                     zIndex: isActive(index)
                       ? 40
                       : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
+                    y: isActive(index) ? [0, -40, 0] : 0,
                   }}
                   exit={{
                     opacity: 0,
@@ -137,7 +132,8 @@ export const AnimatedTestimonials = ({
           </div>
         </div>
 
-        <div 
+        {/* Text Section */}
+        <div
           className="flex flex-col justify-between py-4"
           role="presentation"
         >
@@ -162,22 +158,22 @@ export const AnimatedTestimonials = ({
             role="article"
             aria-label={`Testimonial from ${testimonials[active].name}`}
           >
-            <h3 
-              className="text-2xl font-bold text-black dark:text-white"
+            <h3
+              className="text-lg md:text-2xl font-bold text-black dark:text-white"
               role="heading"
               aria-level={3}
             >
               {testimonials[active].name}
             </h3>
-            <p 
-              className="text-sm text-gray-500 dark:text-neutral-500"
+            <p
+              className="text-xs md:text-sm text-gray-500 dark:text-neutral-500"
               role="text"
             >
               {testimonials[active].designation}
             </p>
-           
-            <motion.p 
-              className="mt-8 text-lg text-gray-500 dark:text-neutral-300"
+
+            <motion.p
+              className="mt-4 md:mt-8 text-sm md:text-lg text-gray-500 dark:text-neutral-300 mb-10 md:mb-5"
               role="text"
             >
               {testimonials[active].quote.split(" ").map((word, index) => (
@@ -209,24 +205,24 @@ export const AnimatedTestimonials = ({
 
           <JoinNowButton />
 
-          <div 
-            className="flex gap-4 pt-12 md:pt-0"
+          <div
+            className="flex gap-4 pt-8 md:pt-12"
             role="group"
             aria-label="Testimonial navigation"
           >
             <button
               onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
               aria-label="Previous testimonial"
             >
-              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+              <IconArrowLeft className="h-4 w-4 md:h-5 md:w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
               aria-label="Next testimonial"
             >
-              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+              <IconArrowRight className="h-4 w-4 md:h-5 md:w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
             </button>
           </div>
         </div>

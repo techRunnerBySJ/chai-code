@@ -59,15 +59,15 @@ export const BentoGrid = ({
       <div
         ref={scrollRef}
         className={cn(
-          "flex overflow-hidden space-x-4 px-10 py-4 snap-x snap-mandatory",
+          "flex overflow-hidden space-x-4 px-4 py-4 snap-x snap-mandatory", // Adjusted padding for mobile
           className
         )}
         role={role}
         aria-label={ariaLabel}
       >
         {React.Children.map(children, (child) => (
-          <div 
-            className="min-w-[400px] max-w-[400px] snap-start"
+          <div
+            className="min-w-[280px] max-w-[280px] sm:min-w-[320px] sm:max-w-[320px] md:min-w-[400px] md:max-w-[400px] snap-start" // Adjusted width for mobile
             role="listitem"
           >
             {child}
@@ -105,23 +105,24 @@ export const BentoGridItem = ({
     <div
       className={cn(
         "relative group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-neutral-900",
-        className,
+        "", // Adjusted padding for mobile
+        className
       )}
       role={role}
       aria-label={ariaLabel}
     >
       {/* 🔥 Status Tag */}
-      <span 
-        className="absolute top-2 left-2 z-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 text-xs font-bold text-white shadow-md"
+      <span
+        className="absolute top-2 left-2 z-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-2 py-1 text-[10px] sm:text-xs md:text-sm font-bold text-white shadow-md" // Adjusted font size for mobile
         role="status"
         aria-label="New course"
       >
         New
       </span>
-
+    
       {/* Your iframe */}
-      <div 
-        className="relative w-full h-[200px]"
+      <div
+        className="relative w-full h-[150px] sm:h-[180px] md:h-[200px]" // Adjusted height for mobile
         role="presentation"
       >
         <iframe
@@ -133,36 +134,36 @@ export const BentoGridItem = ({
           aria-label={`Video content for ${title}`}
         />
       </div>
-      <div 
+      <div
         className="transition duration-200 group-hover/bento:translate-x-2"
         role="contentinfo"
       >
-        <div 
-          className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-white"
+        <div
+          className="mt-2 mb-2 font-sans font-bold text-sm sm:text-base md:text-lg text-neutral-600 dark:text-white" // Adjusted font size for mobile
           role="heading"
           aria-level={3}
         >
           {title}
         </div>
-        <div 
-          className="font-sans text-xs font-normal text-neutral-600 dark:text-white"
+        <div
+          className="font-sans text-xs sm:text-sm md:text-base font-normal text-neutral-600 dark:text-white" // Adjusted font size for mobile
           role="text"
         >
           {description}
         </div>
-        <div 
+        <div
           className="flex items-center gap-2 mt-2"
           role="presentation"
         >
-          <span 
-            className="dark:text-white text-black/70 text-sm line-through"
+          <span
+            className="dark:text-white text-black/70 text-[10px] sm:text-xs md:text-sm line-through"
             role="text"
             aria-label={`Original price: ₹${actualPrice}`}
           >
             ₹{actualPrice}
           </span>
-          <span 
-            className="text-lg font-semibold text-pop-out"
+          <span
+            className="text-sm sm:text-base md:text-lg font-semibold text-pop-out"
             role="text"
             aria-label={`Discounted price: ₹${discountPrice}`}
           >

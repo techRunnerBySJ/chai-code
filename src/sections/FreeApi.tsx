@@ -19,7 +19,7 @@ export const FreeApi = () => {
       </div>
       {/* Background gradient effect */}
       <div 
-        className="absolute inset-0 bg-gradient-to-b from-orange-100/20 dark:from-orange-900/10 to-transparent"
+        className="absolute inset-0 "
         aria-hidden="true"
       />
       

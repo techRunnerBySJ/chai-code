@@ -24,7 +24,7 @@ function JoinCommunity() {
 
   return (
     <div 
-      className="flex flex-col items-center justify-center h-[20rem]"
+      className="flex flex-col items-center justify-center md:h-[20rem]"
       role="region"
       aria-label="Community section"
     >

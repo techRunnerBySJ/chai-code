@@ -171,7 +171,7 @@ export const BentoGridItem = ({
             ₹{discountPrice}
           </span>
         </div>
-        <InfoAndCtaButton />
+                <InfoAndCtaButton buttonUrl={buttonUrl} />
       </div>
     </div>
   );

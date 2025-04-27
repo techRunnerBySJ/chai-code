@@ -81,13 +81,13 @@ function CohortLiveClasses() {
               role="listitem"
               aria-label={`Course: ${item.title}`}
             >
-              <BentoGridItem
+                           <BentoGridItem
                 title={item.title}
                 description={item.description}
                 src={item.src}
                 actualPrice={item.actualPrice}
                 discountPrice={item.discountPrice}
-                buttonUrl={item.buttonUrl}
+                buttonUrl={item.buttonUrl} // Pass buttonUrl to BentoGridItem
                 className={i === 6 || i === 9 ? "md:col-span-1" : ""}
                 role="article"
                 aria-label={`Course details: ${item.title} - ${item.description}`}

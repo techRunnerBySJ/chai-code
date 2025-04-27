@@ -1,6 +1,4 @@
-// import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
-// import { JoinNowButton } from "../layout/Join-Now-Button";
 import { motion } from "framer-motion";
 import HiteshSir from "@/assets/images/hitesh-sir.jpeg";
 import { JoinNowButton } from "@/layout/Join-Now-Button";

@@ -63,9 +63,11 @@ function Navbar({ className }: { className?: string }) {
 
   // On load: detect system preference or class
   useEffect(() => {
-    if (document.documentElement.classList.contains("dark")) {
-      setIsDark(true);
+    const html = document.documentElement;
+    if (!html.classList.contains("dark")) {
+      html.classList.add("dark"); // Add the 'dark' class to the <html> element by default
     }
+    setIsDark(true); // Update the state to reflect dark mode
   }, []);
 
   return (

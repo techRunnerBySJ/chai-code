@@ -6,6 +6,7 @@ import { TopicsCloud } from "./sections/TopicsCloud";
 import { FreeApi } from "./sections/FreeApi";
 import { motion } from "framer-motion";
 import CompaniesSection from "./sections/Companies";
+import { AppDownload } from "./sections/AppDownload";
 
 // Lazy load components with proper type casting
 const Udemy = React.lazy(() => import("./sections/Udemy"));
@@ -142,6 +143,10 @@ function App() {
             <div id="docs" className="scroll-mt-32">
               <FreeApi/>
             </div>
+            <div id="app" className="scroll-mt-32">
+              <AppDownload/>
+            </div>
+            {/* <AppDownload/> */}
             <JoinCommunity/>
             <Footer/>
             <ChatBot/>

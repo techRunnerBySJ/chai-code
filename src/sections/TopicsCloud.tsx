@@ -175,17 +175,17 @@ export const TopicsCloud = () => {
 
         {/* Search Input */}
         <div className="mt-6 mb-6 flex justify-center items-center gap-2 px-4">
-          <div className="relative w-full max-w-sm">
+          <div className="relative w-full max-w-md">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search topics..."
-              className="w-full px-10 py-3 text-sm border border-gray-300 dark:border-gray-700 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 dark:bg-gray-800 dark:text-white text-gray-800 transition-all duration-300 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800"
+              className="w-full pl-10 pr-4 py-3 text-sm border border-gray-300 dark:border-gray-700 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400 dark:bg-gray-800 dark:text-white text-gray-800 transition-all duration-300 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-gray-500 animate-bounce"
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-gray-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

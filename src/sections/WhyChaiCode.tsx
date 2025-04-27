@@ -2,6 +2,7 @@ import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 import { motion } from "framer-motion";
 import HiteshSir from "@/assets/images/hitesh-sir.jpeg";
 import { JoinNowButton } from "@/layout/Join-Now-Button";
+import LogoLight from "@/assets/chaicode/chai-white.svg";
 
 
 export function WhyChaiCodeCards() {
@@ -32,19 +33,19 @@ export function WhyChaiCodeCards() {
       title: "Comprehensive Curriculum",
       description:
         "Master key concepts and hands-on skills with clarity and confidence. Learn what truly matters, the right way, thorough, practical, and easy to understand.",
-      icon: "src/assets/chaicode/chai-white.svg",
+      icon: LogoLight,
     },
     {
       title: "You finish it",
       description:
         "Our cohort is a collaborative journey. Students learn together, stay motivated, and complete the course on time as a community.",
-      icon: "src/assets/chaicode/chai-white.svg",
+      icon: LogoLight,
     },
     {
       title: "Industry Guests",
       description:
         "We are connected with industry experts and regularly invite them into our classes for engaging, fun, and insightful sessions with students.",
-      icon: "src/assets/chaicode/chai-white.svg",
+      icon: LogoLight,
     },
   ];
 
@@ -53,19 +54,19 @@ export function WhyChaiCodeCards() {
       title: "Code and Chill",
       description:
         "Coding should be fun, not frightening. It might feel tough at first, but with time and practice, everything starts to click and fall in place.",
-      icon: "src/assets/chaicode/chai-white.svg",
+      icon: LogoLight,
     },
     {
       title: "Improve Communication",
       description:
         "One of the best ways to boost communication skills is to practice it. Our peer classes make it happen where co-learners teach, share, and grow together.",
-      icon: "src/assets/chaicode/chai-white.svg",
+      icon: LogoLight,
     },
     {
       title: "Bounties",
       description:
         "Every cohort comes with exciting cash prizes and some even feature a MacBook giveaway! It's our way of keeping the motivation high and the learning fun.",
-      icon: "src/assets/chaicode/chai-white.svg",
+      icon: LogoLight,
     },
   ];
 

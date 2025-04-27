@@ -1,4 +1,3 @@
-import React from "react";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { FaCode } from "react-icons/fa";
 import { motion } from "framer-motion";

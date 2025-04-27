@@ -93,7 +93,7 @@ function Navbar({ className }: { className?: string }) {
             <img
               src={LogoDark}
               alt="ChaiCode Logo - Light"
-              className="block dark:hidden w-[80px] md:w-[100px]"
+              className="block dark:hidden w-[100px] md:w-[150px]"
               width={100}
               height={100}
               aria-hidden="true"
@@ -102,7 +102,7 @@ function Navbar({ className }: { className?: string }) {
             <img
               src={LogoLight}
               alt="ChaiCode Logo - Dark"
-              className="hidden dark:block w-[80px] md:w-[100px]"
+              className="hidden dark:block w-[100px] md:w-[150px]"
               width={100}
               height={100}
               aria-hidden="true"

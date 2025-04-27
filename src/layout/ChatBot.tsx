@@ -2,64 +2,29 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import LogoLight from "@/assets/chaicode/chai-white.svg";
 import LogoDark from "@/assets/chaicode/chai-gray.svg";
+import Fuse from "fuse.js";
 
 function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(false); // State to track mute status
   const [input, setInput] = useState("");
   const [chat, setChat] = useState<{ from: "user" | "bot"; text: string }[]>(
     []
   );
 
-  // ✅ Expanded Chatbot Data with Hitesh Choudhary and ChaiCode Benefits
   const chatbotData: Record<string, string> = {
+    // General Greetings
     hi: "Hello! How can I assist you today?",
     hello: "Hi there! Ask me anything about our platform.",
+    hey: "Hey! How can I help you?",
+    "good morning": "Good morning! How can I assist you today?",
+    "good evening": "Good evening! What can I help you with?",
+  
+    // About ChaiCode
     "what is chai code?":
       "ChaiCode is a gamified frontend platform to learn and build like a pro!",
-    "how do i join a cohort?":
-      "Go to the Join Cohort section and click on the 'Join Now' button.",
-    "what tech is used?":
-      "We use React, TailwindCSS, TypeScript, and cutting-edge UI tools.",
-    "who are you?": "I am ChaiBot, your friendly AI assistant for ChaiCode.",
     "tell me about chai code":
       "ChaiCode is a learning platform that focuses on hands-on coding projects and gamified learning experiences.",
-    "what is a cohort?":
-      "A cohort is a group-based learning program where participants learn together over a set period.",
-    "how does it work?":
-      "You’ll join a cohort, attend live sessions, complete projects, and get feedback from mentors.",
-    "is it free?": "Yes, most of our resources and cohorts are completely free!",
-    "do you have a youtube channel?":
-      "Yes! Check out our YouTube channel for tutorials and live streams.",
-    "how can i contribute?":
-      "You can contribute by participating in open-source projects or sharing your knowledge with others.",
-    "what programming languages do you teach?":
-      "We cover JavaScript, Python, TypeScript, and more.",
-    "can i get a certificate?":
-      "Yes, participants who complete the cohort receive a certificate.",
-    "what is gamified learning?":
-      "Gamified learning uses game-like elements such as points, badges, and leaderboards to make learning fun and engaging.",
-    "how long is a cohort?":
-      "Cohorts typically last 4-6 weeks, depending on the topic.",
-    "what if i miss a session?":
-      "All sessions are recorded, so you can watch them later.",
-    "is there mentor support?":
-      "Yes, we provide mentorship and support throughout the cohort.",
-    "how do i contact support?":
-      "You can reach out to us via email or through our social media channels.",
-    "default":
-      "Sorry, I don't understand that yet. Could you rephrase your question?",
-
-    // ✅ New Questions About Hitesh Choudhary
-    "who is hitesh choudhary?":
-      "Hitesh Choudhary is a renowned software developer, educator, and the founder of ChaiCode. He is passionate about teaching programming in a fun and engaging way.",
-    "why did hitesh start chai code?":
-      "Hitesh started ChaiCode to make learning programming accessible, interactive, and enjoyable for everyone, especially beginners.",
-    "what is hitesh's background?":
-      "Hitesh has a strong background in software development and education. He has worked on various projects and has a massive following on platforms like YouTube.",
-    "where can i find hitesh choudhary?":
-      "You can find Hitesh on YouTube, Twitter, and LinkedIn. He shares valuable content about programming, web development, and career advice.",
-
-    // ✅ New Questions About Why ChaiCode and Its Benefits
     "why should i join chai code?":
       "ChaiCode offers hands-on learning, gamified challenges, mentorship, and a supportive community—all for free! It’s perfect for anyone looking to grow their skills.",
     "what makes chai code different?":
@@ -72,18 +37,107 @@ function ChatBot() {
       "While ChaiCode focuses on skill-building, completing cohorts and projects can enhance your portfolio, making you more employable.",
     "how does chai code help me grow?":
       "ChaiCode helps you grow by providing structured learning paths, hands-on projects, mentorship, and a vibrant community to learn from.",
-    "what kind of projects can i build?":
-      "You can build websites, web applications, APIs, and even AI/ML models depending on the cohort you join.",
     "is chai code only for frontend?":
       "No, while ChaiCode emphasizes frontend development, it also covers backend, full-stack, and other technologies like AI/ML.",
+  
+    // Cohorts
+    "what is a cohort?":
+      "A cohort is a group-based learning program where participants learn together over a set period.",
+    "how do i join a cohort?":
+      "Go to the Join Cohort section and click on the 'Join Now' button.",
+    "how does it work?":
+      "You’ll join a cohort, attend live sessions, complete projects, and get feedback from mentors.",
+    "how long is a cohort?":
+      "Cohorts typically last 4-6 weeks, depending on the topic.",
+    "what if i miss a session?":
+      "All sessions are recorded, so you can watch them later.",
+    "is there mentor support?":
+      "Yes, we provide mentorship and support throughout the cohort.",
+    "can i get a certificate?":
+      "Yes, participants who complete the cohort receive a certificate.",
+  
+    // Gamified Learning
+    "what is gamified learning?":
+      "Gamified learning uses game-like elements such as points, badges, and leaderboards to make learning fun and engaging.",
+    "what kind of projects can i build?":
+      "You can build websites, web applications, APIs, and even AI/ML models depending on the cohort you join.",
+  
+    // Programming Languages and Technologies
+    "what programming languages do you teach?":
+      "We cover JavaScript, Python, TypeScript, and more.",
+    "what tech is used?":
+      "We use React, TailwindCSS, TypeScript, and cutting-edge UI tools.",
+    "is chai code free?":
+      "Yes, most of our resources and cohorts are completely free!",
+  
+    // Hitesh Choudhary
+    "who is hitesh choudhary?":
+      "Hitesh Choudhary is a renowned software developer, educator, and the founder of ChaiCode. He is passionate about teaching programming in a fun and engaging way.",
+    "why did hitesh start chai code?":
+      "Hitesh started ChaiCode to make learning programming accessible, interactive, and enjoyable for everyone, especially beginners.",
+    "what is hitesh's background?":
+      "Hitesh has a strong background in software development and education. He has worked on various projects and has a massive following on platforms like YouTube.",
+    "where can i find hitesh choudhary?":
+      "You can find Hitesh on YouTube, Twitter, and LinkedIn. He shares valuable content about programming, web development, and career advice.",
+  
+    // Community and Contributions
+    "do you have a youtube channel?":
+      "Yes! Check out our YouTube channel for tutorials and live streams.",
+    "how can i contribute?":
+      "You can contribute by participating in open-source projects or sharing your knowledge with others.",
+    "how do i contact support?":
+      "You can reach out to us via email or through our social media channels.",
+  
+    // Default Response
+    default:
+      "Sorry, I don't understand that yet. Could you rephrase your question?",
+  };
+const speak = (text: string) => {
+  const synth = window.speechSynthesis;
+
+  // Stop any ongoing speech before starting a new one
+  if (synth.speaking) {
+    synth.cancel();
+  }
+
+  if (isMuted) {
+    console.log("Muted: No sound will play.");
+    return; // Do not speak if muted
+  }
+
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = "en-US";
+
+  // Dynamically check if muted during speech
+  utter.onstart = () => {
+    if (isMuted) {
+      synth.cancel();
+    }
   };
 
-  const speak = (text: string) => {
-    const synth = window.speechSynthesis;
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "en-US";
-    synth.speak(utter);
-  };
+  synth.speak(utter);
+};
+
+const toggleMute = () => {
+  setIsMuted((prev) => {
+    const newMutedState = !prev;
+
+    // Cancel ongoing speech if muting
+    if (newMutedState) {
+      const synth = window.speechSynthesis;
+      if (synth.speaking) {
+        synth.cancel();
+        console.log("Speech canceled due to mute.");
+      }
+    }
+
+    console.log("Mute state:", newMutedState);
+    return newMutedState;
+  });
+};
+
+
+
 
   const toggleChat = () => {
     const newState = !isOpen;
@@ -92,19 +146,28 @@ function ChatBot() {
     if (!newState) {
       setChat([]);
       localStorage.removeItem("chatHistory");
+      setIsMuted(true); // Mute the bot when the chat is closed
     }
   };
+
 
   const sendMessage = () => {
     if (!input.trim()) return;
 
-    const userMsg = input.trim();
-    const botMsg =
-      chatbotData[userMsg.toLowerCase()] || chatbotData["default"];
+    const userMsg = input.trim().toLowerCase();
+
+    const fuse = new Fuse(Object.keys(chatbotData), {
+      includeScore: true,
+      threshold: 0.4,
+    });
+
+    const result = fuse.search(userMsg);
+    const matchedKey = result.length > 0 ? result[0].item : "default";
+    const botMsg = chatbotData[matchedKey];
 
     const newChat = [
       ...chat,
-      { from: "user", text: userMsg },
+      { from: "user", text: input },
       { from: "bot", text: botMsg },
     ] as { from: "user" | "bot"; text: string }[];
 
@@ -125,7 +188,7 @@ function ChatBot() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50" aria-label="ChaiCode AI ChatBot Assistant">
-      {/* Toggle Button with Tooltip */}
+      {/* Toggle Button */}
       <div className="relative group">
         <button
           onClick={toggleChat}
@@ -147,17 +210,6 @@ function ChatBot() {
             height={32}
           />
         </button>
-
-        {/* Tooltip - Only on Hover */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileHover={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-3 py-1 rounded-lg shadow-lg opacity-0 group-hover:opacity-100"
-          role="tooltip"
-        >
-          ChaiCode Chatbot: Ask me anything!
-        </motion.div>
       </div>
 
       {/* ChatBox */}
@@ -172,13 +224,24 @@ function ChatBot() {
         {/* Header */}
         <div className="flex justify-between items-center bg-orange-500 text-white px-4 py-2 font-semibold" role="heading">
           <span>ChaiCode Bot</span>
-          <button
-            onClick={toggleChat}
-            className="text-white hover:text-black text-lg"
-            aria-label="Close Chat"
-          >
-            ✕
-          </button>
+          <div className="flex items-center space-x-2">
+            {/* Mute Button */}
+            <button
+              onClick={toggleMute}
+              className="text-white hover:text-black text-lg"
+              aria-label={isMuted ? "Unmute Bot" : "Mute Bot"}
+            >
+              {isMuted ? "🔇" : "🔊"}
+            </button>
+            {/* Close Button */}
+            <button
+              onClick={toggleChat}
+              className="text-white hover:text-black text-lg"
+              aria-label="Close Chat"
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         {/* Chat Messages */}

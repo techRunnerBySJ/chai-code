@@ -140,6 +140,29 @@ export function AppDownload() {
                     </motion.div>
                   ))}
                 </div>
+                {/* Footer - Gradient Effect */}
+                <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-neutral-800 to-transparent rounded-b-[2.5rem] pointer-events-none" />
+                {/* Footer - Download Buttons */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full flex justify-center gap-4 mb-5">
+                    <a
+                      href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg shadow-lg transition-all text-sm"
+                    >
+                      <FaApple className="text-lg" />
+                      Download
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg shadow-lg transition-all text-sm"
+                    >
+                      <FaGooglePlay className="text-lg" />
+                      Download
+                    </a>
+                </div>
               </div>
             </div>
           </motion.div>

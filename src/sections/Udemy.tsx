@@ -1,5 +1,4 @@
 import Carousel from "../components/ui/carousel";
-import React from "react";
 import { motion } from "framer-motion";
 
 function Udemy() {

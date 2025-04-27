@@ -1,4 +1,3 @@
-import React from "react";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { motion } from "framer-motion";
 

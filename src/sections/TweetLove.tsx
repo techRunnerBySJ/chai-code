@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
 
 function TweetLove() {

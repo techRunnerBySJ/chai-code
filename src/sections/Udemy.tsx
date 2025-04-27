@@ -1,5 +1,6 @@
 import Carousel from "../components/ui/carousel";
 import { motion } from "framer-motion";
+import UdemyImage from "@/assets/images/udemy.jpg";
 
 function Udemy() {
   const containerVariants = {
@@ -15,7 +16,7 @@ function Udemy() {
 
   const slideData = [
     {
-      src: "src/assets/images/udemy.jpg",
+      src: UdemyImage,
       title: "Udemy",
       description: "Udemy is a platform for learning new skills. It is a great platform for learning new skills. It is a great platform for learning new skills.",
       ratings: "4.5",
@@ -23,7 +24,7 @@ function Udemy() {
       buttonUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/"
     },
     {
-      src: "src/assets/images/udemy.jpg",
+      src: UdemyImage,
       title: "Udemy",
       description: "Udemy is a platform for learning new skills. It is a great platform for learning new skills. It is a great platform for learning new skills.",
       ratings: "4.5",
@@ -31,7 +32,7 @@ function Udemy() {
       buttonUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/"
     },
     {
-      src: "src/assets/images/udemy.jpg",
+      src: UdemyImage,
       title: "Udemy",
       description: "Udemy is a platform for learning new skills. It is a great platform for learning new skills. It is a great platform for learning new skills.",
       ratings: "4.5",
@@ -39,7 +40,7 @@ function Udemy() {
       buttonUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/"
     },
     {
-      src: "src/assets/images/udemy.jpg",
+      src: UdemyImage,
       title: "Udemy",
       description: "Udemy is a platform for learning new skills. It is a great platform for learning new skills. It is a great platform for learning new skills.",
       ratings: "4.5",
@@ -47,7 +48,7 @@ function Udemy() {
       buttonUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/"
     },
     {
-      src: "src/assets/images/udemy.jpg",
+      src: UdemyImage,
       title: "Udemy",
       description: "Udemy is a platform for learning new skills. It is a great platform for learning new skills. It is a great platform for learning new skills.",
       ratings: "4.5",
@@ -55,7 +56,7 @@ function Udemy() {
       buttonUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/"
     },
     {
-      src: "src/assets/images/udemy.jpg",
+      src: UdemyImage,
       title: "Udemy",
       description: "Udemy is a platform for learning new skills. It is a great platform for learning new skills. It is a great platform for learning new skills.",
       ratings: "4.5",
@@ -63,7 +64,7 @@ function Udemy() {
       buttonUrl: "https://www.udemy.com/course/the-complete-web-development-bootcamp/"
     },
     {
-      src: "src/assets/images/udemy.jpg",
+      src: UdemyImage,
       title: "Udemy",
       description: "Udemy is a platform for learning new skills. It is a great platform for learning new skills. It is a great platform for learning new skills.",
       ratings: "4.5",
@@ -98,8 +99,7 @@ function Udemy() {
           className="text-sm mb-0 lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
           role="text"
         >
-          From Image generation to video generation, Everything AI has APIs for
-          literally everything. It can even create this website copy for you.
+          Not Only in India we are global leaders in tech education.
         </p>
       </motion.div>
 

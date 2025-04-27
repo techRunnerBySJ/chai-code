@@ -132,6 +132,7 @@ export const BentoGridItem = ({
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           aria-label={`Video content for ${title}`}
+          loading="lazy"
         />
       </div>
       <div

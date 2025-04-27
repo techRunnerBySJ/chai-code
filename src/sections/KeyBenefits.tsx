@@ -112,6 +112,7 @@ export function KeyBenefits() {
                   width={40}
                   height={40}
                   aria-hidden="true"
+                  loading="lazy"
                 />
                 <img
                   src={LogoLight}
@@ -120,6 +121,7 @@ export function KeyBenefits() {
                   width={40}
                   height={40}
                   aria-hidden="true"
+                  loading="lazy"
                 />
                 <h3 className="text-xl font-bold text-black dark:text-white">
                   {benefit.title}
@@ -179,6 +181,7 @@ export function KeyBenefits() {
             transition={{ delay: idx * 0.1 }}
             viewport={{ once: true }}
             role="presentation"
+            loading="lazy"
           />
         ))}
       </div>

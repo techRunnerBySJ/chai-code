@@ -53,6 +53,7 @@ function Footer() {
               width={32}
               height={32}
               aria-hidden="true"
+              loading="lazy"
             />
             <img
               src={LogoLight}
@@ -61,6 +62,7 @@ function Footer() {
               width={32}
               height={32}
               aria-hidden="true"
+              loading="lazy"
             />
             <h1 className="text-lg md:text-xl font-bold" aria-label="ChaiCode">
               ChaiCode

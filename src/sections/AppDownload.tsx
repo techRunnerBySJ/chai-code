@@ -112,6 +112,7 @@ export function AppDownload() {
                     width={100}
                     height={100}
                     aria-hidden="true"
+                    loading="lazy"
                   />
                 </div>
   

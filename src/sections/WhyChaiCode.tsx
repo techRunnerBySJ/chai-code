@@ -134,6 +134,9 @@ export function WhyChaiCodeCards() {
             src={HiteshSir}
             alt="Hitesh Choudhary"
             className="w-32 h-32 rounded-full shadow-md mb-6"
+            aria-hidden="true"
+            role="presentation"
+            loading="lazy"
           />
           <h3 className="text-2xl font-bold text-black dark:text-white">
             Hitesh Choudhary

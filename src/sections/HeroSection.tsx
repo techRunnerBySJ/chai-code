@@ -143,9 +143,7 @@ export function HeroSectionOne() {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 onLoad={() => setIsVideoLoaded(true)}
-                role="presentation"
-                aria-label="Chai aur Code YouTube video"
-                loading="lazy"
+                
               />
             </div>
             <h3 

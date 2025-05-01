@@ -73,7 +73,7 @@ export function KeyBenefits() {
       role="region"
       aria-label="Key benefits of ChaiCode"
     >
-      <div className="px-20 mt-20" role="presentation">
+      <div className="md:px-10 mt-20" role="presentation">
         <h4 className="section-title" role="heading" aria-level={2}>
           Key Benefits
         </h4>

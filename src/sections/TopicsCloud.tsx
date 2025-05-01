@@ -156,7 +156,7 @@ export const TopicsCloud = () => {
       role="region"
       aria-label="Technology topics cloud"
     >
-      <div className="px-20 mt-20" role="presentation">
+      <div className="md:px-10 mt-20" role="presentation">
         <h4
           className="section-title"
           role="heading"

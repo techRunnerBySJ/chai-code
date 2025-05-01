@@ -34,7 +34,7 @@ function CohortLiveClasses() {
       className="relative"
     >
       <motion.div 
-        className="px-20 mt-20"
+        className="md:px-10 mt-20"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

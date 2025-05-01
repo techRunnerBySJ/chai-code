@@ -71,7 +71,7 @@ function TweetLove() {
       aria-label="Community tweets section"
     >
 
-      <div className="px-20 mt-20" role="presentation">
+      <div className="md:px-10 mt-10" role="presentation">
         <h4 className="section-title" role="heading" aria-level={2}>
           Tweet Love
         </h4>
@@ -86,7 +86,7 @@ function TweetLove() {
           <LoadingTypewriter />
         </div>
       ) : (
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
           {embeddedTweets.map((html, index) => (
             <div
               key={index}

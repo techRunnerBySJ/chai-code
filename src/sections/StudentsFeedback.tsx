@@ -73,7 +73,7 @@ export function StudentsFeedback() {
       id="reviews"
       className="mx-auto max-w-sm px-6 transition-colors duration-300 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 mt-10 md:mt-20"
     >
-      <div className="px-4 md:px-20 mt-20 mb-10">
+      <div className="px-4 md:md:px-10 mt-20 mb-10">
         <h4
           className="section-title"
           role="heading"

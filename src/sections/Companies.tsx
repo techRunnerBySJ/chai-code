@@ -151,7 +151,7 @@ function CompaniesSection() {
       viewport={{ once: true, margin: "-100px" }}
     >
       <motion.div 
-        className="px-20 mt-20"
+        className="md:px-10 mt-20"
         variants={containerVariants}
       >
         <h4 className="section-title" role="heading" aria-level={2}>

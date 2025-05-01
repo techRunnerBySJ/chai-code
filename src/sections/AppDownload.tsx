@@ -22,7 +22,7 @@ export function AppDownload() {
             className="w-full md:w-1/2 text-center md:text-left"
           >
 <div 
-        className="px-20 md:mt-20"
+        className="md:px-10 md:mt-20"
         role="presentation"
       >
          <h4

@@ -28,9 +28,6 @@ function JoinCommunity() {
       role="region"
       aria-label="Community section"
     >
-      {/* <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
-        The road to become a skilled coder starts from here
-      </p> */}
       <TypewriterEffectSmooth 
         words={words} 
         aria-label="Community invitation message"

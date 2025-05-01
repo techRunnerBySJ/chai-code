@@ -1,6 +1,6 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
-import { useState, useRef, useId, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { InfoAndCtaButton } from "@/layout/BuyNow";
 
 interface SlideData {
@@ -62,7 +62,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     <div className="[perspective:1200px] [transform-style:preserve-3d]">
       <li
         ref={slideRef}
-        className="relative text-white  max-w-[90vw] w-[600px] h-fit mx-[4vmin] rounded-xl overflow-hidden shadow-xl transition-all duration-300 ease-in-out"
+        className="relative text-white max-w-[90vw] w-[600px] h-fit mx-[4vmin] rounded-xl overflow-hidden shadow-xl transition-all duration-300 ease-in-out"
         onClick={() => handleSlideClick(index)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -73,26 +73,53 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               : "scale(1) rotateX(0deg)",
           transformOrigin: "bottom",
         }}
+        role="listitem"
+        aria-label={`Course: ${title}`}
+        aria-current={current === index ? "true" : "false"}
+        tabIndex={0}
       >
         {/* Main Layout */}
-        <div className="flex flex-col md:flex-row bg-[#1D1F2F] dark:bg-[#111] p-6 gap-6 relative">
+        <div 
+          className="flex flex-col md:flex-row bg-[#1D1F2F] dark:bg-[#111] p-6 gap-6 relative"
+          role="article"
+        >
           {/* Status Tag */}
-          <div className="absolute top-4 right-4  text-white text-xs px-3 py-1 rounded-md shadow-md"
-          style={{
-            backgroundColor: "var(--brand-color)"
-          }}
+          <div 
+            className="absolute top-4 right-4 text-white text-xs px-3 py-1 rounded-md shadow-md"
+            style={{
+              backgroundColor: "var(--brand-color)"
+            }}
+            role="status"
+            aria-label={`Course status: ${status}`}
           >
             {status}
           </div>
 
           {/* Text Section */}
-          <div className="flex-[0.7] flex flex-col justify-center gap-4">
-            <h2 className="text-2xl font-semibold">{title}</h2>
-            <p className="text-sm text-neutral-300 dark:text-neutral-400">{description}</p>
-            <div className="md:text-xl text-lg bg-gradient-to-br from-purple-500 to-indigo-600 dark:from-purple-300 dark:to-indigo-400 px-3 py-1 rounded-md w-fit text-white shadow"
-            style={{
-              backgroundColor: "var(--brand-color)"
-            }}
+          <div 
+            className="flex-[0.7] flex flex-col justify-center gap-4"
+            role="contentinfo"
+          >
+            <h2 
+              className="text-2xl font-semibold"
+              role="heading"
+              aria-level={3}
+            >
+              {title}
+            </h2>
+            <p 
+              className="text-sm text-neutral-300 dark:text-neutral-400"
+              role="text"
+            >
+              {description}
+            </p>
+            <div 
+              className="md:text-xl text-lg bg-gradient-to-br from-purple-500 to-indigo-600 dark:from-purple-300 dark:to-indigo-400 px-3 py-1 rounded-md w-fit text-white shadow"
+              style={{
+                backgroundColor: "var(--brand-color)"
+              }}
+              role="text"
+              aria-label={`Course rating: ${ratings} stars`}
             >
               ⭐ {ratings}
             </div>
@@ -101,13 +128,18 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               target="_blank"
               rel="noreferrer"
               className="mt-4 w-fit"
+              role="button"
+              aria-label={`Enroll in ${title} course`}
             >
-             <InfoAndCtaButton/>
+              <InfoAndCtaButton/>
             </a>
           </div>
 
           {/* Image Section */}
-          <div className="flex-[0.3]">
+          <div 
+            className="flex-[0.3]"
+            role="presentation"
+          >
             <div className="w-full h-full overflow-hidden rounded-xl border-2 border-gray-300">
               <img
                 src={src}
@@ -115,6 +147,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
                 onLoad={imageLoaded}
                 className="object-cover w-full h-full transition-opacity duration-500 rounded-xl"
                 style={{ opacity: current === index ? 1 : 0.6 }}
+                role="img"
               />
             </div>
           </div>
@@ -143,8 +176,14 @@ const CarouselControl = ({
       }`}
       title={title}
       onClick={handleClick}
+      role="button"
+      aria-label={title}
+      tabIndex={0}
     >
-      <IconArrowNarrowRight className="text-neutral-600 dark:text-neutral-200" />
+      <IconArrowNarrowRight 
+        className="text-neutral-600 dark:text-neutral-200" 
+        aria-hidden="true"
+      />
     </button>
   );
 };
@@ -172,21 +211,22 @@ export default function Carousel({ slides }: CarouselProps) {
     }
   };
 
-  const id = useId();
-
   return (
     <div
-    className="relative w-[90vw] md:w-[70vmin] h-auto md:h-[317px] mx-auto"
-    aria-labelledby={`carousel-heading-${id}`}
-  >
-<ul
-  className="flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
-  style={{
-    transform: `translateX(-${current * 100}%)`
-  }}
-  
->
-
+      className="relative w-[90vw] md:w-[70vmin] h-auto md:h-[317px] mx-auto"
+      role="region"
+      aria-label="Course carousel"
+      aria-roledescription="carousel"
+      aria-live="polite"
+    >
+      <ul
+        className="flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
+        style={{
+          transform: `translateX(-${current * 100}%)`
+        }}
+        role="list"
+        aria-label="List of courses"
+      >
         {slides.map((slide, index) => (
           <Slide
             key={index}
@@ -198,7 +238,11 @@ export default function Carousel({ slides }: CarouselProps) {
         ))}
       </ul>
 
-      <div className="absolute flex justify-center w-full top-[calc(100%+1rem)]">
+      <div 
+        className="absolute flex justify-center w-full top-[calc(100%+1rem)]"
+        role="group"
+        aria-label="Carousel controls"
+      >
         <CarouselControl
           type="previous"
           title="Go to previous slide"

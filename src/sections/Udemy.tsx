@@ -88,7 +88,7 @@ function Udemy() {
         role="presentation"
       >
         <h4 
-          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          className="section-title"
           role="heading"
           aria-level={2}
         >
@@ -96,7 +96,7 @@ function Udemy() {
         </h4>
 
         <p 
-          className="text-sm mb-0 lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          className="section-paragraph"
           role="text"
         >
           Not Only in India we are global leaders in tech education.

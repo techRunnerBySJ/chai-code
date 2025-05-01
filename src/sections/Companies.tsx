@@ -154,11 +154,11 @@ function CompaniesSection() {
         className="px-20 mt-20"
         variants={containerVariants}
       >
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+        <h4 className="section-title" role="heading" aria-level={2}>
           Our Students Work At
         </h4>
 
-        <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+        <p className="section-paragraph" role="text">
           Our students are not only working in big tech companies, but 
           are now founders of funded startups and product creators.
         </p>

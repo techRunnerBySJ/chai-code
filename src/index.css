@@ -150,3 +150,69 @@ body {
 .bounce2 { animation: bounce2 2.5s infinite ease-in-out; }
 .bounce3 { animation: bounce3 2s infinite ease-in-out; }
 
+/* Common styles for section titles */
+.section-title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  text-align: center;
+  font-weight: 700;
+  color: #000; /* Light mode: black text */
+  margin: 0 auto;
+  max-width: 80rem;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+
+  /* Glow effect for the text */
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.6);
+}
+
+/* Larger font sizes for bigger screens */
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* Orange spotlight effect behind the title */
+.section-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160%;
+  height: 160%;
+  z-index: -1;
+  opacity: 0.8;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* Dark mode styles */
+.dark .section-title {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.6);
+}
+
+
+/* Paragraph below the title */
+.section-paragraph {
+  font-size: 1.25rem;
+  text-align: center;
+  color: #000;
+  max-width: 60rem;
+  margin: 1rem auto;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Paragraph color in dark mode */
+.dark .section-paragraph {
+  color: #fff;
+}

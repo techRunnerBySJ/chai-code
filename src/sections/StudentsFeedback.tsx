@@ -75,7 +75,7 @@ export function StudentsFeedback() {
     >
       <div className="px-4 md:px-20 mt-20 mb-10">
         <h4
-          className="text-2xl md:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          className="section-title"
           role="heading"
           aria-level={2}
         >
@@ -83,7 +83,7 @@ export function StudentsFeedback() {
         </h4>
 
         <p
-          className="text-sm md:text-base lg:text-lg max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          className="section-paragraph"
           role="text"
         >
           Explore the incredible advantages of enrolling in our courses and enhancing your skills.

@@ -7,9 +7,9 @@ export const FreeApi = () => {
       role="region"
       aria-label="Free API section"
     >
-      <div className="px-20 mt-20" role="presentation">
+      <div className="px-20 mt-20 mb-10" role="presentation">
         <h4
-          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          className="section-title"
           role="heading"
           aria-level={2}
         >

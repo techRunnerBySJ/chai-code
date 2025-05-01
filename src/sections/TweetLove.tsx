@@ -70,12 +70,14 @@ function TweetLove() {
       role="region"
       aria-label="Community tweets section"
     >
-      <div className="px-6 mt-20 text-center">
-        <h4 className="text-3xl lg:text-5xl font-medium text-black dark:text-white">
+
+      <div className="px-20 mt-20" role="presentation">
+        <h4 className="section-title" role="heading" aria-level={2}>
           Tweet Love
         </h4>
-        <p className="text-sm lg:text-base mt-4 text-neutral-500 dark:text-neutral-300">
-          Love that we get from our community
+      
+        <p className="section-paragraph" role="text">
+        Love that we get from our community
         </p>
       </div>
 

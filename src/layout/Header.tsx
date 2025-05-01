@@ -128,7 +128,7 @@ function Navbar({ className }: { className?: string }) {
             </button>
 
             <button 
-              onClick={() => handleNavClick('benefits')} 
+              onClick={() => handleNavClick('udemy')} 
               className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
               aria-label="Navigate to Benefits section"
             >
@@ -164,7 +164,7 @@ function Navbar({ className }: { className?: string }) {
         >
           {/* Social Icons - Hidden on mobile and tablet */}
           <div 
-            className="hidden lg:flex items-center space-x-4"
+            className="hidden xl:flex items-center space-x-4"
             role="navigation"
             aria-label="Social media links"
           >
@@ -283,10 +283,10 @@ function Navbar({ className }: { className?: string }) {
             <IoMdLogIn size={20} aria-hidden="true" />
           </button>
 
-          {/* Hamburger Menu Button - Visible on mobile and tablet */}
+          {/* Hamburger Menu Button - Visible on mobile, tablet, and iPad Pro */}
           <button 
             onClick={toggleMenu} 
-            className="lg:hidden p-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+            className="xl:hidden p-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -303,7 +303,7 @@ function Navbar({ className }: { className?: string }) {
       {/* Mobile Menu - Slides down when menu is open */}
       <div 
         id="mobile-menu"
-        className={`lg:hidden fixed left-0 right-0 top-[64px] transition-all duration-300 ease-in-out ${
+        className={`xl:hidden fixed left-0 right-0 top-[64px] transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
         }`}
         role="navigation"
@@ -325,7 +325,7 @@ function Navbar({ className }: { className?: string }) {
           </button>
 
           <button 
-            onClick={() => handleNavClick('benefits')} 
+            onClick={() => handleNavClick('udemy')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Benefits section"
           >

@@ -108,6 +108,14 @@ export function HeroSectionOne() {
         <HeroText />
       </motion.div>
 
+            {/* Join Now Button */}
+            <motion.div 
+        variants={itemVariants}
+        role="presentation"
+      >
+        <JoinNowButton />
+      </motion.div>
+
       {/* YouTube Video */}
       <motion.div
         className="w-full flex justify-center relative"
@@ -163,13 +171,6 @@ export function HeroSectionOne() {
         </motion.div>
       </motion.div>
 
-      {/* Join Now Button */}
-      <motion.div 
-        variants={itemVariants}
-        role="presentation"
-      >
-        <JoinNowButton />
-      </motion.div>
     </motion.section>
   );
 }

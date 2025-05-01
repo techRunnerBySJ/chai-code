@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { LoadingTypewriter } from "../components/ui/loading-typewriter";
 
 interface TwitterWidget {
   widgets: {
@@ -66,6 +65,28 @@ function TweetLove() {
     };
   }, []);
 
+  const TweetSkeleton = () => (
+    <div className="w-full min-h-[200px] bg-white dark:bg-neutral-900 shadow-md p-4 rounded-xl">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+        <div className="flex-1">
+          <div className="h-4 w-24 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse mb-2" />
+          <div className="h-3 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        </div>
+      </div>
+      <div className="space-y-3">
+        <div className="h-4 w-full bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <div className="h-4 w-3/4 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <div className="h-4 w-1/2 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+      </div>
+      <div className="flex items-center gap-4 mt-4">
+        <div className="h-4 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <div className="h-4 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <div className="h-4 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+      </div>
+    </div>
+  );
+
   return (
     <section
       ref={containerRef}
@@ -94,21 +115,19 @@ function TweetLove() {
         </p>
       </div>
 
-      {isLoading ? (
-        <div 
-          className="mt-12 flex items-center justify-center"
-          role="status"
-          aria-label="Loading tweets"
-        >
-          <LoadingTypewriter />
-        </div>
-      ) : (
-        <div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl"
-          role="feed"
-          aria-label="Community tweets feed"
-        >
-          {embeddedTweets.map((html, index) => (
+      <div 
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl"
+        role="feed"
+        aria-label="Community tweets feed"
+      >
+        {isLoading ? (
+          <>
+            <TweetSkeleton />
+            <TweetSkeleton />
+            <TweetSkeleton />
+          </>
+        ) : (
+          embeddedTweets.map((html, index) => (
             <div
               key={index}
               className="w-full min-h-[200px] bg-white dark:bg-neutral-900 shadow-md p-4 rounded-xl"
@@ -118,9 +137,9 @@ function TweetLove() {
               aria-live="polite"
               tabIndex={0}
             />
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
 
       {tweetsLoaded && (
         <div 

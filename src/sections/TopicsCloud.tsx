@@ -235,3 +235,5 @@ export const TopicsCloud = () => {
     </section>
   );
 };
+
+export default TopicsCloud;

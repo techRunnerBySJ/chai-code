@@ -1,24 +1,35 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect } from "react";
 import { DotBackgroundDemo } from "./components/ui/background"
 import { Header } from "./layout/Header"
 import { ErrorBoundary } from "react-error-boundary";
-import { TopicsCloud } from "./sections/TopicsCloud";
-import { FreeApi } from "./sections/FreeApi";
-import { motion } from "framer-motion";
-import CompaniesSection from "./sections/Companies";
-import { AppDownload } from "./sections/AppDownload";
+import { LoadingTypewriter } from "./components/ui/loading-typewriter";
 
-// Lazy load components with proper type casting
-const Udemy = React.lazy(() => import("./sections/Udemy"));
-const StudentsFeedback = React.lazy(() => import("./sections/StudentsFeedback"));
-const TweetLove = React.lazy(() => import("./sections/TweetLove"));
+// Critical components loaded immediately
 const HeroSectionOne = React.lazy(() => import("./sections/HeroSection"));
-const CohortLiveClasses = React.lazy(() => import("./sections/CohortLiveClasses"));
-const KeyBenefits = React.lazy(() => import("./sections/KeyBenefits"));
-const WhyChaiCodeCards = React.lazy(() => import("./sections/WhyChaiCode"));
-const JoinCommunity = React.lazy(() => import("./sections/JoinCommunity"));
-const Footer = React.lazy(() => import("./layout/Footer"));
-const ChatBot = React.lazy(() => import("./layout/ChatBot"));
+
+// Secondary components with lower priority
+const lazyWithDelay = <T extends { default: React.ComponentType<unknown> }>(
+  importFn: () => Promise<T>,
+  delay: number = 1000
+): Promise<T> =>
+  new Promise(resolve => {
+    setTimeout(() => importFn().then(resolve), delay);
+  });
+
+// Components that can be loaded after initial render
+const TopicsCloud = React.lazy(() => lazyWithDelay(() => import("./sections/TopicsCloud")));
+const FreeApi = React.lazy(() => lazyWithDelay(() => import("./sections/FreeApi")));
+const CompaniesSection = React.lazy(() => lazyWithDelay(() => import("./sections/Companies")));
+const AppDownload = React.lazy(() => lazyWithDelay(() => import("./sections/AppDownload")));
+const Udemy = React.lazy(() => lazyWithDelay(() => import("./sections/Udemy")));
+const StudentsFeedback = React.lazy(() => lazyWithDelay(() => import("./sections/StudentsFeedback")));
+const TweetLove = React.lazy(() => lazyWithDelay(() => import("./sections/TweetLove")));
+const CohortLiveClasses = React.lazy(() => lazyWithDelay(() => import("./sections/CohortLiveClasses")));
+const KeyBenefits = React.lazy(() => lazyWithDelay(() => import("./sections/KeyBenefits")));
+const WhyChaiCodeCards = React.lazy(() => lazyWithDelay(() => import("./sections/WhyChaiCode")));
+const JoinCommunity = React.lazy(() => lazyWithDelay(() => import("./sections/JoinCommunity")));
+const Footer = React.lazy(() => lazyWithDelay(() => import("./layout/Footer")));
+const ChatBot = React.lazy(() => lazyWithDelay(() => import("./layout/ChatBot"), 2000));
 
 // Add global styles for smooth scrolling
 const globalStyles = `
@@ -48,66 +59,6 @@ function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetError
   );
 }
 
-// Loading component with typewriter effect
-const LoadingTypewriter = () => {
-  const hindiText = "Haanji, kese hai aap sab, swagat hai aapka chai code par!!!!";
-  const englishText = "Hi, How are you, welcome on our chai code platform";
-  const [hindiIndex, setHindiIndex] = useState(0);
-  const [englishIndex, setEnglishIndex] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    if (hindiIndex < hindiText.length) {
-      const timeout = setTimeout(() => {
-        setHindiIndex(prev => prev + 1);
-      }, 50);
-      return () => clearTimeout(timeout);
-    } else if (englishIndex < englishText.length) {
-      const timeout = setTimeout(() => {
-        setEnglishIndex(prev => prev + 1);
-      }, 40);
-      return () => clearTimeout(timeout);
-    }
-  }, [hindiIndex, englishIndex]);
-
-  // Cursor blink effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white dark:bg-black">
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="space-y-4 max-w-2xl mx-auto px-4 text-center"
-      >
-        <div className="relative inline-block">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
-            {hindiText.slice(0, hindiIndex)}
-            {hindiIndex < hindiText.length && (
-              <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-orange-500`}>|</span>
-            )}
-          </h2>
-        </div>
-        {hindiIndex === hindiText.length && (
-          <div className="relative inline-block mt-4">
-            <p className="text-lg md:text-xl lg:text-2xl text-neutral-600 dark:text-neutral-400">
-              {englishText.slice(0, englishIndex)}
-              {englishIndex < englishText.length && (
-                <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-orange-500`}>|</span>
-              )}
-            </p>
-          </div>
-        )}
-      </motion.div>
-    </div>
-  );
-};
-
 function App() {
   useEffect(() => {
     const styleElement = document.createElement('style');
@@ -119,26 +70,55 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    // Preload critical components after initial render
+    const preloadComponents = async () => {
+      const componentsToPreload = [
+        () => import("./sections/TopicsCloud"),
+        () => import("./sections/Companies"),
+        () => import("./sections/CohortLiveClasses")
+      ];
+      
+      await Promise.all(componentsToPreload.map(comp => comp()));
+    };
+
+    preloadComponents();
+  }, []);
+
   return (
     <>
       <DotBackgroundDemo>
         <Header />
         <ErrorBoundary FallbackComponent={ErrorFallback}>
+          {/* Critical content loaded first */}
           <Suspense fallback={<LoadingTypewriter />}>
             <HeroSectionOne />
+          </Suspense>
+
+          {/* Secondary content loaded in chunks */}
+          <Suspense fallback={null}>
             <TweetLove />
             <CompaniesSection/>
+          </Suspense>
+
+          <Suspense fallback={null}>
             <div id="cohort" className="scroll-mt-32">
               <CohortLiveClasses/>
             </div>
             <div id="reviews" className="scroll-mt-32">
               <StudentsFeedback/>
             </div>
+          </Suspense>
+
+          <Suspense fallback={null}>
             <div id="udemy" className="scroll-mt-32">
               <Udemy/>
             </div>
             <KeyBenefits/>
             <WhyChaiCodeCards/>
+          </Suspense>
+
+          <Suspense fallback={null}>
             <TopicsCloud/>
             <div id="docs" className="scroll-mt-32">
               <FreeApi/>
@@ -146,15 +126,21 @@ function App() {
             <div id="app" className="scroll-mt-32">
               <AppDownload/>
             </div>
-            {/* <AppDownload/> */}
+          </Suspense>
+
+          <Suspense fallback={null}>
             <JoinCommunity/>
             <Footer/>
+          </Suspense>
+
+          {/* Load ChatBot with lowest priority */}
+          <Suspense fallback={null}>
             <ChatBot/>
           </Suspense>
         </ErrorBoundary>
       </DotBackgroundDemo>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

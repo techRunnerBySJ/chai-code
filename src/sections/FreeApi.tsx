@@ -147,3 +147,5 @@ export const FreeApi = () => {
     </div>
   );
 };
+
+export default FreeApi;

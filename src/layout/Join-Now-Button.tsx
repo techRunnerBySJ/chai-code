@@ -7,7 +7,7 @@ export function JoinNowButton() {
         href="https://courses.chaicode.com/learn/view-all?show=batch&type=17"
         target="_blank"
         rel="noopener noreferrer"
-        className="block cursor-pointer"
+        className="block cursor-pointer transition-transform duration-300 hover:scale-105"
       >
         <Button
           borderRadius="1.75rem"

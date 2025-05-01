@@ -202,7 +202,7 @@ export function KeyBenefits() {
             viewport={{ once: true }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-full blur-lg group-hover:opacity-100 transition-opacity opacity-0" />
-            <div className="relative bg-white dark:bg-neutral-800 p-2 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square">
+            <div className="relative bg-white p-2 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square">
               <img
                 src={item.src}
                 className="w-full h-full rounded-full object-cover"

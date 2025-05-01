@@ -151,29 +151,66 @@ export function KeyBenefits() {
         role="presentation"
       >
         {[
-          "https://cdn-icons-png.flaticon.com/512/5968/5968866.png",
-          "https://cdn-icons-png.flaticon.com/512/174/174857.png",
-          "https://randomuser.me/api/portraits/men/32.jpg",
-          "https://randomuser.me/api/portraits/women/44.jpg",
-          "https://cdn-icons-png.flaticon.com/512/732/732221.png",
-          "https://cdn-icons-png.flaticon.com/512/2111/2111463.png",
-          "https://cdn-icons-png.flaticon.com/512/733/733553.png",
-          "https://cdn-icons-png.flaticon.com/512/733/733558.png",
-          "https://randomuser.me/api/portraits/men/76.jpg",
-          "https://randomuser.me/api/portraits/women/68.jpg",
-        ].map((src, idx) => (
-          <motion.img
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/5968/5968866.png",
+            name: "Company 1"
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+            name: "LinkedIn"
+          },
+          {
+            src: "https://randomuser.me/api/portraits/men/32.jpg",
+            name: "Team Member 1"
+          },
+          {
+            src: "https://randomuser.me/api/portraits/women/44.jpg",
+            name: "Team Member 2"
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/732/732221.png",
+            name: "Company 2"
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/2111/2111463.png",
+            name: "Company 3"
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/733/733553.png",
+            name: "Company 4"
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/733/733558.png",
+            name: "Company 5"
+          },
+          {
+            src: "https://randomuser.me/api/portraits/men/76.jpg",
+            name: "Team Member 3"
+          },
+          {
+            src: "https://randomuser.me/api/portraits/women/68.jpg",
+            name: "Team Member 4"
+          }
+        ].map((item, idx) => (
+          <motion.div
             key={idx}
-            src={src}
-            className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-purple-400 shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
-            alt={`Company logo ${idx + 1}`}
+            className="relative group"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.1 }}
             viewport={{ once: true }}
-            role="presentation"
-            loading="lazy"
-          />
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-full blur-lg group-hover:opacity-100 transition-opacity opacity-0" />
+            <div className="relative bg-white dark:bg-neutral-800 p-2 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300">
+              <img
+                src={item.src}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
+                alt={`${item.name} logo`}
+                role="presentation"
+                loading="lazy"
+              />
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>

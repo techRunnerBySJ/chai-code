@@ -1,7 +1,8 @@
+"use client";
+
 import { JoinNowButton } from "../layout/Join-Now-Button";
-import LogoLight from "@/assets/chaicode/chai-white.svg";
-import LogoDark from "@/assets/chaicode/chai-gray.svg";
 import { motion } from "framer-motion";
+import { FaChalkboardTeacher, FaGift, FaHome, FaCode, FaLaptopCode, FaBookReader } from 'react-icons/fa';
 
 export function KeyBenefits() {
   const containerVariants = {
@@ -31,31 +32,37 @@ export function KeyBenefits() {
       title: "Taught By Professionals",
       description:
         "Our cohorts are being taught by top industry experts and educators.",
+      icon: <FaChalkboardTeacher size={24} />
     },
     {
       title: "Bounties",
       description:
         "Earn rewards, from cash to MacBook. Keeps you motivated to work hard.",
+      icon: <FaGift size={24} />
     },
     {
       title: "Coding Hostels",
       description:
         "There is nothing like night discussions with fellow learners and solving bugs.",
+      icon: <FaHome size={24} />
     },
     {
       title: "Peer Code Reviews",
       description:
         "With our internal tools like Masterji, every code assignment gets feedback to improve your code.",
+      icon: <FaCode size={24} />
     },
     {
       title: "Leet Lab",
       description:
         "Our in-house built LeetCode-style platform helps you understand the foundation of programming.",
+      icon: <FaLaptopCode size={24} />
     },
     {
       title: "Revision Classes",
       description:
         "We have so many peer classes by fellow learners that you get multiple chances to learn each topic.",
+      icon: <FaBookReader size={24} />
     },
   ];
 
@@ -104,29 +111,14 @@ export function KeyBenefits() {
             {/* Card Content */}
             <div className="relative z-10">
               <div className="flex items-center gap-4">
-                <img
-                  src={LogoDark}
-                  alt="ChaiCode Logo - Light"
-                  className="block dark:hidden"
-                  width={40}
-                  height={40}
-                  aria-hidden="true"
-                  loading="lazy"
-                />
-                <img
-                  src={LogoLight}
-                  alt="ChaiCode Logo - Dark"
-                  className="hidden dark:block"
-                  width={40}
-                  height={40}
-                  aria-hidden="true"
-                  loading="lazy"
-                />
-                <h3 className="text-xl font-bold text-black dark:text-white">
+                <div className="text-orange-500 dark:text-orange-400 group-hover:text-white transition-colors duration-300">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-white transition-colors duration-300">
                   {benefit.title}
                 </h3>
               </div>
-              <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-4">
+              <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-4 group-hover:text-white/90 transition-colors duration-300">
                 {benefit.description}
               </p>
             </div>
@@ -196,22 +188,6 @@ export function KeyBenefits() {
         role="heading"
         aria-level={3}
       >
-        <img
-          src={LogoDark}
-          alt="ChaiCode Logo - Light"
-          className="block dark:hidden"
-          width={32}
-          height={32}
-          aria-hidden="true"
-        />
-        <img
-          src={LogoLight}
-          alt="ChaiCode Logo - Dark"
-          className="hidden dark:block"
-          width={32}
-          height={32}
-          aria-hidden="true"
-        />
         Alumni Network and Job Listings
       </p>
       <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-4">

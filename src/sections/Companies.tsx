@@ -61,7 +61,70 @@ const companies = [
     name: "Netflix",
     designation: "Tech Giant",
     image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-  }
+  },
+  {
+    id: 11,
+    name: "Netflix",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+  },
+  {
+    id: 12,
+    name: "Netflix",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+  },
+  {
+    id: 13,
+    name: "Netflix",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+  },
+  {
+    id: 14,
+    name: "Netflix",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+  },
+
+  {
+    id: 15,
+    name: "Amazon",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+  },
+  {
+    id: 16,
+    name: "Amazon",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+  },
+  {
+    id: 17,
+    name: "Amazon",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+  },
+  {
+    id: 18,
+    name: "Apple",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+  },
+  {
+    id: 19,
+    name: "Apple",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+  },
+  {
+    id: 20,
+    name: "Apple",
+    designation: "Tech Giant",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+  },
+
+  
 ];
 
 function CompaniesSection() {

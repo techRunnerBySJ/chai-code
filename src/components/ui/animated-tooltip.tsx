@@ -74,12 +74,17 @@ export const AnimatedTooltip = ({
               </motion.div>
             )}
           </AnimatePresence>
-                                        <img
-                      onMouseMove={handleMouseMove}
-                      src={item.image}
-                      alt={item.name}
-                      className="relative !m-0 w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 min-w-[64px] min-h-[64px] object-contain !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
-                    />
+          <div className="relative group aspect-square w-16 h-16">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-full blur-lg group-hover:opacity-100 transition-opacity opacity-0" />
+            <div className="relative bg-white p-1 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square">
+              <img
+                onMouseMove={handleMouseMove}
+                src={item.image}
+                alt={item.name}
+                className="w-full h-full rounded-full object-contain p-1"
+              />
+            </div>
+          </div>
         </div>
       ))}
     </>

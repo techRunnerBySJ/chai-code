@@ -26,3 +26,4 @@ export function JoinNowButton() {
     </div>
   );
 }
+ export default JoinNowButton;

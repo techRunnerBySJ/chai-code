@@ -23,7 +23,7 @@ const CompaniesSection = React.lazy(() => lazyWithDelay(() => import("./sections
 const AppDownload = React.lazy(() => lazyWithDelay(() => import("./sections/AppDownload")));
 const Udemy = React.lazy(() => lazyWithDelay(() => import("./sections/Udemy")));
 const StudentsFeedback = React.lazy(() => lazyWithDelay(() => import("./sections/StudentsFeedback")));
-const TweetLove = React.lazy(() => lazyWithDelay(() => import("./sections/TweetLove")));
+const TweetLove = React.lazy(() => import("./sections/TweetLove"));
 const CohortLiveClasses = React.lazy(() => lazyWithDelay(() => import("./sections/CohortLiveClasses")));
 const KeyBenefits = React.lazy(() => lazyWithDelay(() => import("./sections/KeyBenefits")));
 const WhyChaiCodeCards = React.lazy(() => lazyWithDelay(() => import("./sections/WhyChaiCode")));
@@ -64,6 +64,14 @@ function App() {
     const styleElement = document.createElement('style');
     styleElement.innerHTML = globalStyles;
     document.head.appendChild(styleElement);
+
+    // Preload Twitter script
+    if (!window.twttr) {
+      const script = document.createElement("script");
+      script.src = "https://platform.twitter.com/widgets.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
 
     return () => {
       document.head.removeChild(styleElement);

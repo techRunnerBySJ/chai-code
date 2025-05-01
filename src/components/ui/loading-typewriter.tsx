@@ -17,7 +17,7 @@ export const LoadingTypewriter = () => {
     } else if (englishIndex < englishText.length) {
       const timeout = setTimeout(() => {
         setEnglishIndex(prev => prev + 1);
-      }, 40);
+      }, 400);
       return () => clearTimeout(timeout);
     }
   }, [hindiIndex, englishIndex]);

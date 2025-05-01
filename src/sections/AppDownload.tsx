@@ -66,7 +66,7 @@ export function AppDownload() {
             </ul>
   
             {/* Download Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start hidden md:flex">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start md:flex">
               <a
                 href="#"
                 target="_blank"

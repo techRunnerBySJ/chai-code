@@ -13,20 +13,6 @@ import { IoMdLogIn, IoMdMoon, IoMdSunny } from "react-icons/io"; // 🌙🌞 ico
 import LogoLight from "@/assets/chaicode/chaicode-white.svg";
 import LogoDark from "@/assets/chaicode/chaicode-black.svg";
 
-// Add smooth scroll function with offset
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    const headerOffset = 100; // Account for fixed header and give space for animations
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth"
-    });
-  }
-};
 
 export function Header() {
   return (

@@ -70,7 +70,7 @@ src/
 ### 🚧 Installation
 
 ```bash
-git clone https://github.com/your-username/chai-code.git
+git clone https://github.com/techRunnerBySJ/chai-code
 cd chai-code
 
 # Install dependencies
@@ -120,10 +120,11 @@ module.exports = {
 
 ## 🌐 Social Links
 
-- 📺 [YouTube - Chai Code](https://www.youtube.com/@chaicode)
-- 💼 [LinkedIn - Chai Code](https://www.linkedin.com/company/chai-code)
-- 🧑‍💻 [GitHub - Chai Code](https://github.com/chaicode)
-- 💬 [Discord - Join Community](https://discord.gg/chaicode)
+- 📺 [YouTube - Chai Code](https://www.youtube.com/@chaiaurcode)
+- 💼 [LinkedIn - Chai Code](https://www.linkedin.com/in/hiteshchoudhary/)
+- 🧑‍💻 [GitHub - Chai Code](https://github.com/hiteshchoudhary/chai-backend)
+- 💬 [Discord - Join Community](https://discord.com/invite/WDrH3zuWFb)
+- 💬 [X Twiiter - Chai Code](https://x.com/ChaiCodeHQ)
 
 ---
 

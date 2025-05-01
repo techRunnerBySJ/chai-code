@@ -85,13 +85,12 @@ function Navbar({ className }: { className?: string }) {
           role="button"
           aria-label="Return to top"
           tabIndex={0}
-          title="Return to top"
         >
           <span className="tracking-wide">
             <img
               src={LogoDark}
               alt="ChaiCode Logo - Light"
-              className="block dark:hidden w-[100px] md:w-[150px]"
+              className="block dark:hidden w-[100px] lg:w-[150px]"
               width={100}
               height={100}
               aria-hidden="true"
@@ -100,7 +99,7 @@ function Navbar({ className }: { className?: string }) {
             <img
               src={LogoLight}
               alt="ChaiCode Logo - Dark"
-              className="hidden dark:block w-[100px] md:w-[150px]"
+              className="hidden dark:block w-[100px] lg:w-[150px]"
               width={100}
               height={100}
               aria-hidden="true"
@@ -108,9 +107,9 @@ function Navbar({ className }: { className?: string }) {
           </span>
         </div>
 
-{/* CENTER: Navigation Links - Hidden on mobile */}
-<nav 
-          className="hidden md:block absolute left-1/2 transform -translate-x-1/2"
+        {/* CENTER: Navigation Links - Hidden on mobile and tablet */}
+        <nav 
+          className="hidden lg:block absolute left-1/2 transform -translate-x-1/2"
           role="navigation"
           aria-label="Main menu"
         >
@@ -163,9 +162,9 @@ function Navbar({ className }: { className?: string }) {
           role="toolbar"
           aria-label="Header actions"
         >
-          {/* Social Icons - Hidden on mobile */}
+          {/* Social Icons - Hidden on mobile and tablet */}
           <div 
-            className="hidden md:flex items-center space-x-4"
+            className="hidden lg:flex items-center space-x-4"
             role="navigation"
             aria-label="Social media links"
           >
@@ -259,7 +258,6 @@ function Navbar({ className }: { className?: string }) {
             onClick={toggleTheme} 
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-            title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
           >
             {isDark ? (
               <IoMdSunny size={20} className="text-yellow-400" aria-hidden="true" />
@@ -271,7 +269,7 @@ function Navbar({ className }: { className?: string }) {
           {/* Login Button */}
           <button 
             onClick={() => window.open("https://courses.chaicode.com/learn/account/signup", "_blank")} 
-            className="text-black flex items-center hover:text-black dark:text-white dark:hover:text-gray-300 transition  px-5 rounded-sm"
+            className="text-black flex items-center hover:text-black dark:text-white dark:hover:text-gray-300 transition px-5 rounded-sm"
             style={{
               backgroundColor: 'var(--brand-color)',
               border: 'none',
@@ -280,20 +278,18 @@ function Navbar({ className }: { className?: string }) {
               fontWeight: 'bold',
             }}
             aria-label="Sign up or log in to your account"
-            title="Sign up or log in to your account"
           >
             <span className="me-2 mt-2 mb-2">Login</span>
             <IoMdLogIn size={20} aria-hidden="true" />
           </button>
 
-          {/* Hamburger Menu Button - Visible only on mobile */}
+          {/* Hamburger Menu Button - Visible on mobile and tablet */}
           <button 
             onClick={toggleMenu} 
-            className="md:hidden p-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+            className="lg:hidden p-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            title={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? (
               <FaTimes size={20} aria-hidden="true" />
@@ -307,7 +303,7 @@ function Navbar({ className }: { className?: string }) {
       {/* Mobile Menu - Slides down when menu is open */}
       <div 
         id="mobile-menu"
-        className={`md:hidden fixed left-0 right-0 top-[64px] transition-all duration-300 ease-in-out ${
+        className={`lg:hidden fixed left-0 right-0 top-[64px] transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
         }`}
         role="navigation"

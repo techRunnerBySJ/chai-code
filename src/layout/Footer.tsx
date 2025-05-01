@@ -80,29 +80,43 @@ function Footer() {
             role="navigation"
           >
             <a
-              href="https://github.com/yourusername/issues/new"
+              href="https://github.com/hiteshchoudhary/chai-backend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-800 dark:hover:text-white transition-colors"
+              aria-label="View our GitHub repositories"
+              title="View our GitHub repositories"
+            >
+              <FaGithub className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/hiteshchoudhary/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 transition-colors"
+              aria-label="Connect with us on LinkedIn"
+              title="Connect with us on LinkedIn"
+            >
+              <FaLinkedin
+                className="w-6 h-6 md:w-5 md:h-5"
+                aria-hidden="true"
+              />
+              <span className="sr-only">LinkedIn</span>
+            </a>
+            <a
+              href="https://www.youtube.com/@chaiaurcode"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-red-600 transition-colors"
-              aria-label="Report a bug or issue"
-              title="Report a bug or issue"
+              aria-label="Subscribe to our YouTube channel"
+              title="Subscribe to our YouTube channel"
             >
-              <FaBug className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
-              <span className="sr-only">Report Bug</span>
+              <FaYoutube className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">YouTube</span>
             </a>
             <a
-              href="https://discord.gg/yourserver"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-500 transition-colors"
-              aria-label="Join our Discord community"
-              title="Join our Discord community"
-            >
-              <FaDiscord className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
-              <span className="sr-only">Discord</span>
-            </a>
-            <a
-              href="https://x.com/yourusername"
+              href="https://x.com/ChaiCodeHQ"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-800 dark:hover:text-white transition-colors"
@@ -116,15 +130,15 @@ function Footer() {
               <span className="sr-only">X (Twitter)</span>
             </a>
             <a
-              href="https://youtube.com/yourusername"
+              href="https://discord.gg/yourserver"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-red-600 transition-colors"
-              aria-label="Subscribe to our YouTube channel"
-              title="Subscribe to our YouTube channel"
+              className="hover:text-indigo-500 transition-colors"
+              aria-label="Join our Discord community"
+              title="Join our Discord community"
             >
-              <FaYoutube className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
-              <span className="sr-only">YouTube</span>
+              <FaDiscord className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">Discord</span>
             </a>
             <a
               href="https://instagram.com/yourusername"
@@ -141,29 +155,15 @@ function Footer() {
               <span className="sr-only">Instagram</span>
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="mailto:techrunner22@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-800 dark:hover:text-white transition-colors"
-              aria-label="View our GitHub repositories"
-              title="View our GitHub repositories"
+              className="hover:text-red-600 transition-colors"
+              aria-label="Report a bug or issue"
+              title="Report a bug or issue"
             >
-              <FaGithub className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a
-              href="https://linkedin.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-600 transition-colors"
-              aria-label="Connect with us on LinkedIn"
-              title="Connect with us on LinkedIn"
-            >
-              <FaLinkedin
-                className="w-6 h-6 md:w-5 md:h-5"
-                aria-hidden="true"
-              />
-              <span className="sr-only">LinkedIn</span>
+              <FaBug className="w-6 h-6 md:w-5 md:h-5" aria-hidden="true" />
+              <span className="sr-only">Report Bug</span>
             </a>
           </nav>
           <p

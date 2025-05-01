@@ -175,34 +175,20 @@ function Navbar({ className }: { className?: string }) {
             role="navigation"
             aria-label="Social media links"
           >
-
-
             <a 
-              href="https://discord.gg/yourserver" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400 transition"
-              aria-label="Join our Discord community"
-              title="Join our Discord community"
-            >
-              <FaDiscord size={20} aria-hidden="true" />
-              <span className="sr-only">Discord</span>
-            </a>
-
-            <a 
-              href="https://x.com/yourusername" 
+              href="https://github.com/hiteshchoudhary/chai-backend" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
-              aria-label="Follow us on X (formerly Twitter)"
-              title="Follow us on X (Twitter)"
+              aria-label="View our GitHub repositories"
+              title="View our GitHub repositories"
             >
-              <FaXTwitter size={18} aria-hidden="true" />
-              <span className="sr-only">X (Twitter)</span>
+              <FaGithub size={20} aria-hidden="true" />
+              <span className="sr-only">GitHub</span>
             </a>
 
             <a 
-              href="https://linkedin.com/yourusername" 
+              href="https://www.linkedin.com/in/hiteshchoudhary/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition"
@@ -214,7 +200,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://youtube.com/yourusername" 
+              href="https://www.youtube.com/@chaiaurcode" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
@@ -223,6 +209,30 @@ function Navbar({ className }: { className?: string }) {
             >
               <FaYoutube size={20} aria-hidden="true" />
               <span className="sr-only">YouTube</span>
+            </a>
+
+            <a 
+              href="https://x.com/ChaiCodeHQ" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
+              aria-label="Follow us on X (formerly Twitter)"
+              title="Follow us on X (Twitter)"
+            >
+              <FaXTwitter size={18} aria-hidden="true" />
+              <span className="sr-only">X (Twitter)</span>
+            </a>
+
+            <a 
+              href="https://discord.gg/yourserver" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-700 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400 transition"
+              aria-label="Join our Discord community"
+              title="Join our Discord community"
+            >
+              <FaDiscord size={20} aria-hidden="true" />
+              <span className="sr-only">Discord</span>
             </a>
 
             <a 
@@ -238,18 +248,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://github.com/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
-              aria-label="View our GitHub repositories"
-              title="View our GitHub repositories"
-            >
-              <FaGithub size={20} aria-hidden="true" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a 
-              href="https://github.com/yourusername/issues/new" 
+              href="mailto:techrunner22@gmail.com" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
@@ -373,7 +372,7 @@ function Navbar({ className }: { className?: string }) {
             aria-label="Social media links"
           >
             <a 
-              href="https://github.com/yourusername/issues/new" 
+              href="https://github.com/hiteshchoudhary/chai-backend" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
@@ -397,7 +396,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://x.com/yourusername" 
+              href="https://x.com/ChaiCodeHQ" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
@@ -409,7 +408,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://linkedin.com/yourusername" 
+              href="https://www.linkedin.com/in/hiteshchoudhary/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition"
@@ -421,7 +420,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://youtube.com/yourusername" 
+              href="https://www.youtube.com/@chaiaurcode" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
@@ -445,7 +444,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/hiteshchoudhary/chai-backend" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"

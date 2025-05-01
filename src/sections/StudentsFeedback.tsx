@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState } from "react";
 import LogoDark from "@/assets/chaicode/chai-gray.svg"
-import LogoLight from "@/assets/chaicode/chai-white.svg"
 
 export function StudentsFeedback() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,66 +9,59 @@ export function StudentsFeedback() {
   const testimonials = [
     {
       quote:
-        "Askedgar has transformed my trading strategy. The tool's ability to quickly analyze and present relevant SEC filings has given me a competitive edge.",
-      name: "ConsultantMike",
-      handle: "@ConsultantMike",
+        "Chai Code is a great platform for learning Python. I've learned so much in just a few weeks.",
+      name: "Saloni Jain",
+      handle: "@TechRunnerBySJ",
       avatar: LogoDark,
-      url: "https://twitter.com/ConsultantMike",
+      url: "https://x.com/TechRunnerBySJ",
     },
     {
       quote:
-        "Askedgar provides my clients with quick and reliable analysis of SEC filings, which helps them make better investment decisions.",
-      name: "ResearchMark",
-      handle: "@ResearchMark",
+        "Chai Code is a great platform for learning Python. I've learned so much in just a few weeks.",
+      name: "Saloni Jain",
+      handle: "@TechRunnerBySJ",
       avatar: LogoDark,
-      url: "https://twitter.com/ResearchMark",
-    },
-    {
-      quote: "A must-have for any trader. Fast and accurate!",
-      name: "Wally Salstrom",
-      handle: "@wallstrom",
-      avatar: LogoDark,
-      url: "https://twitter.com/wallstrom",
+      url: "https://x.com/TechRunnerBySJ",
     },
     {
       quote:
-        "Finding trade opportunities has never been easier. Thanks, Askedgar!",
-      name: "Mirabelle Nincehelsor",
-      handle: "@miranin",
+        "Chai Code is a great platform for learning Python. I've learned so much in just a few weeks.",
+      name: "Saloni Jain",
+      handle: "@TechRunnerBySJ",
       avatar: LogoDark,
-      url: "https://twitter.com/miranin",
+      url: "https://x.com/TechRunnerBySJ",
     },
     {
       quote:
-        "The best tool for SEC filing analysis I've ever used. Highly recommended!",
-      name: "John Doe",
-      handle: "@johndoe",
+        "Chai Code is a great platform for learning Python. I've learned so much in just a few weeks.",
+      name: "Saloni Jain",
+      handle: "@TechRunnerBySJ",
       avatar: LogoDark,
-      url: "https://twitter.com/johndoe",
+      url: "https://x.com/TechRunnerBySJ",
     },
     {
       quote:
-        "Saves me hours of research time. Incredible value!",
-      name: "Jane Smith",
-      handle: "@janesmith",
+        "Chai Code is a great platform for learning Python. I've learned so much in just a few weeks.",
+      name: "Saloni Jain",
+      handle: "@TechRunnerBySJ",
       avatar: LogoDark,
-      url: "https://twitter.com/janesmith",
+      url: "https://x.com/TechRunnerBySJ",
     },
     {
       quote:
-        "Game-changing tool for financial analysis.",
-      name: "Alex Brown",
-      handle: "@alexbrown",
+        "Chai Code is a great platform for learning Python. I've learned so much in just a few weeks.",
+      name: "Saloni Jain",
+      handle: "@TechRunnerBySJ",
       avatar: LogoDark,
-      url: "https://twitter.com/alexbrown",
+      url: "https://x.com/TechRunnerBySJ",
     },
     {
       quote:
-        "Essential for my daily trading routine.",
-      name: "Sarah Wilson",
-      handle: "@sarahwilson",
+        "Chai Code is a great platform for learning Python. I've learned so much in just a few weeks.",
+      name: "Saloni Jain",
+      handle: "@TechRunnerBySJ",
       avatar: LogoDark,
-      url: "https://twitter.com/sarahwilson",
+      url: "https://x.com/TechRunnerBySJ",
     },
   ];
 

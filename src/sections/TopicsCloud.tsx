@@ -181,6 +181,9 @@ export const TopicsCloud = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search topics..."
               className="w-full pl-10 pr-4 py-3 text-sm border border-gray-300 dark:border-gray-700 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400 dark:bg-gray-800 dark:text-white text-gray-800 transition-all duration-300 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800"
+              role="searchbox"
+              aria-label="Search technology topics"
+              aria-controls="topics-list"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -188,6 +191,8 @@ export const TopicsCloud = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              role="img"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -200,6 +205,7 @@ export const TopicsCloud = () => {
               <button
                 onClick={() => setSearchQuery("")}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-red-500 text-white rounded-full p-1 h-6 w-6 flex items-center justify-center shadow-md hover:bg-red-600 transition-all duration-300"
+                role="button"
                 aria-label="Clear search"
               >
                 <svg
@@ -208,6 +214,8 @@ export const TopicsCloud = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  role="img"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -222,7 +230,11 @@ export const TopicsCloud = () => {
         </div>
       </div>
 
-      <div className="w-full space-y-4" role="presentation">
+      <div 
+        className="w-full space-y-4"
+        role="presentation"
+        id="topics-list"
+      >
         {rows.map((row, index) => (
           <Row
             key={index}

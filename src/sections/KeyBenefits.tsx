@@ -148,7 +148,7 @@ export function KeyBenefits() {
       role="presentation"
     >
       <div
-        className="grid grid-cols-5 gap-3 w-full h-full justify-center items-center"
+        className="grid grid-cols-5 gap-4 w-full h-full justify-center items-center max-w-[360px] mx-auto"
         role="presentation"
       >
         {[
@@ -195,17 +195,17 @@ export function KeyBenefits() {
         ].map((item, idx) => (
           <motion.div
             key={idx}
-            className="relative group"
+            className="relative group aspect-square w-16 h-16"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.1 }}
             viewport={{ once: true }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-full blur-lg group-hover:opacity-100 transition-opacity opacity-0" />
-            <div className="relative bg-white dark:bg-neutral-800 p-2 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300">
+            <div className="relative bg-white dark:bg-neutral-800 p-2 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square">
               <img
                 src={item.src}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
+                className="w-full h-full rounded-full object-cover"
                 alt={`${item.name} logo`}
                 role="presentation"
                 loading="lazy"

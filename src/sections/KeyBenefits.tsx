@@ -129,7 +129,7 @@ export function KeyBenefits() {
 
 {/* Alumni Network Section */}
 <motion.div
-  className="relative bg-white dark:bg-neutral-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 mx-6 md:mx-16 lg:mx-20 group mb-10"
+  className="relative bg-white dark:bg-neutral-900 rounded-xl shadow-lg dark:shadow-neutral-800/50 hover:shadow-2xl dark:hover:shadow-neutral-800 transition-all duration-300 mx-6 md:mx-16 lg:mx-20 group mb-10"
   variants={{
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
@@ -202,10 +202,10 @@ export function KeyBenefits() {
             viewport={{ once: true }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-full blur-lg group-hover:opacity-100 transition-opacity opacity-0" />
-            <div className="relative bg-white p-2 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square">
+            <div className="relative bg-white dark:bg-neutral-800 p-1 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square">
               <img
                 src={item.src}
-                className="w-full h-full rounded-full object-cover"
+                className="w-full h-full rounded-full object-contain p-1"
                 alt={`${item.name} logo`}
                 role="presentation"
                 loading="lazy"
@@ -236,6 +236,20 @@ export function KeyBenefits() {
     </div>
   </div>
 </motion.div>
+
+<style>{`
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+`}</style>
 
       <JoinNowButton />
     </section>

@@ -10,21 +10,28 @@ import { FaXTwitter } from "react-icons/fa6";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import LogoLight from "@/assets/chaicode/chai-white.svg";
 import LogoDark from "@/assets/chaicode/chai-gray.svg";
+import { useState } from "react";
 
 function Footer() {
+  const [activeLink, setActiveLink] = useState<string | null>(null);
+
+  const handleLinkClick = (url: string) => {
+    setActiveLink(url);
+  };
+
   const products = [
-    { name: "Courses", href: "#" },
-    { name: "Cohort", href: "#" },
-    { name: "Coding Hero", href: "#", highlight: true },
-    { name: "FreeAPI", href: "#" },
-    { name: "Masterji", href: "#" },
+    { name: "Courses", href: "https://courses.chaicode.com/learn" },
+    { name: "Cohort", href: "https://courses.chaicode.com/learn/view-all?show=batch&type=17" },
+    { name: "Coding Hero", href: "https://courses.chaicode.com/learn/batch/about?bundleId=226894" },
+    { name: "FreeAPI", href: "https://freeapi.app/" },
+    { name: "Masterji", href: "https://masterji.co/login" },
   ];
 
   const resources = [
-    { name: "Docs", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Pricing Policy", href: "#" },
+    { name: "Docs", href: "https://docs.chaicode.com/" },
+    { name: "Privacy Policy", href: "https://www.chaicode.com/privacy-policy" },
+    { name: "Terms of Service", href: "https://www.chaicode.com/terms-of-services" },
+    { name: "Pricing Policy", href: "https://www.chaicode.com/pricing-policy" },
     { name: "Refund Policy", href: "#" },
   ];
 
@@ -187,9 +194,14 @@ function Footer() {
               <li key={product.name}>
                 <a
                   href={product.href}
-                  className={`text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors ${
-                    product.highlight ? "text-orange-500 hover:text-orange-600" : ""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-sm md:text-base transition-colors ${
+                    activeLink === product.href
+                      ? 'text-orange-500 hover:text-orange-600'
+                      : 'hover:text-gray-600 dark:hover:text-gray-300'
                   }`}
+                  onClick={() => handleLinkClick(product.href)}
                   aria-label={`Learn about ${product.name}`}
                   title={`Learn about ${product.name}`}
                 >
@@ -213,7 +225,14 @@ function Footer() {
               <li key={resource.name}>
                 <a
                   href={resource.href}
-                  className="text-sm md:text-base hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-sm md:text-base transition-colors ${
+                    activeLink === resource.href
+                      ? 'text-orange-500 hover:text-orange-600'
+                      : 'hover:text-gray-600 dark:hover:text-gray-300'
+                  }`}
+                  onClick={() => handleLinkClick(resource.href)}
                   aria-label={`Learn about ${resource.name}`}
                   title={`Learn about ${resource.name}`}
                 >

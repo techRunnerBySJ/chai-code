@@ -39,14 +39,15 @@ export function Header() {
 function Navbar({ className }: { className?: string }) {
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState<string | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleNavClick = (id: string) => {
-    scrollToSection(id);
-    setIsMenuOpen(false);
+  const handleNavClick = (url: string) => {
+    setActiveLink(url);
+    window.open(url, '_blank');
   };
 
   // Toggle theme by adding/removing 'dark' on <html>
@@ -117,9 +118,16 @@ function Navbar({ className }: { className?: string }) {
           aria-label="Main menu"
         >
           <div className="flex items-center space-x-6 font-semibold text-sm text-gray-900 dark:text-white">
-            <button 
-              onClick={() => handleNavClick('cohort')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+            <a 
+              href="https://courses.chaicode.com/learn/view-all?show=batch&type=17"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-1 transition cursor-pointer ${
+                activeLink === 'https://courses.chaicode.com/learn/view-all?show=batch&type=17'
+                  ? 'text-orange-500'
+                  : 'hover:text-purple-500'
+              }`}
+              onClick={() => handleNavClick('https://courses.chaicode.com/learn/view-all?show=batch&type=17')}
               aria-label="Navigate to Cohort section"
               title="View our coding cohorts"
             >
@@ -129,37 +137,58 @@ function Navbar({ className }: { className?: string }) {
               </span>
               <FaUsers className="ml-1" aria-hidden="true" />
               <span>COHORT</span>
-            </button>
+            </a>
 
-            <button 
-              onClick={() => handleNavClick('udemy')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
-              aria-label="Navigate to Udemy section"
-              title="Explore our Udemy courses"
+            <a 
+              href="https://courses.chaicode.com/learn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-1 transition cursor-pointer ${
+                activeLink === 'https://courses.chaicode.com/learn'
+                  ? 'text-orange-500'
+                  : 'hover:text-purple-500'
+              }`}
+              onClick={() => handleNavClick('https://courses.chaicode.com/learn')}
+              aria-label="Navigate to Courses section"
+              title="Explore our courses"
             >
               <FaGraduationCap aria-hidden="true" />
-              <span>Udemy</span>
-            </button>
+              <span>Courses</span>
+            </a>
 
-            <button 
-              onClick={() => handleNavClick('docs')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+            <a 
+              href="https://docs.chaicode.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-1 transition cursor-pointer ${
+                activeLink === 'https://docs.chaicode.com/'
+                  ? 'text-orange-500'
+                  : 'hover:text-purple-500'
+              }`}
+              onClick={() => handleNavClick('https://docs.chaicode.com/')}
               aria-label="Navigate to Documentation section"
               title="View documentation"
             >
               <FaFileAlt aria-hidden="true" />
               <span>Docs</span>
-            </button>
+            </a>
 
-            <button 
-              onClick={() => handleNavClick('reviews')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
-              aria-label="Navigate to Reviews section"
-              title="Read student reviews"
+            <a 
+              href="https://courses.chaicode.com/learn/batch/about?bundleId=226894"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-1 transition cursor-pointer ${
+                activeLink === 'https://courses.chaicode.com/learn/batch/about?bundleId=226894'
+                  ? 'text-orange-500'
+                  : 'hover:text-purple-500'
+              }`}
+              onClick={() => handleNavClick('https://courses.chaicode.com/learn/batch/about?bundleId=226894')}
+              aria-label="Navigate to Coding Hero section"
+              title="Learn about Coding Hero"
             >
               <FaStar aria-hidden="true" />
-              <span>Reviews</span>
-            </button>
+              <span>Coding Hero</span>
+            </a>
           </div>
         </nav>
 
@@ -322,7 +351,7 @@ function Navbar({ className }: { className?: string }) {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-700 shadow-lg text-black dark:text-white">
           <button 
-            onClick={() => handleNavClick('cohort')} 
+            onClick={() => handleNavClick('https://courses.chaicode.com/learn/view-all?show=batch&type=17')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Cohort section"
             title="View our coding cohorts"
@@ -336,7 +365,7 @@ function Navbar({ className }: { className?: string }) {
           </button>
 
           <button 
-            onClick={() => handleNavClick('udemy')} 
+            onClick={() => handleNavClick('https://courses.chaicode.com/learn')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Udemy section"
             title="Explore our Udemy courses"
@@ -346,7 +375,7 @@ function Navbar({ className }: { className?: string }) {
           </button>
 
           <button 
-            onClick={() => handleNavClick('docs')} 
+            onClick={() => handleNavClick('https://docs.chaicode.com/')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Documentation section"
             title="View documentation"
@@ -356,7 +385,7 @@ function Navbar({ className }: { className?: string }) {
           </button>
 
           <button 
-            onClick={() => handleNavClick('reviews')} 
+            onClick={() => handleNavClick('https://courses.chaicode.com/learn/batch/about?bundleId=226894')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Reviews section"
             title="Read student reviews"

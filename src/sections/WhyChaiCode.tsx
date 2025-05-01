@@ -3,9 +3,32 @@ import { motion } from "framer-motion";
 import HiteshSir from "@/assets/images/hitesh-sir.jpeg";
 import { JoinNowButton } from "@/layout/Join-Now-Button";
 import LogoLight from "@/assets/chaicode/chai-white.svg";
-
+import { useRef, useEffect, useState } from "react";
 
 export function WhyChaiCodeCards() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [currentFocus, setCurrentFocus] = useState(0);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!containerRef.current) return;
+
+      const cards = containerRef.current.querySelectorAll('[role="listitem"]');
+      const totalCards = cards.length;
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setCurrentFocus(prev => (prev < totalCards - 1 ? prev + 1 : 0));
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setCurrentFocus(prev => (prev > 0 ? prev - 1 : totalCards - 1));
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -75,16 +98,28 @@ export function WhyChaiCodeCards() {
       className="w-full"
       role="region"
       aria-label="Why choose ChaiCode section"
+      ref={containerRef}
     >
-      <div className="md:px-10 mt-20" role="presentation">
-        <h4 className="section-title" role="heading" aria-level={2}>
+      <div 
+        className="md:px-10 mt-20" 
+        role="presentation"
+      >
+        <h4 
+          className="section-title" 
+          role="heading"
+          aria-level={2}
+        >
           Why ChaiCode?
         </h4>
       
-        <p className="section-paragraph" role="text">
+        <p 
+          className="section-paragraph" 
+          role="text"
+        >
           ChaiCode exists because we love tech and teaching
         </p>
       </div>
+
       <motion.div
         className="grid grid-cols-1 lg:grid-cols-7 gap-6 px-4 md:px-20 mb-10"
         variants={containerVariants}
@@ -94,11 +129,25 @@ export function WhyChaiCodeCards() {
         role="presentation"
       >
         {/* Left Cards */}
-        <div className="col-span-2 flex flex-col gap-4">
+        <div 
+          className="col-span-2 flex flex-col gap-4"
+          role="list"
+          aria-label="Left side benefits"
+        >
           {leftCards.map((card, index) => (
-            <motion.div key={index} variants={cardVariants} role="listitem">
+            <motion.div 
+              key={index} 
+              variants={cardVariants} 
+              role="listitem"
+              aria-label={`Benefit: ${card.title}`}
+              tabIndex={0}
+              className="relative"
+            >
               <div className="relative bg-white dark:bg-neutral-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6">
-                <div className="absolute -top-6 left-6 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-md">
+                <div 
+                  className="absolute -top-6 left-6 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-md"
+                  role="presentation"
+                >
                   <img
                     src={card.icon}
                     alt={`${card.title} icon`}
@@ -106,10 +155,17 @@ export function WhyChaiCodeCards() {
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-black dark:text-white mt-8">
+                <h3 
+                  className="text-xl font-bold text-black dark:text-white mt-8"
+                  role="heading"
+                  aria-level={3}
+                >
                   {card.title}
                 </h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-4">
+                <p 
+                  className="text-sm text-neutral-600 dark:text-neutral-300 mt-4"
+                  role="text"
+                >
                   {card.description}
                 </p>
               </div>
@@ -121,7 +177,9 @@ export function WhyChaiCodeCards() {
         <motion.div
           variants={cardVariants}
           role="listitem"
-          className="md:col-span-3 col-span-2 flex flex-col items-center justify-center bg-white dark:bg-neutral-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8"
+          className={`md:col-span-3 col-span-2 flex flex-col items-center justify-center bg-white dark:bg-neutral-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 relative ${currentFocus === 3 ? 'ring-2 ring-orange-500' : ''}`}
+          aria-label="About Hitesh Choudhary"
+          tabIndex={0}
         >
           <img
             src={HiteshSir}
@@ -131,40 +189,92 @@ export function WhyChaiCodeCards() {
             role="presentation"
             loading="lazy"
           />
-          <h3 className="text-2xl font-bold text-black dark:text-white">
+          <h3 
+            className="text-2xl font-bold text-black dark:text-white"
+            role="heading"
+            aria-level={3}
+          >
             Hitesh Choudhary
           </h3>
-          <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-4 text-center">
+          <p 
+            className="text-sm text-neutral-600 dark:text-neutral-300 mt-4 text-center"
+            role="text"
+          >
             Retired from corporate and now a full-time YouTuber. Ex-founder of
             LCO (acquired), ex-CTO and Sr. Director at PW. Runs 2 YT channels
             (950k & 470k), visited 43 countries.
           </p>
-          <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-4 text-center">
+          <p 
+            className="text-sm text-neutral-600 dark:text-neutral-300 mt-4 text-center"
+            role="text"
+          >
             <strong>Approach:</strong> Project-based courses with peer learning
             and bounties loaded with activities.
           </p>
-          <div className="flex gap-4 mt-4">
-            <a href="#" className="text-neutral-600 dark:text-neutral-300">
-              <FaLinkedin size={20} />
+          <div 
+            className="flex gap-4 mt-4"
+            role="group"
+            aria-label="Social media links"
+          >
+            <a 
+              href="#" 
+              className="text-neutral-600 dark:text-neutral-300"
+              role="link"
+              aria-label="LinkedIn profile"
+              tabIndex={0}
+            >
+              <FaLinkedin size={20} aria-hidden="true" />
             </a>
-            <a href="#" className="text-neutral-600 dark:text-neutral-300">
-              <FaYoutube size={20} />
+            <a 
+              href="#" 
+              className="text-neutral-600 dark:text-neutral-300"
+              role="link"
+              aria-label="YouTube channel"
+              tabIndex={0}
+            >
+              <FaYoutube size={20} aria-hidden="true" />
             </a>
-            <a href="#" className="text-neutral-600 dark:text-neutral-300">
-              <FaInstagram size={20} />
+            <a 
+              href="#" 
+              className="text-neutral-600 dark:text-neutral-300"
+              role="link"
+              aria-label="Instagram profile"
+              tabIndex={0}
+            >
+              <FaInstagram size={20} aria-hidden="true" />
             </a>
-            <a href="#" className="text-neutral-600 dark:text-neutral-300">
-              <FaTwitter size={20} />
+            <a 
+              href="#" 
+              className="text-neutral-600 dark:text-neutral-300"
+              role="link"
+              aria-label="Twitter profile"
+              tabIndex={0}
+            >
+              <FaTwitter size={20} aria-hidden="true" />
             </a>
           </div>
         </motion.div>
 
         {/* Right Cards */}
-        <div className="col-span-2 flex flex-col gap-4">
+        <div 
+          className="col-span-2 flex flex-col gap-4"
+          role="list"
+          aria-label="Right side benefits"
+        >
           {rightCards.map((card, index) => (
-            <motion.div key={index} variants={cardVariants} role="listitem">
+            <motion.div 
+              key={index} 
+              variants={cardVariants} 
+              role="listitem"
+              aria-label={`Benefit: ${card.title}`}
+              tabIndex={0}
+              className="relative"
+            >
               <div className="relative bg-white dark:bg-neutral-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6">
-                <div className="absolute -top-6 left-6 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-md">
+                <div 
+                  className="absolute -top-6 left-6 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-md"
+                  role="presentation"
+                >
                   <img
                     src={card.icon}
                     alt={`${card.title} icon`}
@@ -172,10 +282,17 @@ export function WhyChaiCodeCards() {
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-black dark:text-white mt-8">
+                <h3 
+                  className="text-xl font-bold text-black dark:text-white mt-8"
+                  role="heading"
+                  aria-level={3}
+                >
                   {card.title}
                 </h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-4">
+                <p 
+                  className="text-sm text-neutral-600 dark:text-neutral-300 mt-4"
+                  role="text"
+                >
                   {card.description}
                 </p>
               </div>
@@ -184,7 +301,6 @@ export function WhyChaiCodeCards() {
         </div>
       </motion.div>
       <JoinNowButton/>
-
     </section>
   );
 }

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import LogoLight from "@/assets/chaicode/chai-white.svg";
 import LogoDark from "@/assets/chaicode/chai-gray.svg";
 import Fuse from "fuse.js";
+import { FaVolumeUp, FaVolumeMute, FaTimes } from "react-icons/fa";
 
 function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ function ChatBot() {
     "tell me about chai code":
       "ChaiCode is a learning platform that focuses on hands-on coding projects and gamified learning experiences.",
     "why should i join chai code?":
-      "ChaiCode offers hands-on learning, gamified challenges, mentorship, and a supportive community—all for free! It’s perfect for anyone looking to grow their skills.",
+      "ChaiCode offers hands-on learning, gamified challenges, mentorship, and a supportive community—all for free! It's perfect for anyone looking to grow their skills.",
     "what makes chai code different?":
       "ChaiCode stands out because of its gamified learning approach, real-world projects, and active community-driven ecosystem.",
     "what are the benefits of joining chai code?":
@@ -46,7 +47,7 @@ function ChatBot() {
     "how do i join a cohort?":
       "Go to the Join Cohort section and click on the 'Join Now' button.",
     "how does it work?":
-      "You’ll join a cohort, attend live sessions, complete projects, and get feedback from mentors.",
+      "You'll join a cohort, attend live sessions, complete projects, and get feedback from mentors.",
     "how long is a cohort?":
       "Cohorts typically last 4-6 weeks, depending on the topic.",
     "what if i miss a session?":
@@ -231,7 +232,7 @@ const toggleMute = () => {
               className="text-white hover:text-black text-lg"
               aria-label={isMuted ? "Unmute Bot" : "Mute Bot"}
             >
-              {isMuted ? "🔇" : "🔊"}
+              {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
             </button>
             {/* Close Button */}
             <button
@@ -239,7 +240,7 @@ const toggleMute = () => {
               className="text-white hover:text-black text-lg"
               aria-label="Close Chat"
             >
-              ✕
+              <FaTimes />
             </button>
           </div>
         </div>

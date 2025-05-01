@@ -18,6 +18,7 @@ declare global {
 function TweetLove() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [tweetsLoaded, setTweetsLoaded] = useState(false);
 
   const embeddedTweets = [
     `<blockquote class="twitter-tweet"><p lang="en" dir="ltr">⭐Day 4 of coding Hero... <a href="https://twitter.com/Rasmiranjan09/status/1909291399985369213?ref_src=twsrc%5Etfw">April 7, 2025</a></blockquote>`,
@@ -30,6 +31,7 @@ function TweetLove() {
       if (window.twttr) {
         window.twttr.widgets.load(containerRef.current);
         setIsLoading(false);
+        setTweetsLoaded(true);
         return;
       }
 
@@ -43,6 +45,7 @@ function TweetLove() {
             clearInterval(checkTwttr);
             window.twttr.widgets.load(containerRef.current);
             setIsLoading(false);
+            setTweetsLoaded(true);
           }
         }, 100);
 
@@ -69,24 +72,42 @@ function TweetLove() {
       className="min-h-[40rem] flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden px-4"
       role="region"
       aria-label="Community tweets section"
+      aria-live="polite"
     >
-
-      <div className="md:px-10 mt-10" role="presentation">
-        <h4 className="section-title" role="heading" aria-level={2}>
+      <div 
+        className="md:px-10 mt-10" 
+        role="presentation"
+      >
+        <h4 
+          className="section-title" 
+          role="heading"
+          aria-level={2}
+        >
           Tweet Love
         </h4>
       
-        <p className="section-paragraph" role="text">
-        Love that we get from our community
+        <p 
+          className="section-paragraph" 
+          role="text"
+        >
+          Love that we get from our community
         </p>
       </div>
 
       {isLoading ? (
-        <div className="mt-12 flex items-center justify-center">
+        <div 
+          className="mt-12 flex items-center justify-center"
+          role="status"
+          aria-label="Loading tweets"
+        >
           <LoadingTypewriter />
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+        <div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl"
+          role="feed"
+          aria-label="Community tweets feed"
+        >
           {embeddedTweets.map((html, index) => (
             <div
               key={index}
@@ -94,8 +115,20 @@ function TweetLove() {
               dangerouslySetInnerHTML={{ __html: html }}
               role="article"
               aria-label={`Tweet ${index + 1}`}
+              aria-live="polite"
+              tabIndex={0}
             />
           ))}
+        </div>
+      )}
+
+      {tweetsLoaded && (
+        <div 
+          className="sr-only"
+          role="status"
+          aria-live="polite"
+        >
+          Tweets have been loaded successfully
         </div>
       )}
     </section>

@@ -7,7 +7,7 @@ import { useRef, useState, useEffect } from "react";
 
 export function KeyBenefits() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentFocus, setCurrentFocus] = useState(0);
+  const [currentFocus, setCurrentFocus] = useState(-1);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

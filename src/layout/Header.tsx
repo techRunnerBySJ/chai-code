@@ -253,7 +253,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://discord.gg/yourserver" 
+              href="https://discord.com/invite/WDrH3zuWFb" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400 transition"
@@ -413,7 +413,7 @@ function Navbar({ className }: { className?: string }) {
             </a>
 
             <a 
-              href="https://discord.gg/yourserver" 
+              href="https://discord.com/invite/WDrH3zuWFb" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400 transition"

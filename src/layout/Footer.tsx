@@ -137,7 +137,7 @@ function Footer() {
               <span className="sr-only">X (Twitter)</span>
             </a>
             <a
-              href="https://discord.gg/yourserver"
+              href="https://discord.com/invite/WDrH3zuWFb"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-indigo-500 transition-colors"

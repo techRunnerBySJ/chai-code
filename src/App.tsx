@@ -1,8 +1,10 @@
 import React, { Suspense, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { DotBackgroundDemo } from "./components/ui/background"
 import { Header } from "./layout/Header"
 import { ErrorBoundary } from "react-error-boundary";
 import { LoadingTypewriter } from "./components/ui/loading-typewriter";
+import NotFound from "./components/ui/NotFound";
 
 // Critical components loaded immediately
 const HeroSectionOne = React.lazy(() => import("./sections/HeroSection"));
@@ -94,60 +96,69 @@ function App() {
   }, []);
 
   return (
-    <>
-      <DotBackgroundDemo>
-        <Header />
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          {/* Critical content loaded first */}
-          <Suspense fallback={<LoadingTypewriter />}>
-            <HeroSectionOne />
-          </Suspense>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <DotBackgroundDemo>
+              <Header />
+              <ErrorBoundary FallbackComponent={ErrorFallback}>
+                {/* Critical content loaded first */}
+                <Suspense fallback={<LoadingTypewriter />}>
+                  <HeroSectionOne />
+                </Suspense>
 
-          {/* Secondary content loaded in chunks */}
-          <Suspense fallback={null}>
-            <TweetLove />
-            <CompaniesSection/>
-          </Suspense>
+                {/* Secondary content loaded in chunks */}
+                <Suspense fallback={null}>
+                  <TweetLove />
+                  <CompaniesSection/>
+                </Suspense>
 
-          <Suspense fallback={null}>
-            <div id="cohort" className="scroll-mt-32">
-              <CohortLiveClasses/>
-            </div>
-            <div id="reviews" className="scroll-mt-32">
-              <StudentsFeedback/>
-            </div>
-          </Suspense>
+                <Suspense fallback={null}>
+                  <div id="cohort" className="scroll-mt-32">
+                    <CohortLiveClasses/>
+                  </div>
+                  <div id="reviews" className="scroll-mt-32">
+                    <StudentsFeedback/>
+                  </div>
+                </Suspense>
 
-          <Suspense fallback={null}>
-            <div id="udemy" className="scroll-mt-32">
-              <Udemy/>
-            </div>
-            <KeyBenefits/>
-            <WhyChaiCodeCards/>
-          </Suspense>
+                <Suspense fallback={null}>
+                  <div id="udemy" className="scroll-mt-32">
+                    <Udemy/>
+                  </div>
+                  <KeyBenefits/>
+                  <WhyChaiCodeCards/>
+                </Suspense>
 
-          <Suspense fallback={null}>
-            <TopicsCloud/>
-            <div id="docs" className="scroll-mt-32">
-              <FreeApi/>
-            </div>
-            <div id="app" className="scroll-mt-32">
-              <AppDownload/>
-            </div>
-          </Suspense>
+                <Suspense fallback={null}>
+                  <TopicsCloud/>
+                  <div id="docs" className="scroll-mt-32">
+                    <FreeApi/>
+                  </div>
+                  <div id="app" className="scroll-mt-32">
+                    <AppDownload/>
+                  </div>
+                </Suspense>
 
-          <Suspense fallback={null}>
-            <JoinCommunity/>
-            <Footer/>
-          </Suspense>
+                <Suspense fallback={null}>
+                  <JoinCommunity/>
+                  <Footer/>
+                </Suspense>
 
-          {/* Load ChatBot with lowest priority */}
-          <Suspense fallback={null}>
-            <ChatBot/>
-          </Suspense>
-        </ErrorBoundary>
-      </DotBackgroundDemo>
-    </>
+                {/* Load ChatBot with lowest priority */}
+                <Suspense fallback={null}>
+                  <ChatBot/>
+                </Suspense>
+              </ErrorBoundary>
+            </DotBackgroundDemo>
+          }
+        />
+        {/* Catch-all route for 404 */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 

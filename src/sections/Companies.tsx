@@ -149,16 +149,28 @@ function CompaniesSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
+      role="region"
+      aria-label="Companies section"
     >
       <motion.div 
         className="md:px-10 mt-20"
         variants={containerVariants}
+        role="presentation"
       >
-        <h4 className="section-title" role="heading" aria-level={2}>
+        <h4 
+          className="section-title" 
+          role="heading" 
+          aria-level={2}
+          aria-label="Section title"
+        >
           Our Students Work At
         </h4>
 
-        <p className="section-paragraph" role="text">
+        <p 
+          className="section-paragraph" 
+          role="text"
+          aria-label="Section description"
+        >
           Our students are not only working in big tech companies, but 
           are now founders of funded startups and product creators.
         </p>
@@ -166,8 +178,9 @@ function CompaniesSection() {
 
       <motion.div 
         className="flex animate-company-scroll"
-        aria-hidden="true"
         variants={containerVariants}
+        role="list"
+        aria-label="Company logos"
       >
         <AnimatedTooltip items={companies} />
       </motion.div>

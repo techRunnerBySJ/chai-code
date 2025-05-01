@@ -42,6 +42,8 @@ export const AnimatedTooltip = ({
           key={`${item.id}-${item.name}`}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
+          role="listitem"
+          aria-label={`Company: ${item.name}`}
         >
           <AnimatePresence mode="popLayout">
             {hoveredIndex === item.id && (
@@ -64,24 +66,54 @@ export const AnimatedTooltip = ({
                   whiteSpace: "nowrap",
                 }}
                 className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl"
+                role="tooltip"
+                aria-label={`${item.name} - ${item.designation}`}
               >
-                <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
-                <div className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
-                <div className="relative z-30 text-base font-bold text-white">
+                <div 
+                  className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent"
+                  role="presentation"
+                  aria-hidden="true"
+                />
+                <div 
+                  className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-sky-500 to-transparent"
+                  role="presentation"
+                  aria-hidden="true"
+                />
+                <div 
+                  className="relative z-30 text-base font-bold text-white"
+                  role="text"
+                >
                   {item.name}
                 </div>
-                <div className="text-xs text-white">{item.designation}</div>
+                <div 
+                  className="text-xs text-white"
+                  role="text"
+                >
+                  {item.designation}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
-          <div className="relative group aspect-square w-16 h-16">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-full blur-lg group-hover:opacity-100 transition-opacity opacity-0" />
-            <div className="relative bg-white p-1 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square">
+          <div 
+            className="relative group aspect-square w-16 h-16"
+            role="presentation"
+          >
+            <div 
+              className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-full blur-lg group-hover:opacity-100 transition-opacity opacity-0"
+              role="presentation"
+              aria-hidden="true"
+            />
+            <div 
+              className="relative bg-white p-1 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300 aspect-square"
+              role="presentation"
+            >
               <img
                 onMouseMove={handleMouseMove}
                 src={item.image}
                 alt={item.name}
                 className="w-full h-full rounded-full object-contain p-1"
+                role="img"
+                aria-label={`${item.name} logo`}
               />
             </div>
           </div>

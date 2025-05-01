@@ -89,6 +89,7 @@ export function HeroSectionOne() {
       <motion.div 
         variants={itemVariants}
         role="presentation"
+        aria-label="Trust badge"
       >
         <InfoAndCtaButton text="Trusted By 1.5M Code Learners" />
       </motion.div>
@@ -97,6 +98,7 @@ export function HeroSectionOne() {
       <motion.div 
         variants={itemVariants}
         role="presentation"
+        aria-label="Main title"
       >
         <TitleFLipWords />
       </motion.div>
@@ -105,14 +107,16 @@ export function HeroSectionOne() {
       <motion.div 
         variants={itemVariants}
         role="presentation"
+        aria-label="Feature highlights"
       >
         <HeroText />
       </motion.div>
 
-            {/* Join Now Button */}
-            <motion.div 
+      {/* Join Now Button */}
+      <motion.div 
         variants={itemVariants}
         role="presentation"
+        aria-label="Call to action"
       >
         <JoinNowButton />
       </motion.div>
@@ -130,6 +134,7 @@ export function HeroSectionOne() {
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
           role="article"
+          aria-label="Video content"
         >
           <div 
             className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl transform rotate-1 opacity-30 blur-2xl"
@@ -152,7 +157,8 @@ export function HeroSectionOne() {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 onLoad={() => setIsVideoLoaded(true)}
-                
+                role="presentation"
+                aria-label="YouTube video player"
               />
             </div>
             <h3 
@@ -165,13 +171,13 @@ export function HeroSectionOne() {
             <p 
               className="text-sm text-neutral-600 dark:text-neutral-400"
               role="text"
+              aria-label="Video description"
             >
               Watch our comprehensive guide on learning to code
             </p>
           </div>
         </motion.div>
       </motion.div>
-
     </motion.section>
   );
 }

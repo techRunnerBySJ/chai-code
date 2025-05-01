@@ -184,22 +184,22 @@ function Footer() {
         {/* Products */}
         <nav aria-label="Product links" className="mt-2 md:mt-0" role="navigation">
           <h2
-            className="text-base md:text-lg font-semibold mb-2 md:mb-3 text-black dark:text-white"
+            className="text-base md:text-lg font-semibold mb-4 md:mb-6 text-black dark:text-white tracking-wide"
             aria-label="Products section"
           >
             Products
           </h2>
-          <ul className="space-y-2 text-gray-400" role="list" aria-label="List of products">
+          <ul className="space-y-3 text-gray-400" role="list" aria-label="List of products">
             {products.map((product) => (
               <li key={product.name}>
                 <a
                   href={product.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-sm md:text-base transition-colors ${
+                  className={`text-sm md:text-base transition-all duration-300 ${
                     activeLink === product.href
-                      ? 'text-orange-500 hover:text-orange-600'
-                      : 'hover:text-gray-600 dark:hover:text-gray-300'
+                      ? 'text-orange-500 scale-105'
+                      : 'hover:text-gray-600 dark:hover:text-gray-300 hover:scale-105'
                   }`}
                   onClick={() => handleLinkClick(product.href)}
                   aria-label={`Learn about ${product.name}`}
@@ -215,22 +215,22 @@ function Footer() {
         {/* Resources */}
         <nav aria-label="Resource links" className="mt-2 md:mt-0" role="navigation">
           <h2
-            className="text-base md:text-lg font-semibold mb-2 md:mb-3 text-black dark:text-white"
+            className="text-base md:text-lg font-semibold mb-4 md:mb-6 text-black dark:text-white tracking-wide"
             aria-label="Resources section"
           >
             Resources
           </h2>
-          <ul className="space-y-2 text-gray-400" role="list" aria-label="List of resources">
+          <ul className="space-y-3 text-gray-400" role="list" aria-label="List of resources">
             {resources.map((resource) => (
               <li key={resource.name}>
                 <a
                   href={resource.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-sm md:text-base transition-colors ${
+                  className={`text-sm md:text-base transition-all duration-300 ${
                     activeLink === resource.href
-                      ? 'text-orange-500 hover:text-orange-600'
-                      : 'hover:text-gray-600 dark:hover:text-gray-300'
+                      ? 'text-orange-500 scale-105'
+                      : 'hover:text-gray-600 dark:hover:text-gray-300 hover:scale-105'
                   }`}
                   onClick={() => handleLinkClick(resource.href)}
                   aria-label={`Learn about ${resource.name}`}

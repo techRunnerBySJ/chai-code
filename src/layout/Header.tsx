@@ -117,15 +117,15 @@ function Navbar({ className }: { className?: string }) {
           role="navigation"
           aria-label="Main menu"
         >
-          <div className="flex items-center space-x-6 font-semibold text-sm text-gray-900 dark:text-white">
+          <div className="flex items-center space-x-8 font-semibold text-sm text-gray-900 dark:text-white">
             <a 
               href="https://courses.chaicode.com/learn/view-all?show=batch&type=17"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-1 transition cursor-pointer ${
+              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
                 activeLink === 'https://courses.chaicode.com/learn/view-all?show=batch&type=17'
-                  ? 'text-orange-500'
-                  : 'hover:text-purple-500'
+                  ? 'text-orange-500 scale-105'
+                  : 'hover:text-purple-500 hover:scale-105'
               }`}
               onClick={() => handleNavClick('https://courses.chaicode.com/learn/view-all?show=batch&type=17')}
               aria-label="Navigate to Cohort section"
@@ -136,58 +136,58 @@ function Navbar({ className }: { className?: string }) {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-red-600"></span>
               </span>
               <FaUsers className="ml-1" aria-hidden="true" />
-              <span>COHORT</span>
+              <span className="font-medium tracking-wide">COHORT</span>
             </a>
 
             <a 
               href="https://courses.chaicode.com/learn"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-1 transition cursor-pointer ${
+              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
                 activeLink === 'https://courses.chaicode.com/learn'
-                  ? 'text-orange-500'
-                  : 'hover:text-purple-500'
+                  ? 'text-orange-500 scale-105'
+                  : 'hover:text-purple-500 hover:scale-105'
               }`}
               onClick={() => handleNavClick('https://courses.chaicode.com/learn')}
               aria-label="Navigate to Courses section"
               title="Explore our courses"
             >
               <FaGraduationCap aria-hidden="true" />
-              <span>Courses</span>
+              <span className="font-medium tracking-wide">Courses</span>
             </a>
 
             <a 
               href="https://docs.chaicode.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-1 transition cursor-pointer ${
+              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
                 activeLink === 'https://docs.chaicode.com/'
-                  ? 'text-orange-500'
-                  : 'hover:text-purple-500'
+                  ? 'text-orange-500 scale-105'
+                  : 'hover:text-purple-500 hover:scale-105'
               }`}
               onClick={() => handleNavClick('https://docs.chaicode.com/')}
               aria-label="Navigate to Documentation section"
               title="View documentation"
             >
               <FaFileAlt aria-hidden="true" />
-              <span>Docs</span>
+              <span className="font-medium tracking-wide">Docs</span>
             </a>
 
             <a 
               href="https://courses.chaicode.com/learn/batch/about?bundleId=226894"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-1 transition cursor-pointer ${
+              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
                 activeLink === 'https://courses.chaicode.com/learn/batch/about?bundleId=226894'
-                  ? 'text-orange-500'
-                  : 'hover:text-purple-500'
+                  ? 'text-orange-500 scale-105'
+                  : 'hover:text-purple-500 hover:scale-105'
               }`}
               onClick={() => handleNavClick('https://courses.chaicode.com/learn/batch/about?bundleId=226894')}
               aria-label="Navigate to Coding Hero section"
               title="Learn about Coding Hero"
             >
               <FaStar aria-hidden="true" />
-              <span>Coding Hero</span>
+              <span className="font-medium tracking-wide">Coding Hero</span>
             </a>
           </div>
         </nav>

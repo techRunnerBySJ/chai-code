@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaGooglePlay, FaApple } from "react-icons/fa";
+import { MdDownload, MdNotifications, MdCommute } from "react-icons/md";
 import LogoLight from "@/assets/chaicode/chaicode-white.svg";
 
 export function AppDownload() {
@@ -21,7 +22,7 @@ export function AppDownload() {
             className="w-full md:w-1/2 text-center md:text-left"
           >
 <div 
-        className="px-20 mt-20"
+        className="px-20 md:mt-20"
         role="presentation"
       >
          <h4
@@ -43,9 +44,9 @@ export function AppDownload() {
             {/* Features List with Icons */}
             <ul className="text-left text-neutral-500 dark:text-neutral-400 mb-10 space-y-6 text-sm sm:text-base">
               {[
-                { icon: "⚡", text: "Offline course access" },
-                { icon: "🔔", text: "Live session notifications" },
-                { icon: "📱", text: "Revision while commuting" },
+                { icon: <MdDownload size={24} />, text: "Offline course access" },
+                { icon: <MdNotifications size={24} />, text: "Live session notifications" },
+                { icon: <MdCommute size={24} />, text: "Revision while commuting" },
               ].map((item, index) => (
                 <motion.li
                   key={index}
@@ -143,7 +144,7 @@ export function AppDownload() {
                 {/* Footer - Gradient Effect */}
                 <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-neutral-800 to-transparent rounded-b-[2.5rem] pointer-events-none" />
                 {/* Footer - Download Buttons */}
-                <div className="absolute bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-full flex flex-col md:flex-row md:justify-center justify-end gap-4 mb-5 mx-auto sm:mx-0 ">
+                <div className="absolute bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-full hidden flex-col md:flex-row md:justify-center justify-end gap-4 mb-5 mx-auto sm:mx-0 ">
                     <a
                       href="#"
                         target="_blank"

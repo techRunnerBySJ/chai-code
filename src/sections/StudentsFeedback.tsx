@@ -94,46 +94,117 @@ export function StudentsFeedback() {
         {visibleTestimonials.map((item, index) => (
           <motion.div
             key={index}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.15,
+              type: "spring",
+              stiffness: 100,
+              damping: 15
+            }}
             whileHover={{ scale: 1.03 }}
             className="relative bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:border-orange-500 dark:hover:border-orange-500 h-[220px] flex flex-col group"
             onClick={() => window.open(item.url, "_blank")}
           >
-            <p className="text-neutral-800 dark:text-white text-base leading-relaxed mb-6 line-clamp-3 flex-grow overflow-hidden">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.15 + 0.2,
+                duration: 0.5
+              }}
+              className="text-neutral-800 dark:text-white text-base leading-relaxed mb-6 line-clamp-3 flex-grow overflow-hidden"
+            >
               {item.quote}
-            </p>
+            </motion.p>
 
-            <div className="flex items-center justify-between mt-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.15 + 0.3,
+                duration: 0.5
+              }}
+              className="flex items-center justify-between mt-auto"
+            >
               <div className="flex items-center gap-4">
-                <img
+                <motion.img
+                  initial={{ scale: 0.8, rotate: -10 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: index * 0.15 + 0.4,
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15
+                  }}
                   src={item.avatar}
                   alt={item.name}
                   width={40}
                   height={40}
                   className="rounded-full object-cover border-2 border-neutral-200 dark:border-neutral-700 shadow-sm"
                 />
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: index * 0.15 + 0.5,
+                    duration: 0.5
+                  }}
+                >
                   <p className="text-neutral-900 dark:text-white font-medium">{item.name}</p>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">
                     {item.handle}
                   </p>
-                </div>
+                </motion.div>
               </div>
-              <div className="relative">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.15 + 0.6,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15
+                }}
+                className="relative"
+              >
                 <FaXTwitter className="text-neutral-600 dark:text-white text-xl group-hover:text-orange-500 transition-colors duration-300" />
                 <div className="absolute -top-8 right-0 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   View on Twitter
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         ))}
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex justify-center gap-3 mt-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+        className="flex justify-center gap-3 mt-8"
+      >
         {Array.from({ length: slides }).map((_, index) => (
-          <button
+          <motion.button
             key={index}
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.6 + index * 0.1,
+              type: "spring",
+              stiffness: 200,
+              damping: 15
+            }}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
               currentSlide === index
@@ -143,7 +214,7 @@ export function StudentsFeedback() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -156,14 +156,13 @@ body {
   line-height: 1.25;
   text-align: center;
   font-weight: 700;
-  color: #000; /* Light mode: black text */
+  color: #000;
   margin: 0 auto;
   max-width: 80rem;
   letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
-
-  /* Glow effect for the text */
+  margin-top: 2rem;
   text-shadow: 0 0 10px rgba(255, 140, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.6);
 }
 

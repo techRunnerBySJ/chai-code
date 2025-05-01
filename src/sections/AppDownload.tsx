@@ -50,17 +50,46 @@ export function AppDownload() {
               ].map((item, index) => (
                 <motion.li
                   key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.2,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10
+                  }}
                   className="flex items-center gap-4 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-800 dark:to-orange-900 p-4 rounded-xl shadow-md hover:shadow-lg transition-all"
                 >
-                  <span className="flex items-center justify-center text-orange-500 text-2xl bg-orange-300 dark:bg-orange-700 w-12 h-12 rounded-full shadow-md">
+                  <motion.span 
+                    initial={{ scale: 0.8, rotate: -10 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: index * 0.2 + 0.2,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15
+                    }}
+                    className="flex items-center justify-center text-orange-500 text-2xl bg-orange-300 dark:bg-orange-700 w-12 h-12 rounded-full shadow-md"
+                  >
                     {item.icon}
-                  </span>
-                  <span className="text-neutral-800 dark:text-neutral-200 font-medium">
+                  </motion.span>
+                  <motion.span 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: index * 0.2 + 0.3,
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 10
+                    }}
+                    className="text-neutral-800 dark:text-neutral-200 font-medium"
+                  >
                     {item.text}
-                  </span>
+                  </motion.span>
                 </motion.li>
               ))}
             </ul>

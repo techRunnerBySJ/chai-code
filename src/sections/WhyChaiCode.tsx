@@ -78,7 +78,7 @@ export function WhyChaiCodeCards() {
     >
       <div className="px-20 mt-20" role="presentation">
         <h4
-          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white mt-20"
+          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
           role="heading"
           aria-level={2}
         >
@@ -129,7 +129,7 @@ export function WhyChaiCodeCards() {
         <motion.div
           variants={cardVariants}
           role="listitem"
-          className="col-span-3 flex flex-col items-center justify-center bg-white dark:bg-neutral-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8"
+          className="md:col-span-3 col-span-2 flex flex-col items-center justify-center bg-white dark:bg-neutral-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8"
         >
           <img
             src={HiteshSir}

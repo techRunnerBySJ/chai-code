@@ -88,7 +88,7 @@ function Udemy() {
         role="presentation"
       >
         <h4 
-          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white mt-10"
+          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
           role="heading"
           aria-level={2}
         >

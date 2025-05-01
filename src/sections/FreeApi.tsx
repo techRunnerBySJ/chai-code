@@ -3,18 +3,19 @@ import { motion } from "framer-motion";
 export const FreeApi = () => {
   return (
     <div 
-      className="w-full py-20 relative overflow-hidden"
+      className="w-full py-10 relative overflow-hidden"
       role="region"
       aria-label="Free API section"
     >
-      <div className="px-20 mt-10 mb-10">
-        <h4 
-          className="text-3xl lg:text-4xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+      <div className="px-20 mt-20" role="presentation">
+        <h4
+          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
           role="heading"
           aria-level={2}
         >
           Free API - Open Source
         </h4>
+
       </div>
       {/* Background gradient effect */}
       <div 

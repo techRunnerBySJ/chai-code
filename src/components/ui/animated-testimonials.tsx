@@ -56,7 +56,7 @@ export const AnimatedTestimonials = ({
       role={role}
       aria-label={ariaLabel}
     >
-      <div className="px-4 md:px-20 mt-10 md:mt-20">
+      <div className="px-4 md:px-20 mt-20 mb-10">
         <h4
           className="text-2xl md:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
           role="heading"
@@ -212,6 +212,7 @@ export const AnimatedTestimonials = ({
             className="flex gap-4 pt-8 md:pt-12"
             role="group"
             aria-label="Testimonial navigation"
+            style={{ alignSelf: "center" }}
           >
             <button
               onClick={handlePrev}

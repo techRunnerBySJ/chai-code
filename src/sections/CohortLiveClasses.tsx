@@ -45,6 +45,7 @@ function CohortLiveClasses() {
           className="section-title mt-10"
           role="heading"
           aria-level={2}
+          aria-label="Section title: Cohorts"
         >
           Cohorts
         </h4>
@@ -52,6 +53,7 @@ function CohortLiveClasses() {
         <p 
           className="section-paragraph"
           role="text"
+          aria-label="Section description"
         >
           Live training sessions
         </p>
@@ -79,14 +81,15 @@ function CohortLiveClasses() {
               transition={{ duration: 0.2 }}
               role="listitem"
               aria-label={`Course: ${item.title}`}
+              tabIndex={0}
             >
-                           <BentoGridItem
+              <BentoGridItem
                 title={item.title}
                 description={item.description}
                 src={item.src}
                 actualPrice={item.actualPrice}
                 discountPrice={item.discountPrice}
-                buttonUrl={item.buttonUrl} // Pass buttonUrl to BentoGridItem
+                buttonUrl={item.buttonUrl}
                 className={i === 6 || i === 9 ? "md:col-span-1" : ""}
                 role="article"
                 aria-label={`Course details: ${item.title} - ${item.description}`}

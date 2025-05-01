@@ -19,8 +19,11 @@ export function InfoAndCtaButton({ buttonUrl }: InfoAndCtaButtonProps) {
         as="button"
         onClick={handleButtonClick} // Handle redirection on click
         className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 w-full justify-center"
+        role="button"
+        aria-label="Buy now"
+        tabIndex={0}
       >
-        <FaShoppingCart className="h-4 w-4" />
+        <FaShoppingCart className="h-4 w-4" aria-hidden="true" />
         <span>BUY NOW</span>
       </HoverBorderGradient>
     </div>

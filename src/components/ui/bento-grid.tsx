@@ -41,8 +41,10 @@ export const BentoGrid = ({
         }}
         onClick={() => scroll("left")}
         aria-label="Scroll left"
+        role="button"
+        tabIndex={0}
       >
-        <FaChevronLeft />
+        <FaChevronLeft aria-hidden="true" />
       </button>
       <button
         className="absolute right-5 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 shadow-md"
@@ -51,24 +53,28 @@ export const BentoGrid = ({
         }}
         onClick={() => scroll("right")}
         aria-label="Scroll right"
+        role="button"
+        tabIndex={0}
       >
-        <FaChevronRight />
+        <FaChevronRight aria-hidden="true" />
       </button>
 
       {/* Scrollable Container */}
       <div
         ref={scrollRef}
         className={cn(
-          "flex overflow-hidden space-x-4 px-4 py-4 snap-x snap-mandatory", // Adjusted padding for mobile
+          "flex overflow-hidden space-x-4 px-4 py-4 snap-x snap-mandatory",
           className
         )}
         role={role}
         aria-label={ariaLabel}
+        tabIndex={0}
       >
         {React.Children.map(children, (child) => (
           <div
-            className="min-w-[280px] max-w-[280px] sm:min-w-[320px] sm:max-w-[320px] md:min-w-[400px] md:max-w-[400px] snap-start" // Adjusted width for mobile
+            className="min-w-[280px] max-w-[280px] sm:min-w-[320px] sm:max-w-[320px] md:min-w-[400px] md:max-w-[400px] snap-start"
             role="listitem"
+            tabIndex={0}
           >
             {child}
           </div>
@@ -105,15 +111,15 @@ export const BentoGridItem = ({
     <div
       className={cn(
         "relative group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-neutral-900",
-        "", // Adjusted padding for mobile
         className
       )}
       role={role}
       aria-label={ariaLabel}
+      tabIndex={0}
     >
       {/* 🔥 Status Tag */}
       <span
-        className="absolute top-2 left-2 z-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-2 py-1 text-[10px] sm:text-xs md:text-sm font-bold text-white shadow-md" // Adjusted font size for mobile
+        className="absolute top-2 left-2 z-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-2 py-1 text-[10px] sm:text-xs md:text-sm font-bold text-white shadow-md"
         role="status"
         aria-label="New course"
       >
@@ -122,7 +128,7 @@ export const BentoGridItem = ({
     
       {/* Your iframe */}
       <div
-        className="relative w-full h-[150px] sm:h-[180px] md:h-[200px]" // Adjusted height for mobile
+        className="relative w-full h-[150px] sm:h-[180px] md:h-[200px]"
         role="presentation"
       >
         <iframe
@@ -133,6 +139,7 @@ export const BentoGridItem = ({
           allowFullScreen
           aria-label={`Video content for ${title}`}
           loading="lazy"
+          role="presentation"
         />
       </div>
       <div
@@ -140,15 +147,17 @@ export const BentoGridItem = ({
         role="contentinfo"
       >
         <div
-          className="mt-2 mb-2 font-sans font-bold text-sm sm:text-base md:text-lg text-neutral-600 dark:text-white" // Adjusted font size for mobile
+          className="mt-2 mb-2 font-sans font-bold text-sm sm:text-base md:text-lg text-neutral-600 dark:text-white"
           role="heading"
           aria-level={3}
+          aria-label={`Course title: ${title}`}
         >
           {title}
         </div>
         <div
-          className="font-sans text-xs sm:text-sm md:text-base font-normal text-neutral-600 dark:text-white" // Adjusted font size for mobile
+          className="font-sans text-xs sm:text-sm md:text-base font-normal text-neutral-600 dark:text-white"
           role="text"
+          aria-label={`Course description: ${description}`}
         >
           {description}
         </div>
@@ -171,7 +180,9 @@ export const BentoGridItem = ({
             ₹{discountPrice}
           </span>
         </div>
-                <InfoAndCtaButton buttonUrl={buttonUrl} />
+        <InfoAndCtaButton 
+          buttonUrl={buttonUrl}
+        />
       </div>
     </div>
   );

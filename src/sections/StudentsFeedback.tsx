@@ -1,78 +1,158 @@
-import { AnimatedTestimonials } from "../components/ui/animated-testimonials";
 import { motion } from "framer-motion";
+import { FaXTwitter } from "react-icons/fa6";
+import { useState } from "react";
+import LogoDark from "@/assets/chaicode/chai-gray.svg"
+import LogoLight from "@/assets/chaicode/chai-white.svg"
 
 export function StudentsFeedback() {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2
-      }
-    }
-  };
-
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
   const testimonials = [
     {
       quote:
-        "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-      name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
-      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "Askedgar has transformed my trading strategy. The tool's ability to quickly analyze and present relevant SEC filings has given me a competitive edge.",
+      name: "ConsultantMike",
+      handle: "@ConsultantMike",
+      avatar: LogoDark,
+      url: "https://twitter.com/ConsultantMike",
     },
     {
       quote:
-        "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-      name: "Michael Rodriguez",
-      designation: "CTO at InnovateSphere",
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "Askedgar provides my clients with quick and reliable analysis of SEC filings, which helps them make better investment decisions.",
+      name: "ResearchMark",
+      handle: "@ResearchMark",
+      avatar: LogoDark,
+      url: "https://twitter.com/ResearchMark",
+    },
+    {
+      quote: "A must-have for any trader. Fast and accurate!",
+      name: "Wally Salstrom",
+      handle: "@wallstrom",
+      avatar: LogoDark,
+      url: "https://twitter.com/wallstrom",
     },
     {
       quote:
-        "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
-      name: "Emily Watson",
-      designation: "Operations Director at CloudScale",
-      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "Finding trade opportunities has never been easier. Thanks, Askedgar!",
+      name: "Mirabelle Nincehelsor",
+      handle: "@miranin",
+      avatar: LogoDark,
+      url: "https://twitter.com/miranin",
     },
     {
       quote:
-        "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
-      name: "James Kim",
-      designation: "Engineering Lead at DataPro",
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "The best tool for SEC filing analysis I've ever used. Highly recommended!",
+      name: "John Doe",
+      handle: "@johndoe",
+      avatar: LogoDark,
+      url: "https://twitter.com/johndoe",
     },
     {
       quote:
-        "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
-      name: "Lisa Thompson",
-      designation: "VP of Technology at FutureNet",
-      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "Saves me hours of research time. Incredible value!",
+      name: "Jane Smith",
+      handle: "@janesmith",
+      avatar: LogoDark,
+      url: "https://twitter.com/janesmith",
+    },
+    {
+      quote:
+        "Game-changing tool for financial analysis.",
+      name: "Alex Brown",
+      handle: "@alexbrown",
+      avatar: LogoDark,
+      url: "https://twitter.com/alexbrown",
+    },
+    {
+      quote:
+        "Essential for my daily trading routine.",
+      name: "Sarah Wilson",
+      handle: "@sarahwilson",
+      avatar: LogoDark,
+      url: "https://twitter.com/sarahwilson",
     },
   ];
 
+  const slides = Math.ceil(testimonials.length / 4);
+  const visibleTestimonials = testimonials.slice(currentSlide * 4, (currentSlide + 1) * 4);
+
   return (
-    <section 
-      role="region" 
-      aria-label="Student testimonials section"
-      className="relative"
+    <div
+      id="reviews"
+      className="mx-auto max-w-sm px-6 transition-colors duration-300 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 mt-10 md:mt-20"
     >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        role="presentation"
-      >
-        <AnimatedTestimonials 
-          testimonials={testimonials} 
-          role="complementary"
-          aria-label="Student feedback carousel"
-        />
-      </motion.div>
-    </section>
+      <div className="px-4 md:px-20 mt-20 mb-10">
+        <h4
+          className="text-2xl md:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+          role="heading"
+          aria-level={2}
+        >
+          Our Students Feedback
+        </h4>
+
+        <p
+          className="text-sm md:text-base lg:text-lg max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          role="text"
+        >
+          Explore the incredible advantages of enrolling in our courses and enhancing your skills.
+        </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        {visibleTestimonials.map((item, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.03 }}
+            className="relative bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:border-orange-500 dark:hover:border-orange-500 h-[220px] flex flex-col group"
+            onClick={() => window.open(item.url, "_blank")}
+          >
+            <p className="text-neutral-800 dark:text-white text-base leading-relaxed mb-6 line-clamp-3 flex-grow overflow-hidden">
+              {item.quote}
+            </p>
+
+            <div className="flex items-center justify-between mt-auto">
+              <div className="flex items-center gap-4">
+                <img
+                  src={item.avatar}
+                  alt={item.name}
+                  width={40}
+                  height={40}
+                  className="rounded-full object-cover border-2 border-neutral-200 dark:border-neutral-700 shadow-sm"
+                />
+                <div>
+                  <p className="text-neutral-900 dark:text-white font-medium">{item.name}</p>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    {item.handle}
+                  </p>
+                </div>
+              </div>
+              <div className="relative">
+                <FaXTwitter className="text-neutral-600 dark:text-white text-xl group-hover:text-orange-500 transition-colors duration-300" />
+                <div className="absolute -top-8 right-0 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  View on Twitter
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Dots Navigation */}
+      <div className="flex justify-center gap-3 mt-8">
+        {Array.from({ length: slides }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
+              currentSlide === index
+                ? "bg-neutral-800 dark:bg-white scale-125"
+                : "bg-neutral-300 dark:bg-neutral-700 hover:scale-110"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 

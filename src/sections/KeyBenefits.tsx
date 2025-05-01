@@ -68,6 +68,7 @@ export function KeyBenefits() {
 
   return (
     <section
+      id="benefits"
       className="w-full"
       role="region"
       aria-label="Key benefits of ChaiCode"

@@ -52,6 +52,7 @@ export const AnimatedTestimonials = ({
 
   return (
     <div
+      id="reviews"
       className="mx-auto max-w-sm px-6 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 mt-10 md:mt-20"
       role={role}
       aria-label={ariaLabel}

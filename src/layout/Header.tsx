@@ -1,4 +1,6 @@
-import  { useEffect, useState } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   FaInstagram,
@@ -25,15 +27,24 @@ export function Header() {
 function Navbar({ className }: { className?: string }) {
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState<string | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleNavClick = (url: string) => {
-    setActiveLink(url);
-    window.open(url, '_blank');
+  const handleNavClick = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const headerOffset = 80; // Height of your fixed header
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      setIsMenuOpen(false);
+    }
   };
 
   // Toggle theme by adding/removing 'dark' on <html>
@@ -97,84 +108,52 @@ function Navbar({ className }: { className?: string }) {
           </span>
         </div>
 
-        {/* CENTER: Navigation Links - Hidden on mobile */}
-        <nav 
+{/* CENTER: Navigation Links - Hidden on mobile */}
+<nav 
           className="hidden md:block absolute left-1/2 transform -translate-x-1/2"
           role="navigation"
           aria-label="Main menu"
         >
-          <div className="flex items-center space-x-8 font-semibold text-sm text-gray-900 dark:text-white">
-            <a 
-              href="https://courses.chaicode.com/learn/view-all?show=batch&type=17"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
-                activeLink === 'https://courses.chaicode.com/learn/view-all?show=batch&type=17'
-                  ? 'text-orange-500 scale-105'
-                  : 'hover:text-purple-500 hover:scale-105'
-              }`}
-              onClick={() => handleNavClick('https://courses.chaicode.com/learn/view-all?show=batch&type=17')}
+          <div className="flex items-center space-x-6 font-semibold text-sm text-gray-900 dark:text-white">
+            <button 
+              onClick={() => handleNavClick('cohort')} 
+              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
               aria-label="Navigate to Cohort section"
-              title="View our coding cohorts"
             >
               <span className="relative flex h-3 w-3" aria-hidden="true">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"></span>
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-red-600"></span>
               </span>
               <FaUsers className="ml-1" aria-hidden="true" />
-              <span className="font-medium tracking-wide">COHORT</span>
-            </a>
+              <span>COHORT</span>
+            </button>
 
-            <a 
-              href="https://courses.chaicode.com/learn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
-                activeLink === 'https://courses.chaicode.com/learn'
-                  ? 'text-orange-500 scale-105'
-                  : 'hover:text-purple-500 hover:scale-105'
-              }`}
-              onClick={() => handleNavClick('https://courses.chaicode.com/learn')}
-              aria-label="Navigate to Courses section"
-              title="Explore our courses"
+            <button 
+              onClick={() => handleNavClick('benefits')} 
+              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+              aria-label="Navigate to Benefits section"
             >
               <FaGraduationCap aria-hidden="true" />
-              <span className="font-medium tracking-wide">Courses</span>
-            </a>
+              <span>Udemy</span>
+            </button>
 
-            <a 
-              href="https://docs.chaicode.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
-                activeLink === 'https://docs.chaicode.com/'
-                  ? 'text-orange-500 scale-105'
-                  : 'hover:text-purple-500 hover:scale-105'
-              }`}
-              onClick={() => handleNavClick('https://docs.chaicode.com/')}
+            <button 
+              onClick={() => handleNavClick('docs')} 
+              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
               aria-label="Navigate to Documentation section"
-              title="View documentation"
             >
               <FaFileAlt aria-hidden="true" />
-              <span className="font-medium tracking-wide">Docs</span>
-            </a>
+              <span>Docs</span>
+            </button>
 
-            <a 
-              href="https://courses.chaicode.com/learn/batch/about?bundleId=226894"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
-                activeLink === 'https://courses.chaicode.com/learn/batch/about?bundleId=226894'
-                  ? 'text-orange-500 scale-105'
-                  : 'hover:text-purple-500 hover:scale-105'
-              }`}
-              onClick={() => handleNavClick('https://courses.chaicode.com/learn/batch/about?bundleId=226894')}
-              aria-label="Navigate to Coding Hero section"
-              title="Learn about Coding Hero"
+            <button 
+              onClick={() => handleNavClick('reviews')} 
+              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+              aria-label="Navigate to Reviews section"
             >
               <FaStar aria-hidden="true" />
-              <span className="font-medium tracking-wide">Coding Hero</span>
-            </a>
+              <span>Reviews</span>
+            </button>
           </div>
         </nav>
 
@@ -337,10 +316,9 @@ function Navbar({ className }: { className?: string }) {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-700 shadow-lg text-black dark:text-white">
           <button 
-            onClick={() => handleNavClick('https://courses.chaicode.com/learn/view-all?show=batch&type=17')} 
+            onClick={() => handleNavClick('cohort')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Cohort section"
-            title="View our coding cohorts"
           >
             <FaUsers aria-hidden="true" />
             <span>COHORT</span>
@@ -351,125 +329,31 @@ function Navbar({ className }: { className?: string }) {
           </button>
 
           <button 
-            onClick={() => handleNavClick('https://courses.chaicode.com/learn')} 
+            onClick={() => handleNavClick('benefits')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-            aria-label="Navigate to Udemy section"
-            title="Explore our Udemy courses"
+            aria-label="Navigate to Benefits section"
           >
             <FaGraduationCap aria-hidden="true" />
             <span>Udemy</span>
           </button>
 
           <button 
-            onClick={() => handleNavClick('https://docs.chaicode.com/')} 
+            onClick={() => handleNavClick('docs')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Documentation section"
-            title="View documentation"
           >
             <FaFileAlt aria-hidden="true" />
             <span>Docs</span>
           </button>
 
           <button 
-            onClick={() => handleNavClick('https://courses.chaicode.com/learn/batch/about?bundleId=226894')} 
+            onClick={() => handleNavClick('reviews')} 
             className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             aria-label="Navigate to Reviews section"
-            title="Read student reviews"
           >
             <FaStar aria-hidden="true" />
             <span>Reviews</span>
           </button>
-          
-          {/* Social Icons in Mobile Menu */}
-          <div 
-            className="flex items-center justify-around py-3 border-t border-gray-200 dark:border-gray-700"
-            role="navigation"
-            aria-label="Social media links"
-          >
-            <a 
-              href="https://github.com/hiteshchoudhary/chai-backend" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
-              aria-label="Report a bug or issue"
-              title="Report a bug or issue"
-            >
-              <FaBug size={20} aria-hidden="true" />
-              <span className="sr-only">Report Bug</span>
-            </a>
-
-            <a 
-              href="https://discord.com/invite/WDrH3zuWFb" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400 transition"
-              aria-label="Join our Discord community"
-              title="Join our Discord community"
-            >
-              <FaDiscord size={20} aria-hidden="true" />
-              <span className="sr-only">Discord</span>
-            </a>
-
-            <a 
-              href="https://x.com/ChaiCodeHQ" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
-              aria-label="Follow us on X (formerly Twitter)"
-              title="Follow us on X (Twitter)"
-            >
-              <FaXTwitter size={18} aria-hidden="true" />
-              <span className="sr-only">X (Twitter)</span>
-            </a>
-
-            <a 
-              href="https://www.linkedin.com/in/hiteshchoudhary/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition"
-              aria-label="Connect with us on LinkedIn"
-              title="Connect with us on LinkedIn"
-            >
-              <FaLinkedin size={20} aria-hidden="true" />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-
-            <a 
-              href="https://www.youtube.com/@chaiaurcode" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-red-600 dark:text-white dark:hover:text-red-400 transition"
-              aria-label="Subscribe to our YouTube channel"
-              title="Subscribe to our YouTube channel"
-            >
-              <FaYoutube size={20} aria-hidden="true" />
-              <span className="sr-only">YouTube</span>
-            </a>
-
-            <a 
-              href="https://instagram.com/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-pink-500 dark:text-white dark:hover:text-pink-400 transition"
-              aria-label="Follow us on Instagram"
-              title="Follow us on Instagram"
-            >
-              <FaInstagram size={20} aria-hidden="true" />
-              <span className="sr-only">Instagram</span>
-            </a>
-
-            <a 
-              href="https://github.com/hiteshchoudhary/chai-backend" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300 transition"
-              aria-label="View our GitHub repositories"
-              title="View our GitHub repositories"
-            >
-              <FaGithub size={20} aria-hidden="true" />
-              <span className="sr-only">GitHub</span>
-            </a>
-          </div>
         </div>
       </div>
     </header>

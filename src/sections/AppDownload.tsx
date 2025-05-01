@@ -38,7 +38,7 @@ export function AppDownload() {
     >
       {/* Glow Behind the Phone */}
       <div 
-        className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 opacity-30 blur-3xl z-0"
+        className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-orange-400 to-orange-00 opacity-30 blur-3xl z-0"
         role="presentation"
         aria-hidden="true"
       />
@@ -102,7 +102,7 @@ export function AppDownload() {
                   stiffness: 100,
                   damping: 10
                 }}
-                className="flex items-center gap-4 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-800 dark:to-orange-900 p-4 rounded-xl shadow-md hover:shadow-lg transition-all"
+                className="flex items-center gap-4 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-400 dark:to-orange-300 p-4 rounded-xl shadow-md hover:shadow-lg transition-all"
                 role="listitem"
                 aria-label={`Feature ${index + 1}: ${item.text}`}
                 tabIndex={0}
@@ -117,7 +117,7 @@ export function AppDownload() {
                     stiffness: 200,
                     damping: 15
                   }}
-                  className="flex items-center justify-center text-orange-500 text-2xl bg-orange-300 dark:bg-orange-700 w-12 h-12 rounded-full shadow-md"
+                  className="flex items-center justify-center text-orange-200 text-2xl bg-orange-300 dark:bg-orange-700 w-12 h-12 rounded-full shadow-md"
                   role="img"
                   aria-hidden="true"
                 >

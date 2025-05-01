@@ -79,68 +79,7 @@ export function AppDownload() {
           </div>
 
           {/* Features List with Icons */}
-          <ul 
-            ref={featuresRef}
-            className="text-left text-neutral-500 dark:text-neutral-400 mb-10 space-y-6 text-sm sm:text-base"
-            role="list"
-            aria-label="App features"
-          >
-            {[
-              { icon: <MdDownload size={24} />, text: "Offline course access" },
-              { icon: <MdNotifications size={24} />, text: "Live session notifications" },
-              { icon: <MdCommute size={24} />, text: "Revision while commuting" },
-            ].map((item, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.2,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 10
-                }}
-                className="flex items-center gap-4 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-400 dark:to-orange-300 p-4 rounded-xl shadow-md hover:shadow-lg transition-all"
-                role="listitem"
-                aria-label={`Feature ${index + 1}: ${item.text}`}
-                tabIndex={0}
-              >
-                <motion.span 
-                  initial={{ scale: 0.8, rotate: -10 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: index * 0.2 + 0.2,
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 15
-                  }}
-                  className="flex items-center justify-center text-orange-200 text-2xl bg-orange-300 dark:bg-orange-700 w-12 h-12 rounded-full shadow-md"
-                  role="img"
-                  aria-hidden="true"
-                >
-                  {item.icon}
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: index * 0.2 + 0.3,
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 10
-                  }}
-                  className="text-neutral-800 dark:text-neutral-200 font-medium"
-                  role="text"
-                >
-                  {item.text}
-                </motion.span>
-              </motion.li>
-            ))}
-          </ul>
+
 
           {/* Download Buttons */}
           <div 
@@ -149,7 +88,7 @@ export function AppDownload() {
             aria-label="Download options"
           >
             <a
-              href="#"
+              href="https://apps.apple.com/in/app/chaicode/id6504993143"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg transition-all text-sm"
@@ -162,7 +101,7 @@ export function AppDownload() {
             </a>
 
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.chaicode.courses&hl=en_IN&pli=1"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg transition-all text-sm"
@@ -225,9 +164,9 @@ export function AppDownload() {
                 aria-label="Course cards"
               >
                 {[
-                  { title: "React Native Masterclass" },
-                  { title: "Full Stack JavaScript" },
-                  { title: "AI with JavaScript" },
+                  { title: "Offline course access" },
+                  { title: "Live Session Notifications" },
+                  { title: "Revision while commuting" },
                 ].map((course, idx) => (
                   <motion.div
                     key={idx}
@@ -247,14 +186,17 @@ export function AppDownload() {
                       {course.title}
                     </div>
                     <div className="flex justify-end">
-                      <button 
+                      <a 
+                        href="https://courses.chaicode.com/learn/home"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-orange-500 hover:bg-orange-600 text-white text-[10px] sm:text-xs font-semibold py-1 px-3 rounded-md transition-all"
                         role="button"
                         aria-label={`Enroll in ${course.title}`}
                         tabIndex={0}
                       >
                         Enroll Now
-                      </button>
+                      </a>
                     </div>
                   </motion.div>
                 ))}
@@ -272,7 +214,7 @@ export function AppDownload() {
                 aria-label="Mobile download options"
               >
                 <a
-                  href="#"
+                  href="https://apps.apple.com/in/app/chaicode/id6504993143"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg shadow-lg transition-all text-sm"
@@ -284,7 +226,7 @@ export function AppDownload() {
                   Download
                 </a>
                 <a
-                  href="#"
+                  href="https://play.google.com/store/apps/details?id=com.chaicode.courses&hl=en_IN&pli=1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg shadow-lg transition-all text-sm"

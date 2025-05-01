@@ -4,7 +4,7 @@ export function JoinNowButton() {
   return (
     <div className="flex justify-center items-start">
       <a 
-        href="https://docs.chaicode.com/"
+        href="https://courses.chaicode.com/learn/home"
         target="_blank"
         rel="noopener noreferrer"
         className="block cursor-pointer transition-transform duration-300 hover:scale-105"

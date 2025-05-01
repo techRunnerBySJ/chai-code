@@ -20,10 +20,21 @@ function TweetLove() {
   const [tweetsLoaded, setTweetsLoaded] = useState(false);
 
   const embeddedTweets = [
-    `<blockquote class="twitter-tweet"><p lang="en" dir="ltr">⭐Day 4 of coding Hero... <a href="https://twitter.com/Rasmiranjan09/status/1909291399985369213?ref_src=twsrc%5Etfw">April 7, 2025</a></blockquote>`,
-    `<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Day-1 of GenAi Cohort... <a href="https://twitter.com/AakarshVer83770/status/1909398387520053649?ref_src=twsrc%5Etfw">April 8, 2025</a></blockquote>`,
-    `<blockquote class="twitter-tweet"><p lang="en" dir="ltr">📢 In case you missed the update... <a href="https://twitter.com/ChaiCodeHQ/status/1904133878291517574?ref_src=twsrc%5Etfw">March 24, 2025</a></blockquote>`,
+    `<blockquote class="twitter-tweet"><p lang="en" dir="ltr" class="text-orange-500"><FaXTwitter /> <a href="https://twitter.com/Rasmiranjan09/status/1909291399985369213?ref_src=twsrc%5Etfw">Loading Tweets...</a></blockquote>`,
+    `<blockquote class="twitter-tweet"><p lang="en" dir="ltr" class="text-orange-500" ><FaXTwitter /> <a href="https://twitter.com/AakarshVer83770/status/1909398387520053649?ref_src=twsrc%5Etfw">Loading Tweets...</a></blockquote>`,
+    `<blockquote class="twitter-tweet"><p lang="en" dir="ltr" class="text-orange-500" ><FaXTwitter /> <a href="https://twitter.com/ChaiCodeHQ/status/1904133878291517574?ref_src=twsrc%5Etfw">Loading Tweets...</a></blockquote>`,
   ];
+  const TweetLoader = () => (
+    <div className="w-full min-h-[200px] bg-white dark:bg-neutral-900 shadow-md p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center animate-pulse">
+      <div className="text-orange-500 text-4xl font-bold">
+        ✖
+      </div>
+      <p className="text-neutral-500 dark:text-neutral-400 text-sm">
+        Loading Tweets...
+      </p>
+    </div>
+  );
+  
 
   useEffect(() => {
     const loadTwitterScript = () => {
@@ -65,27 +76,7 @@ function TweetLove() {
     };
   }, []);
 
-  const TweetSkeleton = () => (
-    <div className="w-full min-h-[200px] bg-white dark:bg-neutral-900 shadow-md p-4 rounded-xl">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
-        <div className="flex-1">
-          <div className="h-4 w-24 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse mb-2" />
-          <div className="h-3 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-        </div>
-      </div>
-      <div className="space-y-3">
-        <div className="h-4 w-full bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-        <div className="h-4 w-3/4 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-        <div className="h-4 w-1/2 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-      </div>
-      <div className="flex items-center gap-4 mt-4">
-        <div className="h-4 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-        <div className="h-4 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-        <div className="h-4 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-      </div>
-    </div>
-  );
+
 
   return (
     <section
@@ -122,9 +113,9 @@ function TweetLove() {
       >
         {isLoading ? (
           <>
-            <TweetSkeleton />
-            <TweetSkeleton />
-            <TweetSkeleton />
+            <TweetLoader />
+    <TweetLoader />
+    <TweetLoader />
           </>
         ) : (
           embeddedTweets.map((html, index) => (

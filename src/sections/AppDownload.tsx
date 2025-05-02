@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { FaGooglePlay, FaApple } from "react-icons/fa";
-import { MdDownload, MdNotifications, MdCommute } from "react-icons/md";
 import LogoLight from "@/assets/chaicode/chaicode-white.svg";
 import { useEffect, useRef } from "react";
 

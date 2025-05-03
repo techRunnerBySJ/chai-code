@@ -116,7 +116,7 @@ function Navbar({ className }: { className?: string }) {
           <div className="flex items-center space-x-6 font-semibold text-sm text-gray-900 dark:text-white">
             <button 
               onClick={() => handleNavClick('cohort')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+              className="flex items-center gap-1 hover:text-orange-500 transition cursor-pointer"
               aria-label="Navigate to Cohort section"
             >
               <span className="relative flex h-3 w-3" aria-hidden="true">
@@ -129,7 +129,7 @@ function Navbar({ className }: { className?: string }) {
 
             <button 
               onClick={() => handleNavClick('udemy')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+              className="flex items-center gap-1 hover:text-orange-500 transition cursor-pointer"
               aria-label="Navigate to Benefits section"
             >
               <FaGraduationCap aria-hidden="true" />
@@ -138,7 +138,7 @@ function Navbar({ className }: { className?: string }) {
 
             <button 
               onClick={() => handleNavClick('docs')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+              className="flex items-center gap-1 hover:text-orange-500 transition cursor-pointer"
               aria-label="Navigate to Documentation section"
             >
               <FaFileAlt aria-hidden="true" />
@@ -147,7 +147,7 @@ function Navbar({ className }: { className?: string }) {
 
             <button 
               onClick={() => handleNavClick('reviews')} 
-              className="flex items-center gap-1 hover:text-purple-500 transition cursor-pointer"
+              className="flex items-center gap-1 hover:text-orange-500 transition cursor-pointer"
               aria-label="Navigate to Reviews section"
             >
               <FaStar aria-hidden="true" />
@@ -313,7 +313,7 @@ function Navbar({ className }: { className?: string }) {
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-700 shadow-lg text-black dark:text-white">
           <button 
             onClick={() => handleNavClick('cohort')} 
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-orange-500 transition"
             aria-label="Navigate to Cohort section"
           >
             <FaUsers aria-hidden="true" />
@@ -326,7 +326,7 @@ function Navbar({ className }: { className?: string }) {
 
           <button 
             onClick={() => handleNavClick('udemy')} 
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-orange-500 transition"
             aria-label="Navigate to Benefits section"
           >
             <FaGraduationCap aria-hidden="true" />
@@ -335,7 +335,7 @@ function Navbar({ className }: { className?: string }) {
 
           <button 
             onClick={() => handleNavClick('docs')} 
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-orange-500 transition"
             aria-label="Navigate to Documentation section"
           >
             <FaFileAlt aria-hidden="true" />
@@ -344,7 +344,7 @@ function Navbar({ className }: { className?: string }) {
 
           <button 
             onClick={() => handleNavClick('reviews')} 
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-orange-500 transition"
             aria-label="Navigate to Reviews section"
           >
             <FaStar aria-hidden="true" />

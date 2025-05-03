@@ -35,28 +35,22 @@ export const BentoGrid = ({
     >
       {/* Scroll Buttons */}
       <button
-        className="absolute left-5 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 shadow-md"
-        style={{
-          background: "var(--brand-color)",
-        }}
+        className="absolute left-5 top-1/2 z-10 -translate-y-1/2 rounded-full p-3 bg-orange-500 hover:bg-orange-600 text-white shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
         onClick={() => scroll("left")}
         aria-label="Scroll left"
         role="button"
         tabIndex={0}
       >
-        <FaChevronLeft aria-hidden="true" />
+        <FaChevronLeft className="w-6 h-6" aria-hidden="true" />
       </button>
       <button
-        className="absolute right-5 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 shadow-md"
-        style={{
-          background: "var(--brand-color)",
-        }}
+        className="absolute right-5 top-1/2 z-10 -translate-y-1/2 rounded-full p-3 bg-orange-500 hover:bg-orange-600 text-white shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
         onClick={() => scroll("right")}
         aria-label="Scroll right"
         role="button"
         tabIndex={0}
       >
-        <FaChevronRight aria-hidden="true" />
+        <FaChevronRight className="w-6 h-6" aria-hidden="true" />
       </button>
 
       {/* Scrollable Container */}
@@ -107,6 +101,8 @@ export const BentoGridItem = ({
   role = "article",
   "aria-label": ariaLabel,
 }: BentoGridItemProps) => {
+  const discountPercentage = Math.round((1 - Number(discountPrice) / Number(actualPrice)) * 100);
+
   return (
     <div
       className={cn(
@@ -178,6 +174,13 @@ export const BentoGridItem = ({
             aria-label={`Discounted price: ₹${discountPrice}`}
           >
             ₹{discountPrice}
+          </span>
+          <span
+            className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm"
+            role="text"
+            aria-label={`${discountPercentage}% discount`}
+          >
+            ({discountPercentage}% off)
           </span>
         </div>
         <InfoAndCtaButton 

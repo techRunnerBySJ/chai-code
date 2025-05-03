@@ -1,5 +1,6 @@
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { motion } from "framer-motion";
+import { IconArrowNarrowRight } from "@tabler/icons-react";
 
 function CohortLiveClasses() {
   const containerVariants = {
@@ -60,7 +61,7 @@ function CohortLiveClasses() {
       </motion.div>
 
       <motion.div
-        className="overflow-x-auto scrollbar-hide"
+        className="overflow-x-auto scrollbar-hide relative"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -68,34 +69,65 @@ function CohortLiveClasses() {
         role="complementary"
         aria-label="Course grid"
       >
+        {/* Navigation Arrows */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-4 pointer-events-none">
+          <button
+            className="w-12 h-12 flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 pointer-events-auto"
+            onClick={() => {
+              const container = document.querySelector('.overflow-x-auto');
+              if (container) {
+                container.scrollBy({ left: -300, behavior: 'smooth' });
+              }
+            }}
+            aria-label="Scroll to previous courses"
+          >
+            <IconArrowNarrowRight className="rotate-180" />
+          </button>
+          <button
+            className="w-12 h-12 flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 pointer-events-auto"
+            onClick={() => {
+              const container = document.querySelector('.overflow-x-auto');
+              if (container) {
+                container.scrollBy({ left: 300, behavior: 'smooth' });
+              }
+            }}
+            aria-label="Scroll to next courses"
+          >
+            <IconArrowNarrowRight />
+          </button>
+        </div>
+
         <BentoGrid 
           className="ml-3 mr-3 w-full"
           role="list"
           aria-label="List of cohort courses"
         >
-          {items.map((item, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-              role="listitem"
-              aria-label={`Course: ${item.title}`}
-              tabIndex={0}
-            >
-              <BentoGridItem
-                title={item.title}
-                description={item.description}
-                src={item.src}
-                actualPrice={item.actualPrice}
-                discountPrice={item.discountPrice}
-                buttonUrl={item.buttonUrl}
-                className={i === 6 || i === 9 ? "md:col-span-1" : ""}
-                role="article"
-                aria-label={`Course details: ${item.title} - ${item.description}`}
-              />
-            </motion.div>
-          ))}
+          {items.map((item, i) => {
+            const discountPercentage = Math.round((1 - Number(item.discountPrice) / Number(item.actualPrice)) * 100);
+            return (
+              <motion.div
+                key={i}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                role="listitem"
+                aria-label={`Course: ${item.title}`}
+                tabIndex={0}
+              >
+                <BentoGridItem
+                  title={item.title}
+                  description={`${item.description} (${discountPercentage}% off)`}
+                  src={item.src}
+                  actualPrice={item.actualPrice}
+                  discountPrice={item.discountPrice}
+                  buttonUrl={item.buttonUrl}
+                  className={i === 6 || i === 9 ? "md:col-span-1" : ""}
+                  role="article"
+                  aria-label={`Course details: ${item.title} - ${item.description} - ${discountPercentage}% discount`}
+                />
+              </motion.div>
+            );
+          })}
         </BentoGrid>
       </motion.div>
     </section>

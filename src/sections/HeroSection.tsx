@@ -77,7 +77,7 @@ export function HeroSectionOne() {
   return (
     <motion.section 
       id="cohort"
-      className="relative flex flex-col items-center justify-center px-4 md:px-10 mt-20 w-full text-center gap-10"
+      className="relative flex flex-col items-center justify-center px-4 md:px-10 mt-20 w-full text-center gap-5"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

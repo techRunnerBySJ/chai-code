@@ -135,7 +135,7 @@ export function KeyBenefits() {
           >
             {/* Gradient Overlay on Hover */}
             <div 
-              className="absolute inset-0 bg-gradient-to-r from-orange-200 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl z-0"
+              className="absolute inset-0 bg-gradient-to-r from-orange-300 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl z-0"
               role="presentation"
               aria-hidden="true"
             />

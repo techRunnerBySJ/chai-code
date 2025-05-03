@@ -90,7 +90,7 @@ function Footer() {
               href="https://github.com/hiteshchoudhary/chai-backend"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-800 dark:hover:text-white transition-colors"
+              className="hover:text-orange-500 transition-colors"
               aria-label="View our GitHub repositories"
               title="View our GitHub repositories"
             >
@@ -101,7 +101,7 @@ function Footer() {
               href="https://www.linkedin.com/in/hiteshchoudhary/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-600 transition-colors"
+              className="hover:text-orange-500 transition-colors"
               aria-label="Connect with us on LinkedIn"
               title="Connect with us on LinkedIn"
             >
@@ -115,7 +115,7 @@ function Footer() {
               href="https://www.youtube.com/@chaiaurcode"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-red-600 transition-colors"
+              className="hover:text-orange-500 transition-colors"
               aria-label="Subscribe to our YouTube channel"
               title="Subscribe to our YouTube channel"
             >
@@ -126,7 +126,7 @@ function Footer() {
               href="https://x.com/ChaiCodeHQ"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-800 dark:hover:text-white transition-colors"
+              className="hover:text-orange-500 transition-colors"
               aria-label="Follow us on X (formerly Twitter)"
               title="Follow us on X (Twitter)"
             >
@@ -140,7 +140,7 @@ function Footer() {
               href="https://discord.com/invite/WDrH3zuWFb"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-indigo-500 transition-colors"
+              className="hover:text-orange-500 transition-colors"
               aria-label="Join our Discord community"
               title="Join our Discord community"
             >
@@ -151,7 +151,7 @@ function Footer() {
               href="https://instagram.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink-500 transition-colors"
+              className="hover:text-orange-500 transition-colors"
               aria-label="Follow us on Instagram"
               title="Follow us on Instagram"
             >
@@ -165,7 +165,7 @@ function Footer() {
               href="mailto:techrunner22@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-red-600 transition-colors"
+              className="hover:text-orange-500 transition-colors"
               aria-label="Report a bug or issue"
               title="Report a bug or issue"
             >
@@ -199,7 +199,7 @@ function Footer() {
                   className={`text-sm md:text-base transition-all duration-300 ${
                     activeLink === product.href
                       ? 'text-orange-500 scale-105'
-                      : 'hover:text-gray-600 dark:hover:text-gray-300 hover:scale-105'
+                      : 'hover:text-orange-500 hover:scale-105'
                   }`}
                   onClick={() => handleLinkClick(product.href)}
                   aria-label={`Learn about ${product.name}`}
@@ -230,7 +230,7 @@ function Footer() {
                   className={`text-sm md:text-base transition-all duration-300 ${
                     activeLink === resource.href
                       ? 'text-orange-500 scale-105'
-                      : 'hover:text-gray-600 dark:hover:text-gray-300 hover:scale-105'
+                      : 'hover:text-orange-500 hover:scale-105'
                   }`}
                   onClick={() => handleLinkClick(resource.href)}
                   aria-label={`Learn about ${resource.name}`}

@@ -81,7 +81,7 @@ function TweetLove() {
   return (
     <section
       ref={containerRef}
-      className="min-h-[40rem] flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden px-4"
+      className="min-h-[50rem] flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden px-4"
       role="region"
       aria-label="Community tweets section"
       aria-live="polite"

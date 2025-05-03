@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import LogoLight from "@/assets/chaicode/chai-white.svg";
 import LogoDark from "@/assets/chaicode/chai-gray.svg";
@@ -12,6 +12,14 @@ function ChatBot() {
   const [chat, setChat] = useState<{ from: "user" | "bot"; text: string }[]>(
     []
   );
+
+  const suggestedQuestions = [
+    { question: "What is ChaiCode?", answer: "ChaiCode is a platform to learn and build like a pro! We offer free courses, coding challenges, and a supportive community to help you learn and build your skills. We also have a YouTube channel where you can watch our tutorials and live streams. Also we have a discord server where you can join and ask questions. Even cohorts are available in minimal price." },
+    { question: "How do I join a cohort?", answer: "You can join a cohort by visiting our website and clicking on the 'Join Now' button. Cohorts typically last 4-6 weeks and include live sessions, projects, and mentor support." },
+    { question: "What programming languages do you teach?", answer: "We cover JavaScript, Python, TypeScript, and more. Our focus is on practical, hands-on learning with real-world projects." },
+    { question: "Is ChaiCode free?", answer: "Yes, most of our resources and cohorts are completely free! We believe in making quality education accessible to everyone." },
+    { question: "How can I contribute?", answer: "You can contribute by participating in open-source projects, sharing your knowledge with others, or joining our community discussions. Check out our GitHub repository to get started!" }
+  ];
 
   const chatbotData: Record<string, string> = {
     // General Greetings
@@ -69,7 +77,7 @@ function ChatBot() {
     "what tech is used?":
       "We use React, TailwindCSS, TypeScript, and cutting-edge UI tools.",
     "is chai code free?":
-      "Yes, most of our resources and cohorts are completely free!",
+      "Yes, most of our resources are completely free!",
   
     // Hitesh Choudhary
     "who is hitesh choudhary?":
@@ -93,52 +101,50 @@ function ChatBot() {
     default:
       "Sorry, I don't understand that yet. Could you rephrase your question?",
   };
-const speak = (text: string) => {
-  const synth = window.speechSynthesis;
 
-  // Stop any ongoing speech before starting a new one
-  if (synth.speaking) {
-    synth.cancel();
-  }
+  const speak = (text: string) => {
+    const synth = window.speechSynthesis;
 
-  if (isMuted) {
-    console.log("Muted: No sound will play.");
-    return; // Do not speak if muted
-  }
-
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = "en-US";
-
-  // Dynamically check if muted during speech
-  utter.onstart = () => {
-    if (isMuted) {
+    // Stop any ongoing speech before starting a new one
+    if (synth.speaking) {
       synth.cancel();
     }
-  };
 
-  synth.speak(utter);
-};
-
-const toggleMute = () => {
-  setIsMuted((prev) => {
-    const newMutedState = !prev;
-
-    // Cancel ongoing speech if muting
-    if (newMutedState) {
-      const synth = window.speechSynthesis;
-      if (synth.speaking) {
-        synth.cancel();
-        console.log("Speech canceled due to mute.");
-      }
+    if (isMuted) {
+      console.log("Muted: No sound will play.");
+      return; // Do not speak if muted
     }
 
-    console.log("Mute state:", newMutedState);
-    return newMutedState;
-  });
-};
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "en-US";
 
+    // Dynamically check if muted during speech
+    utter.onstart = () => {
+      if (isMuted) {
+        synth.cancel();
+      }
+    };
 
+    synth.speak(utter);
+  };
 
+  const toggleMute = () => {
+    setIsMuted((prev) => {
+      const newMutedState = !prev;
+
+      // Cancel ongoing speech if muting
+      if (newMutedState) {
+        const synth = window.speechSynthesis;
+        if (synth.speaking) {
+          synth.cancel();
+          console.log("Speech canceled due to mute.");
+        }
+      }
+
+      console.log("Mute state:", newMutedState);
+      return newMutedState;
+    });
+  };
 
   const toggleChat = () => {
     const newState = !isOpen;
@@ -150,7 +156,6 @@ const toggleMute = () => {
       setIsMuted(true); // Mute the bot when the chat is closed
     }
   };
-
 
   const sendMessage = () => {
     if (!input.trim()) return;
@@ -173,7 +178,9 @@ const toggleMute = () => {
     ] as { from: "user" | "bot"; text: string }[];
 
     setChat(newChat);
-    speak(botMsg);
+    if (!isMuted) {
+      speak(botMsg);
+    }
     setInput("");
     localStorage.setItem("chatHistory", JSON.stringify(newChat));
   };
@@ -182,18 +189,56 @@ const toggleMute = () => {
     if (e.key === "Enter") sendMessage();
   };
 
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chat]);
+
+  const handleQuestionClick = (question: string, answer: string) => {
+    const newChat = [
+      ...chat,
+      { from: "user" as const, text: question },
+      { from: "bot" as const, text: answer }
+    ];
+    setChat(newChat);
+    if (!isMuted) {
+      speak(answer);
+    }
+    localStorage.setItem("chatHistory", JSON.stringify(newChat));
+  };
+
   useEffect(() => {
     const saved = localStorage.getItem("chatHistory");
-    if (saved) setChat(JSON.parse(saved));
+    if (saved) {
+      setChat(JSON.parse(saved));
+    } else {
+      // Add initial welcome message when chat is first opened
+      const welcomeMessage = {
+        from: "bot" as const,
+        text: "Hi! My name is ChaiCodeBot. I'm here to answer your questions about ChaiCode. Here are some common questions you might want to ask:"
+      };
+      setChat([welcomeMessage]);
+    }
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50" aria-label="ChaiCode AI ChatBot Assistant">
+    <div 
+      className="fixed bottom-6 right-6 z-50" 
+      role="complementary"
+      aria-label="ChaiCode AI ChatBot Assistant"
+    >
       {/* Toggle Button */}
       <div className="relative group">
         <button
           onClick={toggleChat}
-          aria-label="Toggle ChaiCode Chatbot"
+          aria-label={isOpen ? "Close ChatBot" : "Open ChatBot"}
+          aria-expanded={isOpen}
+          aria-controls="chatbot-dialog"
           className="rounded-full p-3 shadow-lg transition relative bg-orange-500 hover:scale-105 border dark:border-white border-black"
         >
           <img
@@ -202,6 +247,7 @@ const toggleMute = () => {
             className="block dark:hidden"
             width={32}
             height={32}
+            aria-hidden="true"
           />
           <img
             src={LogoLight}
@@ -209,6 +255,7 @@ const toggleMute = () => {
             className="hidden dark:block"
             width={32}
             height={32}
+            aria-hidden="true"
           />
         </button>
       </div>
@@ -219,11 +266,17 @@ const toggleMute = () => {
         animate={isOpen ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 50 }}
         transition={{ duration: 0.3 }}
         className={`${isOpen ? "block" : "hidden"} mt-3 w-80 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-xl overflow-hidden`}
-        aria-live="polite"
         role="dialog"
+        id="chatbot-dialog"
+        aria-label="ChatBot conversation"
+        aria-modal="true"
       >
         {/* Header */}
-        <div className="flex justify-between items-center bg-orange-500 text-white px-4 py-2 font-semibold" role="heading">
+        <div 
+          className="flex justify-between items-center bg-orange-500 text-white px-4 py-2 font-semibold" 
+          role="banner"
+          aria-label="ChatBot header"
+        >
           <span>ChaiCode Bot</span>
           <div className="flex items-center space-x-2">
             {/* Mute Button */}
@@ -232,7 +285,7 @@ const toggleMute = () => {
               className="text-white hover:text-black text-lg"
               aria-label={isMuted ? "Unmute Bot" : "Mute Bot"}
             >
-              {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+              {isMuted ? <FaVolumeMute aria-hidden="true" /> : <FaVolumeUp aria-hidden="true" />}
             </button>
             {/* Close Button */}
             <button
@@ -240,19 +293,24 @@ const toggleMute = () => {
               className="text-white hover:text-black text-lg"
               aria-label="Close Chat"
             >
-              <FaTimes />
+              <FaTimes aria-hidden="true" />
             </button>
           </div>
         </div>
 
         {/* Chat Messages */}
-        <div className="max-h-60 overflow-y-auto px-3 py-2 space-y-2">
+        <div 
+          className="max-h-60 overflow-y-auto px-3 py-2 space-y-2"
+          role="log"
+          aria-label="Chat messages"
+        >
           {chat.map((msg, index) => (
             <div
               key={index}
               className={`flex ${
                 msg.from === "user" ? "justify-end" : "justify-start"
               }`}
+              role="listitem"
             >
               <div
                 className={`px-3 py-2 rounded-lg max-w-[70%] text-sm ${
@@ -260,16 +318,36 @@ const toggleMute = () => {
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 dark:bg-gray-700 dark:text-white"
                 }`}
+                role={msg.from === "user" ? "user message" : "bot message"}
                 aria-label={`${msg.from === "user" ? "You" : "Bot"} said: ${msg.text}`}
               >
                 {msg.text}
+                {msg.from === "bot" && index === 0 && (
+                  <div className="mt-2 space-y-2">
+                    {suggestedQuestions.map((item, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => handleQuestionClick(item.question, item.answer)}
+                        className="w-full text-left px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md transition-colors cursor-pointer"
+                        aria-label={`Ask: ${item.question}`}
+                      >
+                        {item.question}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
 
         {/* Input */}
-        <div className="flex items-center border-t border-gray-200 dark:border-gray-700">
+        <div 
+          className="flex items-center border-t border-gray-200 dark:border-gray-700"
+          role="form"
+          aria-label="Chat input form"
+        >
           <input
             type="text"
             className="w-full px-3 py-2 text-sm focus:outline-none dark:bg-gray-800 dark:text-white"
@@ -278,10 +356,11 @@ const toggleMute = () => {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyPress}
             aria-label="Chat input field"
+            aria-required="true"
           />
           <button
             onClick={sendMessage}
-            className="text-orange-500 font-bold px-3 py-2 hover:scale-105"
+            className="text-orange-500 font-bold px-3 py-2 hover:scale-105 cursor-pointer"
             aria-label="Send message"
           >
             Send

@@ -6,7 +6,7 @@ import LogoDark from "@/assets/chaicode/chai-gray.svg"
 export function StudentsFeedback() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const testimonialsRef = useRef<HTMLDivElement>(null);
-  
+
   const testimonials = [
     {
       quote:
@@ -90,7 +90,7 @@ export function StudentsFeedback() {
     <div
       id="reviews"
       className="mx-auto max-w-sm px-6 transition-colors duration-300 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 mt-10 md:mt-20"
-      role="region"
+      role="region" 
       aria-label="Student feedback section"
     >
       <div 
